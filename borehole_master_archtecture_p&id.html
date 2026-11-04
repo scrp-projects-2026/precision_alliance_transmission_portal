@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<!-- saved from url=(0119)file:///C:/Users/ASUS/OneDrive/%F0%9F%93%82JET-EOI-PREP/BH-101%20Borehole%20Water%20Extraction%20&%20Pumping%20CAD.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BH-101 Borehole Water Extraction &amp; Pumping CAD</title>
+    <!-- Tailwind CSS -->
+    <script src="./borehole_master_archtecture_p&amp;id_files/saved_resource"></script>
+    <!-- Lucide Icons -->
+    <script src="./borehole_master_archtecture_p&amp;id_files/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@300;400;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #030a10;
+            color: #f6f8fb;
+            overflow: hidden;
+        }
+
+        .mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* CAD Theme Colors */
+        .cad-bg { background-color: #071522; }
+        .cad-border { border-color: #1a3854; }
+        .cad-cyan { color: #56d0c1; }
+        .cad-gold { color: #e7bd62; }
+        .cad-blue { color: #3b82f6; }
+        .cad-red { color: #ef4444; }
+        .cad-green { color: #10b981; }
+
+        /* Grid Background Pattern */
+        .cad-grid {
+            background-image: 
+                linear-gradient(to right, rgba(86, 208, 193, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(86, 208, 193, 0.05) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        /* SVG Hover Glow Effects */
+        .cad-interactive {
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .cad-interactive:hover {
+            filter: drop-shadow(0px 0px 8px rgba(231, 189, 98, 0.8));
+            stroke-width: 2.5px !important;
+        }
+
+        .cad-interactive-active {
+            filter: drop-shadow(0px 0px 10px rgba(86, 208, 193, 0.9));
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #071522;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1a3854;
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #56d0c1;
+        }
+    </style>
+<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.absolute{position:absolute}.relative{position:relative}.left-3{left:0.75rem}.top-3{top:0.75rem}.z-10{z-index:10}.z-20{z-index:20}.mb-1{margin-bottom:0.25rem}.mt-1{margin-top:0.25rem}.flex{display:flex}.grid{display:grid}.hidden{display:none}.h-1\.5{height:0.375rem}.h-14{height:3.5rem}.h-2{height:0.5rem}.h-3{height:0.75rem}.h-3\.5{height:0.875rem}.h-4{height:1rem}.h-5{height:1.25rem}.h-6{height:1.5rem}.h-full{height:100%}.h-screen{height:100vh}.max-h-\[92vh\]{max-height:92vh}.w-2{width:0.5rem}.w-3{width:0.75rem}.w-3\.5{width:0.875rem}.w-4{width:1rem}.w-5{width:1.25rem}.w-6{width:1.5rem}.w-64{width:16rem}.w-96{width:24rem}.w-full{width:100%}.w-screen{width:100vw}.flex-1{flex:1 1 0%}.origin-center{transform-origin:center}@keyframes pulse{50%{opacity:.5}}.animate-pulse{animation:pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite}.cursor-grab{cursor:grab}.cursor-pointer{cursor:pointer}.select-none{-webkit-user-select:none;user-select:none}.grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.flex-col{flex-direction:column}.items-start{align-items:flex-start}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-2{gap:0.5rem}.space-x-1 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(0.25rem * var(--tw-space-x-reverse));margin-left:calc(0.25rem * calc(1 - var(--tw-space-x-reverse)))}.space-x-2 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(0.5rem * var(--tw-space-x-reverse));margin-left:calc(0.5rem * calc(1 - var(--tw-space-x-reverse)))}.space-x-3 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(0.75rem * var(--tw-space-x-reverse));margin-left:calc(0.75rem * calc(1 - var(--tw-space-x-reverse)))}.space-x-4 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(1rem * var(--tw-space-x-reverse));margin-left:calc(1rem * calc(1 - var(--tw-space-x-reverse)))}.space-y-1\.5 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.375rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.375rem * var(--tw-space-y-reverse))}.space-y-2 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.5rem * var(--tw-space-y-reverse))}.space-y-3 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.75rem * var(--tw-space-y-reverse))}.space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.overflow-hidden{overflow:hidden}.overflow-y-auto{overflow-y:auto}.rounded{border-radius:0.25rem}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:0.5rem}.rounded-md{border-radius:0.375rem}.rounded-sm{border-radius:0.125rem}.border{border-width:1px}.border-b{border-bottom-width:1px}.border-l{border-left-width:1px}.border-r{border-right-width:1px}.border-t{border-top-width:1px}.border-amber-500\/30{border-color:rgb(245 158 11 / 0.3)}.border-amber-500\/40{border-color:rgb(245 158 11 / 0.4)}.border-emerald-500\/30{border-color:rgb(16 185 129 / 0.3)}.border-slate-800{--tw-border-opacity:1;border-color:rgb(30 41 59 / var(--tw-border-opacity, 1))}.border-slate-800\/50{border-color:rgb(30 41 59 / 0.5)}.border-teal-500\/30{border-color:rgb(20 184 166 / 0.3)}.border-teal-500\/40{border-color:rgb(20 184 166 / 0.4)}.bg-amber-400{--tw-bg-opacity:1;background-color:rgb(251 191 36 / var(--tw-bg-opacity, 1))}.bg-amber-500\/20{background-color:rgb(245 158 11 / 0.2)}.bg-amber-500\/80{background-color:rgb(245 158 11 / 0.8)}.bg-emerald-400{--tw-bg-opacity:1;background-color:rgb(52 211 153 / var(--tw-bg-opacity, 1))}.bg-emerald-950\/40{background-color:rgb(2 44 34 / 0.4)}.bg-purple-400{--tw-bg-opacity:1;background-color:rgb(192 132 252 / var(--tw-bg-opacity, 1))}.bg-red-500{--tw-bg-opacity:1;background-color:rgb(239 68 68 / var(--tw-bg-opacity, 1))}.bg-sky-400{--tw-bg-opacity:1;background-color:rgb(56 189 248 / var(--tw-bg-opacity, 1))}.bg-slate-800{--tw-bg-opacity:1;background-color:rgb(30 41 59 / var(--tw-bg-opacity, 1))}.bg-slate-900\/50{background-color:rgb(15 23 42 / 0.5)}.bg-slate-900\/60{background-color:rgb(15 23 42 / 0.6)}.bg-slate-900\/80{background-color:rgb(15 23 42 / 0.8)}.bg-slate-900\/90{background-color:rgb(15 23 42 / 0.9)}.bg-slate-950{--tw-bg-opacity:1;background-color:rgb(2 6 23 / var(--tw-bg-opacity, 1))}.bg-slate-950\/70{background-color:rgb(2 6 23 / 0.7)}.bg-teal-400{--tw-bg-opacity:1;background-color:rgb(45 212 191 / var(--tw-bg-opacity, 1))}.bg-teal-500\/10{background-color:rgb(20 184 166 / 0.1)}.bg-teal-500\/20{background-color:rgb(20 184 166 / 0.2)}.bg-teal-950\/60{background-color:rgb(4 47 46 / 0.6)}.p-1{padding:0.25rem}.p-2{padding:0.5rem}.p-3{padding:0.75rem}.p-4{padding:1rem}.px-2{padding-left:0.5rem;padding-right:0.5rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.px-4{padding-left:1rem;padding-right:1rem}.py-0\.5{padding-top:0.125rem;padding-bottom:0.125rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.py-1\.5{padding-top:0.375rem;padding-bottom:0.375rem}.pb-1{padding-bottom:0.25rem}.pb-2{padding-bottom:0.5rem}.pb-3{padding-bottom:0.75rem}.pt-2{padding-top:0.5rem}.pt-3{padding-top:0.75rem}.text-center{text-align:center}.text-\[10px\]{font-size:10px}.text-base{font-size:1rem;line-height:1.5rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xs{font-size:0.75rem;line-height:1rem}.font-bold{font-weight:700}.font-semibold{font-weight:600}.uppercase{text-transform:uppercase}.leading-relaxed{line-height:1.625}.tracking-wide{letter-spacing:0.025em}.tracking-wider{letter-spacing:0.05em}.text-amber-300{--tw-text-opacity:1;color:rgb(252 211 77 / var(--tw-text-opacity, 1))}.text-amber-400{--tw-text-opacity:1;color:rgb(251 191 36 / var(--tw-text-opacity, 1))}.text-emerald-400{--tw-text-opacity:1;color:rgb(52 211 153 / var(--tw-text-opacity, 1))}.text-purple-400{--tw-text-opacity:1;color:rgb(192 132 252 / var(--tw-text-opacity, 1))}.text-red-400{--tw-text-opacity:1;color:rgb(248 113 113 / var(--tw-text-opacity, 1))}.text-sky-400{--tw-text-opacity:1;color:rgb(56 189 248 / var(--tw-text-opacity, 1))}.text-slate-200{--tw-text-opacity:1;color:rgb(226 232 240 / var(--tw-text-opacity, 1))}.text-slate-300{--tw-text-opacity:1;color:rgb(203 213 225 / var(--tw-text-opacity, 1))}.text-slate-400{--tw-text-opacity:1;color:rgb(148 163 184 / var(--tw-text-opacity, 1))}.text-slate-500{--tw-text-opacity:1;color:rgb(100 116 139 / var(--tw-text-opacity, 1))}.text-teal-300{--tw-text-opacity:1;color:rgb(94 234 212 / var(--tw-text-opacity, 1))}.text-teal-400{--tw-text-opacity:1;color:rgb(45 212 191 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.accent-teal-500{accent-color:#14b8a6}.backdrop-blur-sm{--tw-backdrop-blur:blur(4px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-transform{transition-property:transform;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.duration-100{transition-duration:100ms}.hover\:border-teal-500\/50:hover{border-color:rgb(20 184 166 / 0.5)}.hover\:bg-slate-700:hover{--tw-bg-opacity:1;background-color:rgb(51 65 85 / var(--tw-bg-opacity, 1))}.hover\:text-slate-200:hover{--tw-text-opacity:1;color:rgb(226 232 240 / var(--tw-text-opacity, 1))}</style><style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.absolute{position:absolute}.relative{position:relative}.left-3{left:0.75rem}.top-3{top:0.75rem}.z-10{z-index:10}.z-20{z-index:20}.mb-1{margin-bottom:0.25rem}.mt-1{margin-top:0.25rem}.flex{display:flex}.grid{display:grid}.hidden{display:none}.h-screen{height:100vh}.h-1\.5{height:0.375rem}.h-14{height:3.5rem}.h-2{height:0.5rem}.h-3{height:0.75rem}.h-3\.5{height:0.875rem}.h-4{height:1rem}.h-5{height:1.25rem}.h-6{height:1.5rem}.h-full{height:100%}.max-h-\[92vh\]{max-height:92vh}.w-screen{width:100vw}.w-2{width:0.5rem}.w-3{width:0.75rem}.w-3\.5{width:0.875rem}.w-4{width:1rem}.w-5{width:1.25rem}.w-6{width:1.5rem}.w-64{width:16rem}.w-96{width:24rem}.w-full{width:100%}.flex-1{flex:1 1 0%}.origin-center{transform-origin:center}@keyframes pulse{50%{opacity:.5}}.animate-pulse{animation:pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite}.cursor-grab{cursor:grab}.cursor-pointer{cursor:pointer}.select-none{-webkit-user-select:none;user-select:none}.grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.flex-col{flex-direction:column}.items-start{align-items:flex-start}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-2{gap:0.5rem}.space-x-1 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(0.25rem * var(--tw-space-x-reverse));margin-left:calc(0.25rem * calc(1 - var(--tw-space-x-reverse)))}.space-x-2 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(0.5rem * var(--tw-space-x-reverse));margin-left:calc(0.5rem * calc(1 - var(--tw-space-x-reverse)))}.space-x-3 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(0.75rem * var(--tw-space-x-reverse));margin-left:calc(0.75rem * calc(1 - var(--tw-space-x-reverse)))}.space-x-4 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(1rem * var(--tw-space-x-reverse));margin-left:calc(1rem * calc(1 - var(--tw-space-x-reverse)))}.space-y-1\.5 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.375rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.375rem * var(--tw-space-y-reverse))}.space-y-2 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.5rem * var(--tw-space-y-reverse))}.space-y-3 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.75rem * var(--tw-space-y-reverse))}.space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.overflow-hidden{overflow:hidden}.overflow-y-auto{overflow-y:auto}.rounded{border-radius:0.25rem}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:0.5rem}.rounded-md{border-radius:0.375rem}.rounded-sm{border-radius:0.125rem}.border{border-width:1px}.border-b{border-bottom-width:1px}.border-l{border-left-width:1px}.border-r{border-right-width:1px}.border-t{border-top-width:1px}.border-amber-500\/30{border-color:rgb(245 158 11 / 0.3)}.border-amber-500\/40{border-color:rgb(245 158 11 / 0.4)}.border-emerald-500\/30{border-color:rgb(16 185 129 / 0.3)}.border-slate-800{--tw-border-opacity:1;border-color:rgb(30 41 59 / var(--tw-border-opacity, 1))}.border-slate-800\/50{border-color:rgb(30 41 59 / 0.5)}.border-teal-500\/30{border-color:rgb(20 184 166 / 0.3)}.border-teal-500\/40{border-color:rgb(20 184 166 / 0.4)}.bg-amber-400{--tw-bg-opacity:1;background-color:rgb(251 191 36 / var(--tw-bg-opacity, 1))}.bg-amber-500\/20{background-color:rgb(245 158 11 / 0.2)}.bg-amber-500\/80{background-color:rgb(245 158 11 / 0.8)}.bg-emerald-400{--tw-bg-opacity:1;background-color:rgb(52 211 153 / var(--tw-bg-opacity, 1))}.bg-emerald-950\/40{background-color:rgb(2 44 34 / 0.4)}.bg-purple-400{--tw-bg-opacity:1;background-color:rgb(192 132 252 / var(--tw-bg-opacity, 1))}.bg-red-500{--tw-bg-opacity:1;background-color:rgb(239 68 68 / var(--tw-bg-opacity, 1))}.bg-sky-400{--tw-bg-opacity:1;background-color:rgb(56 189 248 / var(--tw-bg-opacity, 1))}.bg-slate-800{--tw-bg-opacity:1;background-color:rgb(30 41 59 / var(--tw-bg-opacity, 1))}.bg-slate-900\/50{background-color:rgb(15 23 42 / 0.5)}.bg-slate-900\/60{background-color:rgb(15 23 42 / 0.6)}.bg-slate-900\/80{background-color:rgb(15 23 42 / 0.8)}.bg-slate-900\/90{background-color:rgb(15 23 42 / 0.9)}.bg-slate-950{--tw-bg-opacity:1;background-color:rgb(2 6 23 / var(--tw-bg-opacity, 1))}.bg-slate-950\/70{background-color:rgb(2 6 23 / 0.7)}.bg-teal-400{--tw-bg-opacity:1;background-color:rgb(45 212 191 / var(--tw-bg-opacity, 1))}.bg-teal-500\/10{background-color:rgb(20 184 166 / 0.1)}.bg-teal-500\/20{background-color:rgb(20 184 166 / 0.2)}.bg-teal-950\/60{background-color:rgb(4 47 46 / 0.6)}.p-1{padding:0.25rem}.p-2{padding:0.5rem}.p-3{padding:0.75rem}.p-4{padding:1rem}.px-2{padding-left:0.5rem;padding-right:0.5rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.px-4{padding-left:1rem;padding-right:1rem}.py-0\.5{padding-top:0.125rem;padding-bottom:0.125rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.py-1\.5{padding-top:0.375rem;padding-bottom:0.375rem}.pb-1{padding-bottom:0.25rem}.pb-2{padding-bottom:0.5rem}.pb-3{padding-bottom:0.75rem}.pt-2{padding-top:0.5rem}.pt-3{padding-top:0.75rem}.text-center{text-align:center}.text-\[10px\]{font-size:10px}.text-base{font-size:1rem;line-height:1.5rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xs{font-size:0.75rem;line-height:1rem}.font-bold{font-weight:700}.font-semibold{font-weight:600}.uppercase{text-transform:uppercase}.leading-relaxed{line-height:1.625}.tracking-wide{letter-spacing:0.025em}.tracking-wider{letter-spacing:0.05em}.text-amber-300{--tw-text-opacity:1;color:rgb(252 211 77 / var(--tw-text-opacity, 1))}.text-amber-400{--tw-text-opacity:1;color:rgb(251 191 36 / var(--tw-text-opacity, 1))}.text-emerald-400{--tw-text-opacity:1;color:rgb(52 211 153 / var(--tw-text-opacity, 1))}.text-purple-400{--tw-text-opacity:1;color:rgb(192 132 252 / var(--tw-text-opacity, 1))}.text-red-400{--tw-text-opacity:1;color:rgb(248 113 113 / var(--tw-text-opacity, 1))}.text-sky-400{--tw-text-opacity:1;color:rgb(56 189 248 / var(--tw-text-opacity, 1))}.text-slate-200{--tw-text-opacity:1;color:rgb(226 232 240 / var(--tw-text-opacity, 1))}.text-slate-300{--tw-text-opacity:1;color:rgb(203 213 225 / var(--tw-text-opacity, 1))}.text-slate-400{--tw-text-opacity:1;color:rgb(148 163 184 / var(--tw-text-opacity, 1))}.text-slate-500{--tw-text-opacity:1;color:rgb(100 116 139 / var(--tw-text-opacity, 1))}.text-teal-300{--tw-text-opacity:1;color:rgb(94 234 212 / var(--tw-text-opacity, 1))}.text-teal-400{--tw-text-opacity:1;color:rgb(45 212 191 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.accent-teal-500{accent-color:#14b8a6}.backdrop-blur-sm{--tw-backdrop-blur:blur(4px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-transform{transition-property:transform;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.duration-100{transition-duration:100ms}.hover\:border-teal-500\/50:hover{border-color:rgb(20 184 166 / 0.5)}.hover\:bg-slate-700:hover{--tw-bg-opacity:1;background-color:rgb(51 65 85 / var(--tw-bg-opacity, 1))}.hover\:text-slate-200:hover{--tw-text-opacity:1;color:rgb(226 232 240 / var(--tw-text-opacity, 1))}</style></head>
+<body class="h-screen w-screen flex flex-col select-none">
+
+    <!-- Top Navigation / Header -->
+    <header class="h-14 cad-bg border-b cad-border px-4 flex items-center justify-between z-20">
+        <div class="flex items-center space-x-3">
+            <div class="p-2 bg-teal-950/60 border border-teal-500/30 rounded-lg text-teal-400">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="layers" aria-hidden="true" class="lucide lucide-layers w-5 h-5"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"></path><path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"></path><path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"></path></svg>
+            </div>
+            <div>
+                <div class="flex items-center space-x-2">
+                    <span class="font-bold text-sm tracking-wider uppercase text-teal-400">BH-101 extraction System</span>
+                    <span class="text-xs px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/30 mono">REV 2.4</span>
+                </div>
+                <p class="text-xs text-slate-400 mono">Sovereign Architecture Charter V1.0 • ISA-5.1 CAD standard</p>
+            </div>
+        </div>
+
+        <!-- View Tabs -->
+        <div class="flex bg-slate-900/80 p-1 rounded-lg border cad-border text-xs font-semibold">
+            <button id="tab-subsurface" onclick="switchView('subsurface')" class="px-3 py-1.5 rounded-md flex items-center space-x-2 transition-all bg-teal-500/20 text-teal-300 border border-teal-500/40">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="binary" aria-hidden="true" class="lucide lucide-binary w-4 h-4"><rect x="14" y="14" width="4" height="6" rx="2"></rect><rect x="6" y="4" width="4" height="6" rx="2"></rect><path d="M6 20h4"></path><path d="M14 10h4"></path><path d="M6 14h2v6"></path><path d="M14 4h2v6"></path></svg>
+                <span>1. Subsurface &amp; Well Construction</span>
+            </button>
+            <button id="tab-pid" onclick="switchView('pid')" class="px-3 py-1.5 rounded-md flex items-center space-x-2 transition-all text-slate-400 hover:text-slate-200">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="git-commit" aria-hidden="true" class="lucide lucide-git-commit w-4 h-4"><circle cx="12" cy="12" r="3"></circle><line x1="3" x2="9" y1="12" y2="12"></line><line x1="15" x2="21" y1="12" y2="12"></line></svg>
+                <span>2. ISA-5.1 P&amp;ID Loop</span>
+            </button>
+        </div>
+
+        <!-- System Controls Header Info -->
+        <div class="flex items-center space-x-4 text-xs mono">
+            <div class="flex items-center space-x-2">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span class="text-slate-300">SYSTEM READY</span>
+            </div>
+            <div class="text-slate-400">BUS: <span class="text-amber-400">30kWp PV / 60kWh BESS</span></div>
+        </div>
+    </header>
+
+    <!-- Main Workspace Frame -->
+    <div class="flex-1 flex overflow-hidden relative">
+
+        <!-- Left Toolbar: Layers & View Controls -->
+        <aside class="w-64 cad-bg border-r cad-border p-3 flex flex-col justify-between z-10">
+            <div class="space-y-4">
+                <div class="text-xs font-bold uppercase tracking-wider text-slate-400 border-b cad-border pb-2 flex justify-between items-center">
+                    <span>CAD Layers</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="eye" aria-hidden="true" class="lucide lucide-eye w-3.5 h-3.5 text-teal-400"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                </div>
+                
+                <!-- Visibility Toggles -->
+                <div class="space-y-2 text-xs">
+                    <label class="flex items-center justify-between p-2 rounded bg-slate-900/50 border cad-border cursor-pointer hover:border-teal-500/50">
+                        <span class="flex items-center space-x-2">
+                            <span class="w-3 h-3 rounded-sm bg-amber-500/80"></span>
+                            <span>Geology &amp; Casing</span>
+                        </span>
+                        <input type="checkbox" id="layer-geology" checked="" onchange="toggleLayer('geology')" class="accent-teal-500">
+                    </label>
+
+                    <label class="flex items-center justify-between p-2 rounded bg-slate-900/50 border cad-border cursor-pointer hover:border-teal-500/50">
+                        <span class="flex items-center space-x-2">
+                            <span class="w-3 h-3 rounded-sm bg-sky-400"></span>
+                            <span>Hydraulics &amp; Water Levels</span>
+                        </span>
+                        <input type="checkbox" id="layer-hydraulics" checked="" onchange="toggleLayer('hydraulics')" class="accent-teal-500">
+                    </label>
+
+                    <label class="flex items-center justify-between p-2 rounded bg-slate-900/50 border cad-border cursor-pointer hover:border-teal-500/50">
+                        <span class="flex items-center space-x-2">
+                            <span class="w-3 h-3 rounded-sm bg-teal-400"></span>
+                            <span>ISA-5.1 Instrumentation</span>
+                        </span>
+                        <input type="checkbox" id="layer-isa" checked="" onchange="toggleLayer('isa')" class="accent-teal-500">
+                    </label>
+
+                    <label class="flex items-center justify-between p-2 rounded bg-slate-900/50 border cad-border cursor-pointer hover:border-teal-500/50">
+                        <span class="flex items-center space-x-2">
+                            <span class="w-3 h-3 rounded-sm bg-purple-400"></span>
+                            <span>Electrical &amp; Telemetry</span>
+                        </span>
+                        <input type="checkbox" id="layer-electrical" checked="" onchange="toggleLayer('electrical')" class="accent-teal-500">
+                    </label>
+                </div>
+
+                <div class="text-xs font-bold uppercase tracking-wider text-slate-400 border-b cad-border pb-2 pt-2 flex justify-between items-center">
+                    <span>CAD Navigation Controls</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="navigation" aria-hidden="true" class="lucide lucide-navigation w-3.5 h-3.5 text-teal-400"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg>
+                </div>
+
+                <!-- Zoom / Pan Buttons -->
+                <div class="grid grid-cols-3 gap-2">
+                    <button onclick="zoomCAD(1.15)" class="p-2 bg-slate-800 hover:bg-slate-700 rounded border cad-border flex justify-center text-teal-400">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="zoom-in" aria-hidden="true" class="lucide lucide-zoom-in w-4 h-4"><circle cx="11" cy="11" r="8"></circle><line x1="21" x2="16.65" y1="21" y2="16.65"></line><line x1="11" x2="11" y1="8" y2="14"></line><line x1="8" x2="14" y1="11" y2="11"></line></svg>
+                    </button>
+                    <button onclick="zoomCAD(0.85)" class="p-2 bg-slate-800 hover:bg-slate-700 rounded border cad-border flex justify-center text-teal-400">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="zoom-out" aria-hidden="true" class="lucide lucide-zoom-out w-4 h-4"><circle cx="11" cy="11" r="8"></circle><line x1="21" x2="16.65" y1="21" y2="16.65"></line><line x1="8" x2="14" y1="11" y2="11"></line></svg>
+                    </button>
+                    <button onclick="resetZoom()" class="p-2 bg-slate-800 hover:bg-slate-700 rounded border cad-border flex justify-center text-amber-400" title="Reset View">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="refresh-cw" aria-hidden="true" class="lucide lucide-refresh-cw w-4 h-4"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"></path><path d="M21 3v5h-5"></path><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"></path><path d="M8 16H3v5"></path></svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Quick Legend -->
+            <div class="p-3 bg-slate-950/70 border cad-border rounded text-xs space-y-1.5 mono text-slate-400">
+                <div class="text-slate-200 font-bold mb-1 border-b border-slate-800 pb-1">Legend Standards</div>
+                <div class="flex items-center justify-between"><span>uPVC Casing:</span> <span class="text-amber-400">165mm OD</span></div>
+                <div class="flex items-center justify-between"><span>Pump Rating:</span> <span class="text-teal-400">1.5 kW Submersible</span></div>
+                <div class="flex items-center justify-between"><span>Max Flow:</span> <span class="text-sky-400">3.6 m³/h @ 60m TDH</span></div>
+                <div class="flex items-center justify-between"><span>Telemetry:</span> <span class="text-purple-400">Modbus / SCADA</span></div>
+            </div>
+        </aside>
+
+        <!-- Center Viewport: Interactive CAD Canvas -->
+        <main id="viewport-container" class="flex-1 relative overflow-hidden cad-grid flex items-center justify-center cursor-grab">
+            
+            <!-- Floating Scale & Coordinates Bar -->
+            <div class="absolute top-3 left-3 bg-slate-900/90 border cad-border rounded px-3 py-1.5 text-xs mono flex items-center space-x-4 z-10 backdrop-blur-sm">
+                <div class="text-teal-400 flex items-center space-x-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="maximize-2" aria-hidden="true" class="lucide lucide-maximize-2 w-3.5 h-3.5"><path d="M15 3h6v6"></path><path d="m21 3-7 7"></path><path d="m3 21 7-7"></path><path d="M9 21H3v-6"></path></svg>
+                    <span id="zoom-level">SCALE: 1:100</span>
+                </div>
+                <div class="text-slate-400">X: <span id="mouse-x" class="text-slate-200">295</span> Y: <span id="mouse-y" class="text-slate-200">637</span></div>
+                <div class="text-amber-400">ELEV: GL +0.00m</div>
+            </div>
+
+            <!-- Viewport 1: Subsurface & Well Construction Cutaway SVG -->
+            <div id="svg-subsurface-wrapper" class="w-full h-full flex items-center justify-center transition-transform duration-100 origin-center" style="transform: scale(1);">
+                <svg id="svg-subsurface" viewBox="0 0 1000 800" class="w-full h-full max-h-[92vh]">
+                    <defs>
+                        <!-- Geology Gradients -->
+                        <lineargradient id="soil-grad" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#3b2b1d"></stop>
+                            <stop offset="100%" stop-color="#211810"></stop>
+                        </lineargradient>
+                        <lineargradient id="weathered-rock" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#2a323d"></stop>
+                            <stop offset="100%" stop-color="#1b222a"></stop>
+                        </lineargradient>
+                        <lineargradient id="basalt-grad" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#121b24"></stop>
+                            <stop offset="100%" stop-color="#090f15"></stop>
+                        </lineargradient>
+                        
+                        <!-- Water Fill Gradient -->
+                        <lineargradient id="water-grad" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.3"></stop>
+                            <stop offset="100%" stop-color="#0284c7" stop-opacity="0.7"></stop>
+                        </lineargradient>
+
+                        <!-- Hatching Patterns -->
+                        <pattern id="concrete-hatch" width="10" height="10" patternUnits="userSpaceOnUse">
+                            <circle cx="2" cy="2" r="1" fill="#64748b"></circle>
+                            <circle cx="7" cy="7" r="1.5" fill="#475569"></circle>
+                        </pattern>
+                        <pattern id="gravel-pattern" width="12" height="12" patternUnits="userSpaceOnUse">
+                            <circle cx="3" cy="3" r="2" fill="#e7bd62" opacity="0.6"></circle>
+                            <circle cx="9" cy="8" r="2.5" fill="#b45309" opacity="0.7"></circle>
+                        </pattern>
+                    </defs>
+
+                    <!-- GEOLOGY LAYER -->
+                    <g id="grp-geology" style="display: inline;">
+                        <!-- Top Soil Layer (0 - 10m) -->
+                        <rect x="100" y="100" width="800" height="80" fill="url(#soil-grad)" stroke="#1a3854" stroke-width="1"></rect>
+                        <text x="120" y="145" fill="#a1a1aa" font-size="11" class="mono">UNCONSOLIDATED TOP SOIL / CLAY (0 - 10m bgl)</text>
+
+                        <!-- Weathered Fracture Zone (10 - 40m) -->
+                        <rect x="100" y="180" width="800" height="240" fill="url(#weathered-rock)" stroke="#1a3854" stroke-width="1"></rect>
+                        <text x="120" y="220" fill="#94a3b8" font-size="11" class="mono">WEATHERED FRACTURED GRANITE AQUIFER (10 - 40m bgl)</text>
+
+                        <!-- Deep Fractured Basalt (40 - 80m+) -->
+                        <rect x="100" y="420" width="800" height="320" fill="url(#basalt-grad)" stroke="#1a3854" stroke-width="1"></rect>
+                        <text x="120" y="460" fill="#64748b" font-size="11" class="mono">PRIMARY WATER-BEARING BASALT BEDROCK (40 - 80m bgl)</text>
+
+                        <!-- Surface Ground Line -->
+                        <line x1="80" y1="100" x2="920" y2="100" stroke="#10b981" stroke-width="3" stroke-dasharray="8,4"></line>
+                        <text x="820" y="90" fill="#10b981" font-size="12" font-weight="bold" class="mono">GL ±0.00m (SURFACE)</text>
+                    </g>
+
+                    <!-- HYDRAULICS / WATER COLUMN LAYER -->
+                    <g id="grp-hydraulics" style="display: inline;">
+                        <!-- Water Column Inside Borehole -->
+                        <rect id="elem-water-column" class="cad-interactive" data-comp="WATER_COLUMN" x="465" y="244" width="70" height="456" fill="url(#water-grad)" stroke="#38bdf8" stroke-width="1"></rect>
+
+                        <!-- Static Water Level line (-18m) -->
+                        <line x1="250" y1="244" x2="750" y2="244" stroke="#38bdf8" stroke-width="2" stroke-dasharray="6,3"></line>
+                        <text x="260" y="238" fill="#38bdf8" font-size="11" class="mono">STATIC WATER LEVEL (SWL): -18.0m bgl</text>
+
+                        <!-- Dynamic Drawdown Level line (-32m) -->
+                        <line x1="250" y1="356" x2="750" y2="356" stroke="#f59e0b" stroke-width="2" stroke-dasharray="4,4"></line>
+                        <text x="260" y="350" fill="#f59e0b" font-size="11" class="mono">DYNAMIC DRAWDOWN LEVEL (DWL): -32.0m bgl @ 3.6 m³/h</text>
+                    </g>
+
+                    <!-- BOREHOLE CASING & WELL CONSTRUCTION LAYER -->
+                    <g id="grp-casing">
+                        <!-- Surface Sanitary Concrete Seal -->
+                        <polygon id="elem-sanitary-seal" class="cad-interactive" data-comp="SANITARY_SEAL" points="420,100 580,100 560,150 440,150" fill="url(#concrete-hatch)" stroke="#e7bd62" stroke-width="2"></polygon>
+                        <text x="590" y="125" fill="#e7bd62" font-size="11" class="mono">◄ SANITARY GROUT SEAL (0-5m)</text>
+
+                        <!-- Gravel Pack Annulus (Outside Screen & Casing) -->
+                        <rect id="elem-gravel-pack" class="cad-interactive" data-comp="GRAVEL_PACK" x="445" y="150" width="110" height="570" fill="url(#gravel-pattern)" stroke="#b45309" stroke-width="1"></rect>
+
+                        <!-- uPVC Solid Casing (0 to 50m) -->
+                        <rect id="elem-casing" class="cad-interactive" data-comp="UPVC_CASING" x="460" y="100" width="80" height="400" fill="none" stroke="#e7bd62" stroke-width="4"></rect>
+                        
+                        <!-- Stainless Steel Screen Section (50m to 75m) -->
+                        <g id="elem-well-screen" class="cad-interactive" data-comp="WELL_SCREEN">
+                            <rect x="460" y="500" width="80" height="200" fill="none" stroke="#56d0c1" stroke-width="4" stroke-dasharray="4,2"></rect>
+                            <!-- Slotted Screen Lines -->
+                            <line x1="460" y1="520" x2="540" y2="520" stroke="#56d0c1" stroke-width="2"></line>
+                            <line x1="460" y1="540" x2="540" y2="540" stroke="#56d0c1" stroke-width="2"></line>
+                            <line x1="460" y1="560" x2="540" y2="560" stroke="#56d0c1" stroke-width="2"></line>
+                            <line x1="460" y1="580" x2="540" y2="580" stroke="#56d0c1" stroke-width="2"></line>
+                            <line x1="460" y1="600" x2="540" y2="600" stroke="#56d0c1" stroke-width="2"></line>
+                            <line x1="460" y1="620" x2="540" y2="620" stroke="#56d0c1" stroke-width="2"></line>
+                            <line x1="460" y1="640" x2="540" y2="640" stroke="#56d0c1" stroke-width="2"></line>
+                            <line x1="460" y1="660" x2="540" y2="660" stroke="#56d0c1" stroke-width="2"></line>
+                            <line x1="460" y1="680" x2="540" y2="680" stroke="#56d0c1" stroke-width="2"></line>
+                        </g>
+                        <text x="555" y="600" fill="#56d0c1" font-size="11" class="mono">◄ 304 SS SCREEN (1.0mm SLOT)</text>
+
+                        <!-- Sump / Sediment Trap at Bottom (75m to 80m) -->
+                        <rect x="460" y="700" width="80" height="40" fill="#1e293b" stroke="#e7bd62" stroke-width="3"></rect>
+                        <text x="555" y="725" fill="#94a3b8" font-size="10" class="mono">◄ SEDIMENT TRAP / SUMP (-80m)</text>
+                    </g>
+
+                    <!-- PUMP & MECHANICAL DROP PIPE LAYER -->
+                    <g id="grp-mechanical">
+                        <!-- Riser Pipe (Drop Pipe) -->
+                        <line x1="500" y1="60" x2="500" y2="620" stroke="#38bdf8" stroke-width="5"></line>
+
+                        <!-- Pitless Adapter / Wellhead Joint -->
+                        <g id="elem-wellhead" class="cad-interactive" data-comp="WELLHEAD">
+                            <rect x="440" y="55" width="120" height="30" fill="#1e293b" stroke="#56d0c1" stroke-width="2" rx="4"></rect>
+                            <text x="500" y="75" fill="#f6f8fb" font-size="11" font-weight="bold" text-anchor="middle" class="mono">WELLHEAD / MANIFOLD</text>
+                        </g>
+
+                        <!-- Submersible Pump Unit P-101 (Installed at -65m depth -> Y=620) -->
+                        <g id="elem-submersible-pump" class="cad-interactive" data-comp="PUMP_P101">
+                            <!-- Pump Body -->
+                            <rect x="485" y="620" width="30" height="70" fill="#0284c7" stroke="#38bdf8" stroke-width="2" rx="3"></rect>
+                            <!-- Intake Screen Mesh -->
+                            <rect x="487" y="650" width="26" height="15" fill="#0f172a" stroke="#e7bd62" stroke-width="1"></rect>
+                            <!-- Motor Section Base -->
+                            <rect x="487" y="668" width="26" height="20" fill="#0369a1" stroke="#38bdf8" stroke-width="1"></rect>
+                            <text x="500" y="640" fill="#ffffff" font-size="9" font-weight="bold" text-anchor="middle" class="mono">P-101</text>
+                            
+                            <!-- Flow Arrow -->
+                            <path d="M 500 615 L 495 623 L 505 623 Z" fill="#10b981"></path>
+                        </g>
+
+                        <!-- Depth Callout for Pump -->
+                        <line x1="320" y1="655" x2="480" y2="655" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="3,3"></line>
+                        <text x="210" y="659" fill="#ef4444" font-size="11" font-weight="bold" class="mono">PUMP DEPTH: -65.0m bgl</text>
+
+                        <!-- Surface Discharge Piping to Tank -->
+                        <path d="M 500 55 L 500 30 L 780 30 L 780 80" fill="none" stroke="#38bdf8" stroke-width="4"></path>
+                    </g>
+
+                    <!-- ISA INSTRUMENTATION & CONTROLS LAYER -->
+                    <g id="grp-isa" style="display: inline;">
+                        <!-- Level Switch Low (LSL-101 - Dry Run Cutoff) -->
+                        <g id="elem-lsl101" class="cad-interactive" data-comp="LSL_101">
+                            <circle cx="475" cy="610" r="10" fill="#071522" stroke="#ef4444" stroke-width="2"></circle>
+                            <text x="475" y="613" fill="#ef4444" font-size="8" font-weight="bold" text-anchor="middle" class="mono">LSL</text>
+                            <line x1="390" y1="610" x2="465" y2="610" stroke="#ef4444" stroke-width="1" stroke-dasharray="2,2"></line>
+                            <text x="270" y="614" fill="#ef4444" font-size="10" class="mono">LSL-101 (DRY-RUN CUTOFF -64m)</text>
+                        </g>
+
+                        <!-- Level Switch High (LSH-101 - High Recovery Level) -->
+                        <g id="elem-lsh101" class="cad-interactive" data-comp="LSH_101">
+                            <circle cx="475" cy="220" r="10" fill="#071522" stroke="#10b981" stroke-width="2"></circle>
+                            <text x="475" y="223" fill="#10b981" font-size="8" font-weight="bold" text-anchor="middle" class="mono">LSH</text>
+                            <line x1="390" y1="220" x2="465" y2="220" stroke="#10b981" stroke-width="1" stroke-dasharray="2,2"></line>
+                            <text x="270" y="224" fill="#10b981" font-size="10" class="mono">LSH-101 (RECOVERY OK -15m)</text>
+                        </g>
+
+                        <!-- Check Valve CV-101 on surface -->
+                        <g id="elem-cv101" class="cad-interactive" data-comp="CV_101">
+                            <polygon points="560,23 580,30 560,37" fill="#e7bd62" stroke="#e7bd62" stroke-width="1"></polygon>
+                            <polygon points="580,23 560,30 580,37" fill="#e7bd62" stroke="#e7bd62" stroke-width="1"></polygon>
+                            <text x="570" y="18" fill="#e7bd62" font-size="9" text-anchor="middle" class="mono">CV-101</text>
+                        </g>
+
+                        <!-- Pressure Transmitter PT-101 -->
+                        <g id="elem-pt101" class="cad-interactive" data-comp="PT_101">
+                            <circle cx="630" cy="30" r="14" fill="#071522" stroke="#56d0c1" stroke-width="2"></circle>
+                            <line x1="630" y1="44" x2="630" y2="30" stroke="#56d0c1" stroke-width="2"></line>
+                            <text x="630" y="34" fill="#56d0c1" font-size="9" font-weight="bold" text-anchor="middle" class="mono">PT-101</text>
+                        </g>
+
+                        <!-- Flow Transmitter FIT-101 -->
+                        <g id="elem-fit101" class="cad-interactive" data-comp="FIT_101">
+                            <circle cx="700" cy="30" r="14" fill="#071522" stroke="#56d0c1" stroke-width="2"></circle>
+                            <line x1="700" y1="44" x2="700" y2="30" stroke="#56d0c1" stroke-width="2"></line>
+                            <text x="700" y="34" fill="#56d0c1" font-size="8" font-weight="bold" text-anchor="middle" class="mono">FIT-101</text>
+                        </g>
+                    </g>
+
+                    <!-- ELECTRICAL & SCADA TELEMETRY LAYER -->
+                    <g id="grp-electrical" style="display: inline;">
+                        <!-- VFD Control Cabinet on Surface -->
+                        <g id="elem-control-panel" class="cad-interactive" data-comp="CONTROL_PANEL">
+                            <rect x="120" y="20" width="70" height="65" fill="#1e293b" stroke="#a855f7" stroke-width="2" rx="3"></rect>
+                            <text x="155" y="40" fill="#a855f7" font-size="10" font-weight="bold" text-anchor="middle" class="mono">CP-101</text>
+                            <text x="155" y="55" fill="#cbd5e1" font-size="8" text-anchor="middle" class="mono">VFD / SCADA</text>
+                            <circle cx="135" cy="70" r="3" fill="#10b981"></circle>
+                            <circle cx="145" cy="70" r="3" fill="#e7bd62"></circle>
+                        </g>
+
+                        <!-- Power & Signal Cables (Submersible Armored Cable) -->
+                        <path d="M 190 50 L 440 50 L 480 50 L 480 620" fill="none" stroke="#a855f7" stroke-width="1.5" stroke-dasharray="3,2"></path>
+                        <text x="320" y="45" fill="#a855f7" font-size="9" class="mono">400V 3-PHASE SUBMERSIBLE POWER CABLE</text>
+                    </g>
+                </svg>
+            </div>
+
+            <!-- Viewport 2: ISA-5.1 P&ID View (Hidden by default) -->
+            <div id="svg-pid-wrapper" class="w-full h-full flex items-center justify-center transition-transform duration-100 origin-center hidden" style="transform: scale(1);">
+                <svg id="svg-pid" viewBox="0 0 1000 800" class="w-full h-full max-h-[92vh]">
+                    <!-- P&ID Diagram Symbols -->
+                    <rect x="50" y="50" width="900" height="700" fill="none" stroke="#1a3854" stroke-width="2" rx="8"></rect>
+                    
+                    <!-- Title Block inside P&ID -->
+                    <rect x="650" y="670" width="290" height="70" fill="#0f172a" stroke="#56d0c1" stroke-width="1.5"></rect>
+                    <text x="665" y="692" fill="#56d0c1" font-size="12" font-weight="bold" class="mono">P&amp;ID LOOP BH-101: BOREHOLE EXTRACTION</text>
+                    <text x="665" y="710" fill="#94a3b8" font-size="10" class="mono">STANDARD: ISA-5.1 / SOVEREIGN V1.0</text>
+                    <text x="665" y="728" fill="#e7bd62" font-size="10" class="mono">STATUS: OPERATIONAL / AUTOMATED</text>
+
+                    <!-- Borehole Well Vessel Boundary -->
+                    <rect id="elem-pid-borehole" class="cad-interactive" data-comp="UPVC_CASING" x="120" y="220" width="180" height="420" fill="#0f172a" stroke="#e7bd62" stroke-width="2" stroke-dasharray="6,3" rx="10"></rect>
+                    <text x="210" y="205" fill="#e7bd62" font-size="13" font-weight="bold" text-anchor="middle" class="mono">WELL BOREHOLE (BH-101)</text>
+
+                    <!-- Pump P-101 Circle Symbol -->
+                    <g id="elem-pid-pump" class="cad-interactive" data-comp="PUMP_P101">
+                        <circle cx="210" cy="540" r="35" fill="#071522" stroke="#56d0c1" stroke-width="3"></circle>
+                        <polygon points="190,565 210,510 230,565" fill="#56d0c1"></polygon>
+                        <text x="210" y="595" fill="#ffffff" font-size="12" font-weight="bold" text-anchor="middle" class="mono">P-101 (1.5 kW)</text>
+                    </g>
+
+                    <!-- Main Discharge Pipeline -->
+                    <path d="M 210 505 L 210 150 L 780 150 L 780 250" fill="none" stroke="#38bdf8" stroke-width="4"></path>
+
+                    <!-- Level Transmitter LIT-101 Bubble -->
+                    <g id="elem-pid-lit101" class="cad-interactive" data-comp="LIT_101">
+                        <circle cx="210" cy="300" r="22" fill="#071522" stroke="#56d0c1" stroke-width="2"></circle>
+                        <line x1="188" y1="300" x2="232" y2="300" stroke="#56d0c1" stroke-width="1.5"></line>
+                        <text x="210" y="293" fill="#56d0c1" font-size="10" font-weight="bold" text-anchor="middle" class="mono">LIT</text>
+                        <text x="210" y="315" fill="#56d0c1" font-size="10" font-weight="bold" text-anchor="middle" class="mono">101</text>
+                        <line x1="210" y1="322" x2="210" y2="505" stroke="#a855f7" stroke-width="1.5" stroke-dasharray="3,3"></line>
+                    </g>
+
+                    <!-- LSL-101 & LSH-101 Interlock Lines -->
+                    <g id="elem-pid-lsl" class="cad-interactive" data-comp="LSL_101">
+                        <circle cx="100" cy="580" r="18" fill="#071522" stroke="#ef4444" stroke-width="2"></circle>
+                        <line x1="82" y1="580" x2="118" y2="580" stroke="#ef4444" stroke-width="1"></line>
+                        <text x="100" y="576" fill="#ef4444" font-size="8" font-weight="bold" text-anchor="middle" class="mono">LSL</text>
+                        <text x="100" y="591" fill="#ef4444" font-size="8" font-weight="bold" text-anchor="middle" class="mono">101</text>
+                        <path d="M 118 580 L 175 580" fill="none" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="2,2"></path>
+                    </g>
+
+                    <!-- Check Valve CV-101 -->
+                    <g id="elem-pid-cv101" class="cad-interactive" data-comp="CV_101">
+                        <polygon points="320,138 340,150 320,162" fill="#e7bd62" stroke="#e7bd62" stroke-width="1"></polygon>
+                        <polygon points="340,138 320,150 340,162" fill="#e7bd62" stroke="#e7bd62" stroke-width="1"></polygon>
+                        <text x="330" y="130" fill="#e7bd62" font-size="10" font-weight="bold" text-anchor="middle" class="mono">CV-101</text>
+                    </g>
+
+                    <!-- Auto Isolation Valve AV-101 -->
+                    <g id="elem-pid-av101" class="cad-interactive" data-comp="AV_101">
+                        <polygon points="410,138 430,150 410,162" fill="#56d0c1" stroke="#56d0c1" stroke-width="1"></polygon>
+                        <polygon points="430,138 410,150 430,162" fill="#56d0c1" stroke="#56d0c1" stroke-width="1"></polygon>
+                        <!-- Solenoid Actuator Box -->
+                        <rect x="413" y="118" width="14" height="15" fill="#071522" stroke="#56d0c1" stroke-width="1.5"></rect>
+                        <text x="420" y="129" fill="#56d0c1" font-size="8" text-anchor="middle" class="mono">M</text>
+                        <text x="420" y="108" fill="#56d0c1" font-size="10" font-weight="bold" text-anchor="middle" class="mono">AV-101</text>
+                    </g>
+
+                    <!-- Pressure Transmitter PT-101 -->
+                    <g id="elem-pid-pt101" class="cad-interactive" data-comp="PT_101">
+                        <circle cx="510" cy="80" r="20" fill="#071522" stroke="#56d0c1" stroke-width="2"></circle>
+                        <line x1="490" y1="80" x2="530" y2="80" stroke="#56d0c1" stroke-width="1"></line>
+                        <text x="510" y="75" fill="#56d0c1" font-size="9" font-weight="bold" text-anchor="middle" class="mono">PT</text>
+                        <text x="510" y="92" fill="#56d0c1" font-size="9" font-weight="bold" text-anchor="middle" class="mono">101</text>
+                        <line x1="510" y1="100" x2="510" y2="150" stroke="#56d0c1" stroke-width="1.5"></line>
+                    </g>
+
+                    <!-- Flow Indicating Transmitter FIT-101 -->
+                    <g id="elem-pid-fit101" class="cad-interactive" data-comp="FIT_101">
+                        <circle cx="610" cy="80" r="20" fill="#071522" stroke="#56d0c1" stroke-width="2"></circle>
+                        <line x1="590" y1="80" x2="630" y2="80" stroke="#56d0c1" stroke-width="1"></line>
+                        <text x="610" y="75" fill="#56d0c1" font-size="9" font-weight="bold" text-anchor="middle" class="mono">FIT</text>
+                        <text x="610" y="92" fill="#56d0c1" font-size="9" font-weight="bold" text-anchor="middle" class="mono">101</text>
+                        <line x1="610" y1="100" x2="610" y2="150" stroke="#56d0c1" stroke-width="1.5"></line>
+                    </g>
+
+                    <!-- Sampling Valve V-101 -->
+                    <g id="elem-pid-v101" class="cad-interactive" data-comp="V_101">
+                        <polygon points="680,143 692,150 680,157" fill="#e7bd62" stroke="#e7bd62" stroke-width="1"></polygon>
+                        <polygon points="692,143 680,150 692,157" fill="#e7bd62" stroke="#e7bd62" stroke-width="1"></polygon>
+                        <line x1="686" y1="150" x2="686" y2="175" stroke="#e7bd62" stroke-width="2"></line>
+                        <text x="686" y="190" fill="#e7bd62" font-size="9" text-anchor="middle" class="mono">V-101 (SAMPLE)</text>
+                    </g>
+
+                    <!-- Destination Storage Tanks TK-201A/B -->
+                    <g id="elem-pid-tanks" class="cad-interactive" data-comp="TANKS_201">
+                        <rect x="730" y="250" width="100" height="150" fill="#0f172a" stroke="#38bdf8" stroke-width="2" rx="6"></rect>
+                        <text x="780" y="320" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle" class="mono">TK-201A</text>
+                        <text x="780" y="340" fill="#94a3b8" font-size="9" text-anchor="middle" class="mono">10,000L RAW</text>
+
+                        <rect x="845" y="250" width="100" height="150" fill="#0f172a" stroke="#38bdf8" stroke-width="2" rx="6"></rect>
+                        <text x="895" y="320" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle" class="mono">TK-201B</text>
+                        <text x="895" y="340" fill="#94a3b8" font-size="9" text-anchor="middle" class="mono">10,000L RAW</text>
+                    </g>
+
+                    <!-- High Level Switch on Tank LSH-201 -->
+                    <g id="elem-pid-lsh201" class="cad-interactive" data-comp="LSH_201">
+                        <circle cx="780" cy="220" r="16" fill="#071522" stroke="#ef4444" stroke-width="2"></circle>
+                        <line x1="764" y1="220" x2="796" y2="220" stroke="#ef4444" stroke-width="1"></line>
+                        <text x="780" y="217" fill="#ef4444" font-size="8" font-weight="bold" text-anchor="middle" class="mono">LSH</text>
+                        <text x="780" y="228" fill="#ef4444" font-size="8" font-weight="bold" text-anchor="middle" class="mono">201</text>
+                    </g>
+                </svg>
+            </div>
+        </main>
+
+        <!-- Right Side Panel: Live Hover Telemetry Inspector & Spec Sheet -->
+        <aside class="w-96 cad-bg border-l cad-border flex flex-col justify-between z-10">
+            <div class="p-4 space-y-4 overflow-y-auto">
+                <div class="flex items-center justify-between border-b cad-border pb-3">
+                    <div class="flex items-center space-x-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="cpu" aria-hidden="true" class="lucide lucide-cpu w-5 h-5 text-teal-400"><path d="M12 20v2"></path><path d="M12 2v2"></path><path d="M17 20v2"></path><path d="M17 2v2"></path><path d="M2 12h2"></path><path d="M2 17h2"></path><path d="M2 7h2"></path><path d="M20 12h2"></path><path d="M20 17h2"></path><path d="M20 7h2"></path><path d="M7 20v2"></path><path d="M7 2v2"></path><rect x="4" y="4" width="16" height="16" rx="2"></rect><rect x="8" y="8" width="8" height="8" rx="1"></rect></svg>
+                        <span class="font-bold text-sm tracking-wide text-slate-200">CAD Telemetry Inspector</span>
+                    </div>
+                    <span class="px-2 py-0.5 rounded text-xs bg-teal-500/10 text-teal-400 border border-teal-500/30 mono">LIVE SENSOR</span>
+                </div>
+
+                <!-- Hover Component Card -->
+                <div id="inspector-card" class="bg-slate-900/80 border cad-border rounded-lg p-4 space-y-3">
+                    <div class="flex items-start justify-between">
+                        <div>
+                            <span id="comp-tag" class="px-2 py-0.5 bg-amber-500/20 text-amber-300 border border-amber-500/40 rounded text-xs font-bold mono">WELL SCREEN</span>
+                            <h3 id="comp-title" class="text-base font-bold text-white mt-1">304 Stainless Steel Continuous Slot Screen</h3>
+                        </div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="filter" aria-hidden="true" id="comp-icon" class="lucide lucide-filter lucide-disc lucide-zap lucide-activity lucide-cylinder lucide-shield lucide-wrench lucide-cpu lucide-arrow-up-circle lucide-settings lucide-sliders lucide-database lucide-bell lucide-droplet lucide-shield-alert lucide-alert-triangle lucide-gauge w-6 h-6 text-amber-400"><path d="M10 20a1 1 0 0 0 .553.895l2 1A1 1 0 0 0 14 21v-7a2 2 0 0 1 .517-1.341L21.74 4.67A1 1 0 0 0 21 3H3a1 1 0 0 0-.742 1.67l7.225 7.989A2 2 0 0 1 10 14z"></path></svg>
+                    </div>
+                    <p id="comp-desc" class="text-xs text-slate-300 leading-relaxed">1.0mm continuous wire-wrapped stainless steel screen allowing optimal laminar water ingress from deep basalt aquifer while preventing sand ingress.</p>
+
+                    <!-- Dynamic Properties Table -->
+                    <div class="border-t border-slate-800 pt-3 space-y-2 text-xs mono">
+                        <div class="flex justify-between py-1 border-b border-slate-800/50">
+                            <span class="text-slate-400">Power Rating:</span>
+                            <span id="spec-power" class="text-teal-400 font-bold">N/A (Passive Intake)</span>
+                        </div>
+                        <div class="flex justify-between py-1 border-b border-slate-800/50">
+                            <span class="text-slate-400">Duty Flow Rate:</span>
+                            <span id="spec-flow" class="text-sky-400 font-bold">Max 12.0 m³/h yield</span>
+                        </div>
+                        <div class="flex justify-between py-1 border-b border-slate-800/50">
+                            <span class="text-slate-400">Total Dynamic Head (TDH):</span>
+                            <span id="spec-head" class="text-amber-400 font-bold">Low Entrance Velocity (&lt;0.03m/s)</span>
+                        </div>
+                        <div class="flex justify-between py-1 border-b border-slate-800/50">
+                            <span class="text-slate-400">Installed Depth:</span>
+                            <span id="spec-depth" class="text-emerald-400 font-bold">50m to 75m bgl</span>
+                        </div>
+                        <div class="flex justify-between py-1 border-b border-slate-800/50">
+                            <span class="text-slate-400">Control Interlock:</span>
+                            <span id="spec-logic" class="text-purple-400 font-bold">Sand-Free Extraction Protocol</span>
+                        </div>
+                        <div class="flex justify-between py-1">
+                            <span class="text-slate-400">Power Supply Bus:</span>
+                            <span id="spec-power-bus" class="text-slate-200 font-bold">Groundwater Interface</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Borehole Dynamic Level Status Bar -->
+                <div class="bg-slate-900/60 border cad-border rounded-lg p-3 space-y-2">
+                    <div class="text-xs font-bold text-slate-300 uppercase tracking-wider flex justify-between">
+                        <span>Borehole Hydrology Status</span>
+                        <span class="text-teal-400">NORMAL</span>
+                    </div>
+
+                    <div class="space-y-1.5 text-xs mono">
+                        <div>
+                            <div class="flex justify-between text-slate-400 mb-1">
+                                <span>Static Water Level (SWL)</span>
+                                <span class="text-sky-400">18.0m bgl</span>
+                            </div>
+                            <div class="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden">
+                                <div class="bg-sky-400 h-full" style="width: 22.5%"></div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between text-slate-400 mb-1">
+                                <span>Dynamic Drawdown (DWL)</span>
+                                <span class="text-amber-400">32.0m bgl</span>
+                            </div>
+                            <div class="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden">
+                                <div class="bg-amber-400 h-full" style="width: 40%"></div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between text-slate-400 mb-1">
+                                <span>Pump Intake Level</span>
+                                <span class="text-red-400">65.0m bgl</span>
+                            </div>
+                            <div class="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden">
+                                <div class="bg-red-500 h-full" style="width: 81.25%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ISA Interlock Matrix -->
+                <div class="bg-slate-900/60 border cad-border rounded-lg p-3 space-y-2 text-xs">
+                    <div class="font-bold text-slate-300 uppercase tracking-wider">ISA-5.1 SCADA Logic Protection</div>
+                    <div class="grid grid-cols-2 gap-2 mono">
+                        <div class="p-2 bg-emerald-950/40 border border-emerald-500/30 rounded flex items-center space-x-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="check-circle" aria-hidden="true" class="lucide lucide-check-circle w-4 h-4 text-emerald-400"><path d="M21.801 10A10 10 0 1 1 17 3.335"></path><path d="m9 11 3 3L22 4"></path></svg>
+                            <div>
+                                <div class="text-emerald-400 font-bold">LSH-101</div>
+                                <div class="text-slate-400 text-[10px]">Water Level OK</div>
+                            </div>
+                        </div>
+
+                        <div class="p-2 bg-emerald-950/40 border border-emerald-500/30 rounded flex items-center space-x-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="shield-check" aria-hidden="true" class="lucide lucide-shield-check w-4 h-4 text-emerald-400"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path><path d="m9 12 2 2 4-4"></path></svg>
+                            <div>
+                                <div class="text-emerald-400 font-bold">LSL-101</div>
+                                <div class="text-slate-400 text-[10px]">Dry Protection</div>
+                            </div>
+                        </div>
+
+                        <div class="p-2 bg-emerald-950/40 border border-emerald-500/30 rounded flex items-center space-x-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="gauge" aria-hidden="true" class="lucide lucide-gauge w-4 h-4 text-emerald-400"><path d="m12 14 4-4"></path><path d="M3.34 19a10 10 0 1 1 17.32 0"></path></svg>
+                            <div>
+                                <div class="text-emerald-400 font-bold">PT-101</div>
+                                <div class="text-slate-400 text-[10px]">VFD Regulated</div>
+                            </div>
+                        </div>
+
+                        <div class="p-2 bg-emerald-950/40 border border-emerald-500/30 rounded flex items-center space-x-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="activity" aria-hidden="true" class="lucide lucide-activity w-4 h-4 text-emerald-400"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"></path></svg>
+                            <div>
+                                <div class="text-emerald-400 font-bold">FIT-101</div>
+                                <div class="text-slate-400 text-[10px]">Flow Telemetry</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Panel Footer -->
+            <div class="p-3 border-t cad-border bg-slate-950 text-center text-xs text-slate-500 mono">
+                Sovereign Microgrid Engineering CAD • BH-101
+            </div>
+        </aside>
+    </div>
+
+    <!-- JavaScript Application Logic -->
+    <script>
+        // Sovereign Engineering Component Database
+        const COMPONENT_DATA = {
+            PUMP_P101: {
+                tag: "P-101",
+                title: "Submersible Extraction Pump P-101",
+                icon: "zap",
+                desc: "1.5 kW deep-well multi-stage centrifugal submersible pump mounted at 65m depth. High-efficiency continuous duty motor rated for solar microgrid variable frequency power supply.",
+                power: "1.5 kW (2.0 HP) @ 400V 3Ph",
+                flow: "3.6 m³/h (60 L/min)",
+                head: "60 meters TDH",
+                depth: "65.0m bgl",
+                logic: "Cutoff on LSL-101 or Tank LSH-201",
+                bus: "30 kWp PV / 60 kWh BESS"
+            },
+            UPVC_CASING: {
+                tag: "WELL CASING",
+                title: "165mm uPVC Heavy-Duty Casing",
+                icon: "cylinder",
+                desc: "Class 9 solid wall uPVC well casing providing structural lining from surface ground level down to 50m bgl. Prevents collapse of weathered granite layers.",
+                power: "N/A (Passive)",
+                flow: "N/A",
+                head: "PN12 (12 Bar Pressure)",
+                depth: "0m to 50m bgl",
+                logic: "Sanitary Sealing Standard",
+                bus: "Structural Asset"
+            },
+            WELL_SCREEN: {
+                tag: "WELL SCREEN",
+                title: "304 Stainless Steel Continuous Slot Screen",
+                icon: "filter",
+                desc: "1.0mm continuous wire-wrapped stainless steel screen allowing optimal laminar water ingress from deep basalt aquifer while preventing sand ingress.",
+                power: "N/A (Passive Intake)",
+                flow: "Max 12.0 m³/h yield",
+                head: "Low Entrance Velocity (<0.03m/s)",
+                depth: "50m to 75m bgl",
+                logic: "Sand-Free Extraction Protocol",
+                bus: "Groundwater Interface"
+            },
+            WATER_COLUMN: {
+                tag: "HYDRAULIC LAYER",
+                title: "Basalt Groundwater Column",
+                icon: "droplet",
+                desc: "Confined rock fracture aquifer. Static level rests at 18m bgl and draws down dynamically to 32m bgl under full 3.6 m³/h pumping operation.",
+                power: "N/A",
+                flow: "Sustainable Yield: 5.5 m³/h",
+                head: "Static: 18m | Dynamic: 32m",
+                depth: "18m to 80m bgl",
+                logic: "Continuous Hydro-Monitoring",
+                bus: "Natural Water Source"
+            },
+            SANITARY_SEAL: {
+                tag: "SURFACE SEAL",
+                title: "Bentonite Concrete Sanitary Seal",
+                icon: "shield",
+                desc: "Neat cement & bentonite grout annulus seal applied from ground surface down to 5m depth to prevent surface runoff contamination from entering borehole.",
+                power: "N/A",
+                flow: "Impermeable Barrier",
+                head: "N/A",
+                depth: "0m to 5.0m bgl",
+                logic: "Potable Standard Protection",
+                bus: "Environmental Compliance"
+            },
+            GRAVEL_PACK: {
+                tag: "GRAVEL PACK",
+                title: "Graded Silica Sand/Gravel Pack",
+                icon: "disc",
+                desc: "2.0mm - 4.0mm rounded silica gravel packed around outer screen casing to act as primary natural mechanical filter matrix.",
+                power: "N/A",
+                flow: "High Porosity Matrix",
+                head: "N/A",
+                depth: "5m to 80m bgl",
+                logic: "Passive Filtration",
+                bus: "Well Completion Pack"
+            },
+            WELLHEAD: {
+                tag: "WELLHEAD",
+                title: "Surface Pitless Adapter & Wellhead Manifold",
+                icon: "wrench",
+                desc: "Heavy-duty sealed wellhead with integrated pitless adapter providing frost-proof, watertight discharge piping transition to surface distribution.",
+                power: "N/A",
+                flow: "3.6 m³/h Design",
+                head: "10 Bar Rated",
+                depth: "+0.5m GL",
+                logic: "Mechanical Porting & Cable Seal",
+                bus: "Distribution Interface"
+            },
+            PT_101: {
+                tag: "PT-101",
+                title: "Pressure Transmitter PT-101",
+                icon: "gauge",
+                desc: "ISA-5.1 4-20mA piezoresistive pressure transmitter monitoring wellhead discharge manifold pressure for VFD speed regulation and pipe leak detection.",
+                power: "24V DC Loop Powered",
+                flow: "Inline Signal",
+                head: "0 - 10 Bar Range",
+                depth: "+0.3m GL Manifold",
+                logic: "VFD Pressure Regulation Loop",
+                bus: "SCADA Telemetry"
+            },
+            FIT_101: {
+                tag: "FIT-101",
+                title: "Flow Indicating Transmitter FIT-101",
+                icon: "activity",
+                desc: "Electromagnetic magnetic flowmeter providing instantaneous pulse and Modbus telemetry of extraction rate and daily cumulative yield.",
+                power: "24V DC / Modbus RTU",
+                flow: "0.5 - 10.0 m³/h Range",
+                head: "Minimal Pressure Drop",
+                depth: "+0.3m GL Pipe",
+                logic: "Yield Accounting & Pump Diagnostics",
+                bus: "SCADA Modbus"
+            },
+            LSL_101: {
+                tag: "LSL-101",
+                title: "Level Switch Low LSL-101 (Dry-Run Protection)",
+                icon: "alert-triangle",
+                desc: "Submersible stainless level electrode set at -64.0m bgl (1.0m above pump intake). Instantly trips pump to prevent dry running.",
+                power: "24V Sensing Circuit",
+                flow: "N/A",
+                head: "Interlock Cutoff",
+                depth: "-64.0m bgl",
+                logic: "Hard Interlock Pump Stop",
+                bus: "CP-101 Safety Relay"
+            },
+            LSH_101: {
+                tag: "LSH-101",
+                title: "Level Switch High LSH-101 (Aquifer Recovery)",
+                icon: "arrow-up-circle",
+                desc: "Level sensor electrode placed at -15.0m bgl signaling complete groundwater table recovery after pumping cycles.",
+                power: "24V Sensing Circuit",
+                flow: "N/A",
+                head: "Interlock Start Permissive",
+                depth: "-15.0m bgl",
+                logic: "Auto Pumping Re-Enable",
+                bus: "CP-101 Control Logic"
+            },
+            LIT_101: {
+                tag: "LIT-101",
+                title: "Level Indicating Transmitter LIT-101",
+                icon: "sliders",
+                desc: "Submersible hydro-static pressure level transducer hanging inside piezometer tube. Provides continuous 24/7 water table depth readings.",
+                power: "24V DC / 4-20mA",
+                flow: "N/A",
+                head: "0 - 100m Depth Range",
+                depth: "-70.0m Probe Depth",
+                logic: "Hydrological Trend Analytics",
+                bus: "SCADA Telemetry"
+            },
+            CV_101: {
+                tag: "CV-101",
+                title: "Check Valve CV-101",
+                icon: "shield-alert",
+                desc: "Spring-loaded non-return valve preventing hydraulic water hammer and backflow into borehole when pump cycles off.",
+                power: "Passive Mechanical",
+                flow: "3.6 m³/h Design",
+                head: "16 Bar Pressure Rating",
+                depth: "Surface Discharge",
+                logic: "Backflow Prevention",
+                bus: "Hydraulic Asset"
+            },
+            AV_101: {
+                tag: "AV-101",
+                title: "Automated Isolation Valve AV-101",
+                icon: "settings",
+                desc: "Motorized ball valve automatically opening upon pump start to ensure smooth pressure build-up and isolate storage tanks when idle.",
+                power: "24V DC Actuator",
+                flow: "Full Bore Porting",
+                head: "10 Bar",
+                depth: "Surface Piping",
+                logic: "Sequenced Open/Close with P-101",
+                bus: "CP-101 SCADA Control"
+            },
+            V_101: {
+                tag: "V-101",
+                title: "Sampling Valve V-101",
+                icon: "droplet",
+                desc: "Manual stainless sampling cock for water quality compliance testing (TDS, pH, turbidity) directly from wellhead output.",
+                power: "Manual",
+                flow: "Sample Stream",
+                head: "N/A",
+                depth: "Surface Manifold",
+                logic: "Water Quality Testing Port",
+                bus: "QA Testing"
+            },
+            CONTROL_PANEL: {
+                tag: "CP-101",
+                title: "VFD & SCADA Control Cabinet CP-101",
+                icon: "cpu",
+                desc: "IP66 outdoor rated cabinet housing 2.2kW VFD, PLC controller, solar hybrid power sync relays, and Modbus RTU SCADA telemetry radio.",
+                power: "400V 3Ph Input / VFD Output",
+                flow: "Automated Speed Control",
+                head: "Dynamic Head Response",
+                depth: "Surface Mount",
+                logic: "Centralized Borehole Automation",
+                bus: "30kWp PV / 60kWh BESS"
+            },
+            TANKS_201: {
+                tag: "TK-201A/B",
+                title: "Dual 10,000L Raw Water Storage Tanks",
+                icon: "database",
+                desc: "Pair of food-grade polyethylene raw water storage tanks providing 20,000L buffer capacity for campus water treatment plant.",
+                power: "N/A",
+                flow: "Combined 20,000L Holding",
+                head: "Atmospheric Storage",
+                depth: "Surface Ground Level",
+                logic: "Level Interlocked Pumping",
+                bus: "Raw Water Buffer"
+            },
+            LSH_201: {
+                tag: "LSH-201",
+                title: "Tank High Level Cutoff LSH-201",
+                icon: "bell",
+                desc: "Ultrasonic / float level switch mounted on TK-201A/B. Signals borehole pump P-101 to shut off when storage tanks reach 95% capacity.",
+                power: "24V Signal",
+                flow: "N/A",
+                head: "Tank Overflow Guard",
+                depth: "+3.0m Tank Top",
+                logic: "Remote Pump Stop Interlock",
+                bus: "SCADA Wireless Link"
+            }
+        };
+
+        // Zoom and Pan State
+        let currentScale = 1.0;
+        let activeView = 'subsurface';
+
+        // Initialize icons and event handlers
+        window.onload = function() {
+            lucide.createIcons();
+            setupHoverEvents();
+            setupMouseCoordinates();
+        };
+
+        // Switch Viewport Tabs
+        function switchView(view) {
+            activeView = view;
+            const subWrapper = document.getElementById('svg-subsurface-wrapper');
+            const pidWrapper = document.getElementById('svg-pid-wrapper');
+            const tabSub = document.getElementById('tab-subsurface');
+            const tabPid = document.getElementById('tab-pid');
+
+            if (view === 'subsurface') {
+                subWrapper.classList.remove('hidden');
+                pidWrapper.classList.add('hidden');
+                
+                tabSub.className = "px-3 py-1.5 rounded-md flex items-center space-x-2 transition-all bg-teal-500/20 text-teal-300 border border-teal-500/40";
+                tabPid.className = "px-3 py-1.5 rounded-md flex items-center space-x-2 transition-all text-slate-400 hover:text-slate-200";
+            } else {
+                subWrapper.classList.add('hidden');
+                pidWrapper.classList.remove('hidden');
+
+                tabPid.className = "px-3 py-1.5 rounded-md flex items-center space-x-2 transition-all bg-teal-500/20 text-teal-300 border border-teal-500/40";
+                tabSub.className = "px-3 py-1.5 rounded-md flex items-center space-x-2 transition-all text-slate-400 hover:text-slate-200";
+            }
+            resetZoom();
+        }
+
+        // Setup CAD Hover Inspector
+        function setupHoverEvents() {
+            const interactiveElems = document.querySelectorAll('.cad-interactive');
+            
+            interactiveElems.forEach(elem => {
+                elem.addEventListener('mouseenter', function() {
+                    const compKey = this.getAttribute('data-comp');
+                    if (COMPONENT_DATA[compKey]) {
+                        updateInspector(COMPONENT_DATA[compKey]);
+                        highlightActiveElement(compKey);
+                    }
+                });
+
+                elem.addEventListener('mouseleave', function() {
+                    clearHighlights();
+                });
+            });
+        }
+
+        // Update Inspector Sidebar Specs
+        function updateInspector(data) {
+            document.getElementById('comp-tag').textContent = data.tag;
+            document.getElementById('comp-title').textContent = data.title;
+            document.getElementById('comp-desc').textContent = data.desc;
+            
+            document.getElementById('spec-power').textContent = data.power;
+            document.getElementById('spec-flow').textContent = data.flow;
+            document.getElementById('spec-head').textContent = data.head;
+            document.getElementById('spec-depth').textContent = data.depth;
+            document.getElementById('spec-logic').textContent = data.logic;
+            document.getElementById('spec-power-bus').textContent = data.bus;
+
+            // Dynamically refresh lucide icon
+            const iconContainer = document.getElementById('comp-icon');
+            iconContainer.setAttribute('data-lucide', data.icon);
+            lucide.createIcons();
+        }
+
+        // Highlight Active Hover Components Across Diagrams
+        function highlightActiveElement(compKey) {
+            const targets = document.querySelectorAll(`[data-comp="${compKey}"]`);
+            targets.forEach(el => {
+                el.classList.add('cad-interactive-active');
+            });
+        }
+
+        function clearHighlights() {
+            const targets = document.querySelectorAll('.cad-interactive-active');
+            targets.forEach(el => {
+                el.classList.remove('cad-interactive-active');
+            });
+        }
+
+        // CAD Viewport Zoom Controls
+        function zoomCAD(factor) {
+            currentScale *= factor;
+            currentScale = Math.min(Math.max(currentScale, 0.6), 3.0);
+            applyTransform();
+        }
+
+        function resetZoom() {
+            currentScale = 1.0;
+            applyTransform();
+        }
+
+        function applyTransform() {
+            const subWrapper = document.getElementById('svg-subsurface-wrapper');
+            const pidWrapper = document.getElementById('svg-pid-wrapper');
+            const target = activeView === 'subsurface' ? subWrapper : pidWrapper;
+            
+            target.style.transform = `scale(${currentScale})`;
+            document.getElementById('zoom-level').textContent = `SCALE: 1:${Math.round(100 / currentScale)}`;
+        }
+
+        // Layer Visibility Toggles
+        function toggleLayer(layerName) {
+            const isChecked = document.getElementById(`layer-${layerName}`).checked;
+            
+            let elementId = '';
+            switch(layerName) {
+                case 'geology':
+                    elementId = 'grp-geology';
+                    break;
+                case 'hydraulics':
+                    elementId = 'grp-hydraulics';
+                    break;
+                case 'isa':
+                    elementId = 'grp-isa';
+                    break;
+                case 'electrical':
+                    elementId = 'grp-electrical';
+                    break;
+            }
+
+            const layerGroup = document.getElementById(elementId);
+            if (layerGroup) {
+                layerGroup.style.display = isChecked ? 'inline' : 'none';
+            }
+        }
+
+        // Live Coordinate Tracker
+        function setupMouseCoordinates() {
+            const viewport = document.getElementById('viewport-container');
+            viewport.addEventListener('mousemove', function(e) {
+                const rect = viewport.getBoundingClientRect();
+                const x = Math.round(e.clientX - rect.left);
+                const y = Math.round(e.clientY - rect.top);
+                
+                document.getElementById('mouse-x').textContent = x;
+                document.getElementById('mouse-y').textContent = y;
+            });
+        }
+    </script>
+
+</body></html>

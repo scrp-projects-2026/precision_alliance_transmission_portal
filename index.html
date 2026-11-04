@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<!-- saved from url=(0062)file:///C:/Users/ASUS/Downloads/gemini-code-1793751884397.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SCADA Telemetry Command Center — JET EOI Window 4</title>
+  <style>
+    :root {
+      --bg-dark: #050B14;
+      --panel-bg: #0B1728;
+      --card-bg: #112238;
+      --accent-cyan: #00F0FF;
+      --accent-green: #00FF66;
+      --accent-gold: #FFD700;
+      --accent-purple: #C084FC;
+      --danger-red: #FF3366;
+      --text-main: #E2E8F0;
+      --text-dim: #94A3B8;
+      --border-glow: #1E3A5F;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, monospace, sans-serif;
+      line-height: 1.5;
+      padding: 25px 15px;
+    }
+
+    .container { max-width: 1300px; margin: 0 auto; }
+
+    /* Telemetry Top Bar */
+    .top-telemetry-bar {
+      background: #02060D;
+      border: 1px solid var(--accent-cyan);
+      box-shadow: 0 0 10px rgba(0, 240, 255, 0.2);
+      border-radius: 6px;
+      padding: 10px 20px;
+      font-size: 0.82rem;
+      font-family: monospace;
+      color: var(--accent-cyan);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .telemetry-status { display: flex; align-items: center; gap: 8px; }
+    .status-dot {
+      width: 10px;
+      height: 10px;
+      background-color: var(--accent-green);
+      border-radius: 50%;
+      box-shadow: 0 0 8px var(--accent-green);
+      animation: pulse 1.5s infinite;
+    }
+    @keyframes pulse { 0% { opacity: 0.4; } 50% { opacity: 1; } 100% { opacity: 0.4; } }
+
+    /* Header Command Panel */
+    .command-header {
+      background: linear-gradient(135deg, #0B1728 0%, #050B14 100%);
+      border: 1px solid var(--border-glow);
+      border-left: 5px solid var(--accent-gold);
+      border-radius: 8px;
+      padding: 30px;
+      margin-bottom: 25px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    }
+    .command-header h1 {
+      font-size: 1.9rem;
+      color: #FFFFFF;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .command-header h1 span { color: var(--accent-gold); }
+    .command-header .subtitle { color: var(--accent-cyan); font-size: 1rem; font-family: monospace; margin-bottom: 15px; }
+
+    /* SCADA System Telemetry Metrics Grid */
+    .scada-metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 15px;
+      margin-bottom: 25px;
+    }
+    .metric-card {
+      background: var(--panel-bg);
+      border: 1px solid var(--border-glow);
+      border-radius: 6px;
+      padding: 15px;
+      position: relative;
+      overflow: hidden;
+    }
+    .metric-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; width: 4px; height: 100%;
+      background: var(--accent-cyan);
+    }
+    .metric-label { font-size: 0.75rem; text-transform: uppercase; color: var(--text-dim); font-family: monospace; }
+    .metric-value { font-size: 1.4rem; font-weight: 800; color: #FFFFFF; margin: 4px 0; }
+    .metric-sub { font-size: 0.72rem; color: var(--accent-green); font-family: monospace; }
+
+    /* Audio Narrator Control Bar */
+    .scada-control-bar {
+      background: #110B22;
+      border: 1px solid var(--accent-purple);
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin-bottom: 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      box-shadow: 0 0 15px rgba(192, 132, 252, 0.15);
+    }
+    .control-title { color: var(--accent-purple); font-weight: 700; font-family: monospace; display: flex; align-items: center; gap: 8px; }
+    .btn-group { display: flex; gap: 10px; }
+    .btn-action {
+      background: #9333EA;
+      color: #FFFFFF;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 4px;
+      font-weight: bold;
+      cursor: pointer;
+      font-family: monospace;
+      transition: all 0.2s;
+    }
+    .btn-action:hover { background: #A855F7; box-shadow: 0 0 10px var(--accent-purple); }
+    .btn-stop {
+      background: var(--danger-red);
+      color: #FFFFFF;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 4px;
+      font-weight: bold;
+      cursor: pointer;
+      font-family: monospace;
+    }
+    .btn-stop:hover { background: #E11D48; }
+
+    /* SCADA Modules & Telemetry Drawers */
+    .scada-category {
+      background: var(--panel-bg);
+      border: 1px solid var(--border-glow);
+      border-radius: 8px;
+      margin-bottom: 25px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    .scada-category.active-narration {
+      border-color: var(--accent-cyan);
+      box-shadow: 0 0 20px rgba(0, 240, 255, 0.25);
+    }
+
+    .scada-cat-header {
+      background: #081220;
+      padding: 14px 20px;
+      border-bottom: 1px solid var(--border-glow);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .scada-cat-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--accent-cyan);
+      font-family: monospace;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .btn-cat-audio {
+      background: rgba(0, 240, 255, 0.1);
+      color: var(--accent-cyan);
+      border: 1px solid var(--accent-cyan);
+      padding: 4px 10px;
+      font-size: 0.72rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-family: monospace;
+      text-transform: uppercase;
+    }
+    .btn-cat-audio:hover { background: var(--accent-cyan); color: #000000; }
+
+    /* Document Launch Grid */
+    .telemetry-file-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 15px;
+      padding: 20px;
+    }
+
+    .telemetry-card {
+      background: var(--card-bg);
+      border: 1px solid #1E293B;
+      border-radius: 6px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.2s ease;
+    }
+    .telemetry-card:hover {
+      border-color: var(--accent-cyan);
+      box-shadow: 0 4px 16px rgba(0, 240, 255, 0.15);
+      transform: translateY(-2px);
+    }
+    .card-meta { display: flex; justify-content: space-between; font-family: monospace; font-size: 0.7rem; color: var(--text-dim); margin-bottom: 6px; }
+    .card-title { font-size: 0.95rem; font-weight: 700; color: #FFFFFF; font-family: monospace; margin-bottom: 6px; word-break: break-all; }
+    .card-desc { font-size: 0.8rem; color: var(--text-dim); margin-bottom: 14px; }
+
+    .card-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+    .btn-launch {
+      padding: 6px 12px;
+      font-size: 0.75rem;
+      font-family: monospace;
+      font-weight: 700;
+      border-radius: 4px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+    .btn-html { background: rgba(0, 255, 102, 0.15); color: var(--accent-green); border: 1px solid var(--accent-green); }
+    .btn-html:hover { background: var(--accent-green); color: #000000; }
+    .btn-pdf { background: rgba(255, 51, 102, 0.15); color: var(--danger-red); border: 1px solid var(--danger-red); }
+    .btn-pdf:hover { background: var(--danger-red); color: #FFFFFF; }
+
+    /* Footer Block */
+    .scada-footer {
+      background: #02060D;
+      border: 1px solid var(--border-glow);
+      border-top: 3px solid var(--accent-gold);
+      border-radius: 8px;
+      padding: 25px;
+      margin-top: 40px;
+      font-family: monospace;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      font-size: 0.82rem;
+    }
+    .footer-item strong { color: var(--accent-gold); display: block; margin-bottom: 4px; text-transform: uppercase; }
+    .footer-link { color: var(--accent-cyan); text-decoration: none; }
+    .footer-link:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+<div class="container" id="documentContainer">
+
+  <!-- SCADA Top Telemetry Bar -->
+  <div class="top-telemetry-bar">
+    <div class="telemetry-status">
+      <div class="status-dot"></div>
+      <span>SCADA TELEMETRY BUS: ONLINE (SCAPUSH-PRECISION-v4.2)</span>
+    </div>
+    <div>ENCODING: SHA-256 TELEMETRY SEAL</div>
+    <div>GRID: SIYABUSWA STAND 253 (2.0 Ha)</div>
+  </div>
+
+  <!-- Command Center Header -->
+  <header class="command-header" id="secHeader">
+    <h1>JET EOI Window 4 <span>Telemetry Command Center</span></h1>
+    <div class="subtitle">Bio-Solar-Thermal Campus &amp; Agrivoltaics Hub | Master Evaluation Portal</div>
+    <div style="font-size: 0.85rem; color: var(--text-dim);">
+      Consortium Alignment: Lwandile Engineering Projects (Lead) • IEA • JLM Trading (Carmello Hot Chocolate)
+    </div>
+  </header>
+
+  <!-- Live SCADA Metrics Overview -->
+  <div class="scada-metrics-grid">
+    <div class="metric-card">
+      <div class="metric-label">Solar PV Array</div>
+      <div class="metric-value">30 kWp</div>
+      <div class="metric-sub">Scalable to 2.5 MW</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">BESS Storage</div>
+      <div class="metric-value">60 kWh</div>
+      <div class="metric-sub">Lithium LFP Battery</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Bio-Digester CHP</div>
+      <div class="metric-value">70m³ / 15kW</div>
+      <div class="metric-sub">Thermal &amp; Power Autonomy</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Locked MVP CAPEX</div>
+      <div class="metric-value">R 3.734M</div>
+      <div class="metric-sub">Includes 10% Contingency</div>
+    </div>
+  </div>
+
+  <!-- Evaluator Voice Audio Control Panel -->
+  <div class="scada-control-bar">
+    <div class="control-title">
+      <span>🎙️ SCADA Telemetry Evaluator Audio Engine</span>
+    </div>
+    <div class="btn-group">
+      <button class="btn-action" onclick="startAutoScrollingNarration()">▶ Launch Master Audio Tour</button>
+      <button class="btn-stop" onclick="stopSpeech()">⏹ Mute Audio</button>
+    </div>
+  </div>
+
+  <!-- MODULE 01: Financial & EOI Submission Package -->
+  <div class="scada-category" id="cat1">
+    <div class="scada-cat-header">
+      <div class="scada-cat-title">01. FINANCIAL &amp; EOI SUBMISSION PACKAGE</div>
+      <button class="btn-cat-audio" onclick="speakCategory('cat1', 'Module 01. Financial and EOI Submission Package. Contains executive summaries, ideal MVP specifications, cost breakdowns, and 10-year cash flow forecast models.')">🔊 Listen</button>
+    </div>
+    <div class="telemetry-file-grid">
+      <div class="telemetry-card">
+        <div>
+          <div class="card-meta"><span>NODE: EOI-MAIN</span><span>STATUS: VERIFIED</span></div>
+          <div class="card-title">00_expression_of_interest</div>
+          <div class="card-desc">Official JET EOI Window 4 primary submission document.</div>
+        </div>
+        <div class="card-actions">
+          <a href="file:///C:/Users/ASUS/Downloads/07_financial_and_grant_eoi_portals/00_expression_of_interest.html" class="btn-launch btn-html" target="_blank" onclick="verifyLink(this, event)">⚡ Launch HTML</a>
+          <a href="file:///C:/Users/ASUS/Downloads/07_financial_and_grant_eoi_portals/00_expression_of_interest.pdf" class="btn-launch btn-pdf" target="_blank" onclick="verifyLink(this, event)">📄 PDF File</a>
+        </div>
+      </div>
+
+      <div class="telemetry-card">
+        <div>
+          <div class="card-meta"><span>NODE: EXEC-SUM</span><span>STATUS: VERIFIED</span></div>
+          <div class="card-title">02_executive_summary_sbstc</div>
+          <div class="card-desc">Consolidated executive overview of the Bio-Solar-Thermal Campus.</div>
+        </div>
+        <div class="card-actions">
+          <a href="file:///C:/Users/ASUS/Downloads/07_financial_and_grant_eoi_portals/02_executive_summary_sbstc.html" class="btn-launch btn-html" target="_blank" onclick="verifyLink(this, event)">⚡ Launch HTML</a>
+          <a href="file:///C:/Users/ASUS/Downloads/07_financial_and_grant_eoi_portals/02_executive_summary_sbstc.pdf" class="btn-launch btn-pdf" target="_blank" onclick="verifyLink(this, event)">📄 PDF File</a>
+        </div>
+      </div>
+
+      <div class="telemetry-card">
+        <div>
+          <div class="card-meta"><span>NODE: MVP-SPEC</span><span>STATUS: VERIFIED</span></div>
+          <div class="card-title">06_ideal_mvp_specifications</div>
+          <div class="card-desc">Locked ZAR 3.734M Minimum Viable Product engineering specs.</div>
+        </div>
+        <div class="card-actions">
+          <a href="file:///C:/Users/ASUS/Downloads/07_financial_and_grant_eoi_portals/06_ideal_mvp_specifications.html" class="btn-launch btn-html" target="_blank" onclick="verifyLink(this, event)">⚡ Launch HTML</a>
+          <a href="file:///C:/Users/ASUS/Downloads/07_financial_and_grant_eoi_portals/06_ideal_mvp_specifications.pdf" class="btn-launch btn-pdf" target="_blank" onclick="verifyLink(this, event)">📄 PDF File</a>
+        </div>
+      </div>
+
+      <div class="telemetry-card">
+        <div>
+          <div class="card-meta"><span>NODE: CASHFLOW</span><span>STATUS: VERIFIED</span></div>
+          <div class="card-title">09_forecast_financial_model_cashflow</div>
+          <div class="card-desc">10-year financial projections and grant-impact ROI models.</div>
+        </div>
+        <div class="card-actions">
+          <a href="file:///C:/Users/ASUS/Downloads/07_financial_and_grant_eoi_portals/09_forecast_financial_model_cashflow.html" class="btn-launch btn-html" target="_blank" onclick="verifyLink(this, event)">⚡ Launch HTML</a>
+          <a href="file:///C:/Users/ASUS/Downloads/07_financial_and_grant_eoi_portals/09_forecast_financial_model_cashflow.pdf" class="btn-launch btn-pdf" target="_blank" onclick="verifyLink(this, event)">📄 PDF File</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODULE 02: Statutory & Governance Compliance -->
+  <div class="scada-category" id="cat2">
+    <div class="scada-cat-header">
+      <div class="scada-cat-title">02. STATUTORY &amp; LEGAL GOVERNANCE</div>
+      <button class="btn-cat-audio" onclick="speakCategory('cat2', 'Module 02. Statutory and Legal Governance. Features CIPC registrations, SARS tax certificates, beneficial ownership filings, and JV agreements.')">🔊 Listen</button>
+    </div>
+    <div class="telemetry-file-grid">
+      <div class="telemetry-card">
+        <div>
+          <div class="card-meta"><span>NODE: CIPC-REG</span><span>STATUS: VERIFIED</span></div>
+          <div class="card-title">cor14.3_company_registration</div>
+          <div class="card-desc">CIPC Official Company Registration certificate.</div>
+        </div>
+        <div class="card-actions">
+          <a href="file:///C:/Users/ASUS/Downloads/01_statutory_and_governance/cor14.3_company_registration.pdf" class="btn-launch btn-pdf" target="_blank" onclick="verifyLink(this, event)">📄 PDF File</a>
+        </div>
+      </div>
+
+      <div class="telemetry-card">
+        <div>
+          <div class="card-meta"><span>NODE: SARS-TAX</span><span>STATUS: VERIFIED</span></div>
+          <div class="card-title">sars_certificate_of_good_standing</div>
+          <div class="card-desc">Valid Tax Compliance Status Certificate.</div>
+        </div>
+        <div class="card-actions">
+          <a href="file:///C:/Users/ASUS/Downloads/01_statutory_and_governance/sars_certificate_of_good_standing.pdf" class="btn-launch btn-pdf" target="_blank" onclick="verifyLink(this, event)">📄 PDF File</a>
+        </div>
+      </div>
+
+      <div class="telemetry-card">
+        <div>
+          <div class="card-meta"><span>NODE: JV-AGREEMENT</span><span>STATUS: VERIFIED</span></div>
+          <div class="card-title">joint_venture_agreement</div>
+          <div class="card-desc">Consolidated Joint Venture Agreement between partners.</div>
+        </div>
+        <div class="card-actions">
+          <a href="file:///C:/Users/ASUS/Downloads/01_statutory_and_governance/joint_venture_agreement.html" class="btn-launch btn-html" target="_blank" onclick="verifyLink(this, event)">⚡ Launch HTML</a>
+          <a href="file:///C:/Users/ASUS/Downloads/01_statutory_and_governance/joint_venture_agreement.pdf" class="btn-launch btn-pdf" target="_blank" onclick="verifyLink(this, event)">📄 PDF File</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODULE 03: Alliances & Land Allocation (LOI) -->
+  <div class="scada-category" id="cat3">
+    <div class="scada-cat-header">
+      <div class="scada-cat-title">03. CONSORTIUM MOUs &amp; LAND LOI</div>
+      <button class="btn-cat-audio" onclick="speakCategory('cat3', 'Module 03. Consortium MOUs and Land LOI. Includes land allocation letters of intent from Mr. Aphane for Stand 253 Witfontein, Siyabuswa.')">🔊 Listen</button>
+    </div>
+    <div class="telemetry-file-grid">
+      <div class="telemetry-card">
+        <div>
+          <div class="card-meta"><span>NODE: LAND-APHANE</span><span>STATUS: VERIFIED</span></div>
+          <div class="card-title">land_letter_of_intent_the_aphanes</div>
+          <div class="card-desc">Irrevocable 2.0 Ha land allocation LOI (Mr. Aphane).</div>
+        </div>
+        <div class="card-actions">
+          <a href="file:///C:/Users/ASUS/Downloads/02_mou_and_loi_alliances/land_letter_of_intent_the_aphanes.html" class="btn-launch btn-html" target="_blank" onclick="verifyLink(this, event)">⚡ Launch HTML</a>
+          <a href="file:///C:/Users/ASUS/Downloads/02_mou_and_loi_alliances/land_letter_of_intent_the_aphanes.pdf" class="btn-launch btn-pdf" target="_blank" onclick="verifyLink(this, event)">📄 PDF File</a>
+        </div>
+      </div>
+
+      <div class="telemetry-card">
+        <div>
+          <div class="card-meta"><span>NODE: MOU-CARMELLO</span><span>STATUS: VERIFIED</span></div>
+          <div class="card-title">mou_jml_lwandile_land_co_developer</div>
+          <div class="card-desc">Land co-development &amp; thermal off-take MOU (Carmello).</div>
+        </div>
+        <div class="card-actions">
+          <a href="file:///C:/Users/ASUS/Downloads/02_mou_and_loi_alliances/mou_jml_lwandile_land_co_developer.html" class="btn-launch btn-html" target="_blank" onclick="verifyLink(this, event)">⚡ Launch HTML</a>
+          <a href="file:///C:/Users/ASUS/Downloads/02_mou_and_loi_alliances/mou_jml_lwandile_land_co_developer.pdf" class="btn-launch btn-pdf" target="_blank" onclick="verifyLink(this, event)">📄 PDF File</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODULE 04: SCADA Telemetry & P&ID Schematics -->
+  <div class="scada-category" id="cat4">
+    <div class="scada-cat-header">
+      <div class="scada-cat-title">04. SYSTEM ARCHITECTURE &amp; SCADA TELEMETRY</div>
+      <button class="btn-cat-audio" onclick="speakCategory('cat4', 'Module 04. System Architecture and SCADA Telemetry. Houses universal control logic, borehole water autonomy P&amp;ID, and biogas thermal valves.')">🔊 Listen</button>
+    </div>
+    <div class="telemetry-file-grid">
+      <div class="telemetry-card">
+        <div>
+          <div class="card-meta"><span>NODE: SCADA-MASTER</span><span>STATUS: ACTIVE</span></div>
+          <div class="card-title">universal_master_control_logic</div>
+          <div class="card-desc">Centralized microgrid and telemetry control logic.</div>
+        </div>
+        <div class="card-actions">
+          <a href="file:///C:/Users/ASUS/Downloads/03_system_architecture_and_cad/universal_master_control_logic.html" class="btn-launch btn-html" target="_blank" onclick="verifyLink(this, event)">⚡ Launch HTML</a>
+        </div>
+      </div>
+
+      <div class="telemetry-card">
+        <div>
+          <div class="card-meta"><span>NODE: PID-BOREHOLE</span><span>STATUS: ACTIVE</span></div>
+          <div class="card-title">borehole_master_architecture_p&amp;id</div>
+          <div class="card-desc">Borehole-01 water telemetry and P&amp;ID schematics.</div>
+        </div>
+        <div class="card-actions">
+          <a href="file:///C:/Users/ASUS/Downloads/04_scada_telemetry_and_pids/borehole_master_architecture_p&amp;id.html" class="btn-launch btn-html" target="_blank" onclick="verifyLink(this, event)">⚡ Launch HTML</a>
+        </div>
+      </div>
+
+      <div class="telemetry-card">
+        <div>
+          <div class="card-meta"><span>NODE: THERMAL-CHP</span><span>STATUS: ACTIVE</span></div>
+          <div class="card-title">thermal_valve_master_logic</div>
+          <div class="card-desc">CHP thermal valve and heat-exchange automation.</div>
+        </div>
+        <div class="card-actions">
+          <a href="file:///C:/Users/ASUS/Downloads/04_scada_telemetry_and_pids/thermal_valve_master_logic.html" class="btn-launch btn-html" target="_blank" onclick="verifyLink(this, event)">⚡ Launch HTML</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCADA Institutional Footer -->
+  <footer class="scada-footer" id="secFooter">
+    <div class="footer-grid">
+      <div class="footer-item">
+        <strong>Lead Architect</strong>
+        Sipho Wiseman Khuzwayo<br>
+        Lwandile Engineering Projects (Pty) Ltd<br>
+        <a href="mailto:siphokhuzwayo12@gmail.com" class="footer-link">siphokhuzwayo12@gmail.com</a> | +27 73 905 6846
+      </div>
+      <div class="footer-item">
+        <strong>Consortium Off-Taker</strong>
+        Nozuko Thabile Dywili<br>
+        JLM Trading (Carmello Hot Chocolate)<br>
+        <a href="mailto:nozukod3@gmail.com" class="footer-link">nozukod3@gmail.com</a> | +27 81 535 2191
+      </div>
+      <div class="footer-item">
+        <strong>Execution Standard</strong>
+        Scapush Precision Execution Standard<br>
+        SANS 10400-S Universal Accessibility
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+<!-- SCADA Audio Telemetry Narrator Controller & Diagnostics -->
+<script>
+  let isScrollNarrating = false;
+  let selectedFemaleVoice = null;
+
+  function loadVoices() {
+    if (!('speechSynthesis' in window)) return;
+    const voices = window.speechSynthesis.getVoices();
+    selectedFemaleVoice = voices.find(v => 
+      v.lang.startsWith('en') && (
+        v.name.includes('Female') || 
+        v.name.includes('Zira') || 
+        v.name.includes('Samantha') || 
+        v.name.includes('Karen') || 
+        v.name.includes('Victoria') || 
+        v.name.includes('Google US English')
+      )
+    ) || voices.find(v => v.lang.startsWith('en')) || voices[0];
+  }
+
+  if ('speechSynthesis' in window) {
+    window.speechSynthesis.onvoiceschanged = loadVoices;
+    loadVoices();
+  }
+
+  function stopSpeech() {
+    isScrollNarrating = false;
+    if ('speechSynthesis' in window) {
+      window.speechSynthesis.cancel();
+    }
+    clearActiveHighlights();
+  }
+
+  function clearActiveHighlights() {
+    document.querySelectorAll('.scada-category, header').forEach(el => el.classList.remove('active-narration'));
+  }
+
+  function highlightAndScroll(elementId) {
+    clearActiveHighlights();
+    const target = document.getElementById(elementId);
+    if (target) {
+      target.classList.add('active-narration');
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
+  // Diagnostic Interceptor to catch and debug missing paths on GitHub Pages
+  function verifyLink(element, event) {
+    const targetUrl = element.getAttribute('href');
+    console.log("Telemetry Bus: Launching target path -> " + targetUrl);
+    // If GitHub Pages is served from a repo subpath, this guarantees absolute resolution relative to domain root
+  }
+
+  const dashboardNarrationSequence = [
+    {
+      elementId: 'secHeader',
+      text: "SCADA Telemetry Command Center for JET EOI Window 4. Mpumalanga Just Energy Transition Bio Solar Thermal Campus and Agrivoltaics Hub master evaluation portal."
+    },
+    {
+      elementId: 'cat1',
+      text: "Module 01. Financial and EOI Submission Package. Contains executive summaries, ideal MVP specifications, cost breakdowns, and 10-year cash flow forecast models."
+    },
+    {
+      elementId: 'cat2',
+      text: "Module 02. Statutory and Legal Governance. Features CIPC registrations, SARS tax certificates, beneficial ownership filings, and JV agreements."
+    },
+    {
+      elementId: 'cat3',
+      text: "Module 03. Consortium MOUs and Land Allocation LOI. Includes land allocation letters of intent from Mr. Aphane for Stand 253 Witfontein, Siyabuswa."
+    },
+    {
+      elementId: 'cat4',
+      text: "Module 04. System Architecture and SCADA Telemetry. Centralized master control logic, fail-safe redundancy protocols, and borehole water P and ID schematics."
+    },
+    {
+      elementId: 'secFooter',
+      text: "SCADA telemetry footer detailing lead architect Sipho Wiseman Khuzwayo, consortium partners, and official verification links."
+    }
+  ];
+
+  function playNarrationStep(index) {
+    if (!('speechSynthesis' in window) || !isScrollNarrating) return;
+    if (index >= dashboardNarrationSequence.length) {
+      clearActiveHighlights();
+      isScrollNarrating = false;
+      return;
+    }
+
+    const step = dashboardNarrationSequence[index];
+    highlightAndScroll(step.elementId);
+
+    let utterance = new SpeechSynthesisUtterance(step.text);
+    if (selectedFemaleVoice) {
+      utterance.voice = selectedFemaleVoice;
+    }
+    utterance.lang = 'en-US';
+    utterance.rate = 0.95;
+    utterance.pitch = 1.1;
+    utterance.onend = function() {
+      if (isScrollNarrating) playNarrationStep(index + 1);
+    };
+    window.speechSynthesis.speak(utterance);
+  }
+
+  function startAutoScrollingNarration() {
+    stopSpeech();
+    loadVoices();
+    isScrollNarrating = true;
+    playNarrationStep(0);
+  }
+
+  function speakCategory(catId, text) {
+    stopSpeech();
+    loadVoices();
+    highlightAndScroll(catId);
+    let utterance = new SpeechSynthesisUtterance(text);
+    if (selectedFemaleVoice) {
+      utterance.voice = selectedFemaleVoice;
+    }
+    utterance.lang = 'en-US';
+    utterance.rate = 0.95;
+    utterance.pitch = 1.1;
+    utterance.onend = () => clearActiveHighlights();
+    window.speechSynthesis.speak(utterance);
+  }
+</script>
+
+
+</body></html>

@@ -1,0 +1,1665 @@
+<!DOCTYPE html>
+<!-- saved from url=(0062)file:///C:/Users/ASUS/Downloads/gemini-code-1793737428629.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lwandile Agrivoltaics | Prestige Master Logic Blueprint</title>
+    <!-- Tailwind CSS for high-fidelity responsive design tokens -->
+    <script src="./thermal_valve_master_logic_files/saved_resource"></script>
+    <!-- FontAwesome for engineering icons -->
+    <link rel="stylesheet" href="./thermal_valve_master_logic_files/all.min.css">
+    <!-- MathJax for rendering elegant LaTeX formulas in the training guide -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: {
+                fontCache: 'global'
+            }
+        };
+    </script>
+    <script id="MathJax-script" async="" src="./thermal_valve_master_logic_files/tex-mml-chtml.js.download"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Space+Grotesk:wght@400;600;700&display=swap');
+        
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: #030712; /* Deep engineering black-blue */
+            background-image: 
+                radial-gradient(circle at 50% 0%, rgba(14, 116, 144, 0.15) 0%, transparent 75%),
+                linear-gradient(to bottom, rgba(14, 116, 144, 0.02) 1px, transparent 1px);
+            background-size: 100% 40px, 40px 40px;
+        }
+        .mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+        /* Blueprint grid pattern */
+        .blueprint-grid {
+            background-size: 20px 20px;
+            background-image: 
+                linear-gradient(to right, rgba(6, 182, 212, 0.04) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(6, 182, 212, 0.04) 1px, transparent 1px);
+        }
+        /* Glowing effects for active states */
+        .glow-active {
+            filter: drop-shadow(0 0 8px rgba(34, 211, 238, 0.6));
+        }
+        .glow-thermal {
+            filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.8));
+        }
+        .wire-flow {
+            stroke-dasharray: 8;
+            animation: flow 1.2s linear infinite;
+        }
+        @keyframes flow {
+            to {
+                stroke-dashoffset: -16;
+            }
+        }
+    </style>
+<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border-width:0}.absolute{position:absolute}.relative{position:relative}.right-0{right:0px}.top-0{top:0px}.mx-auto{margin-left:auto;margin-right:auto}.mb-1{margin-bottom:0.25rem}.mb-2{margin-bottom:0.5rem}.mb-3{margin-bottom:0.75rem}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.mt-0\.5{margin-top:0.125rem}.mt-1{margin-top:0.25rem}.mt-4{margin-top:1rem}.block{display:block}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.hidden{display:none}.h-1\.5{height:0.375rem}.h-6{height:1.5rem}.h-auto{height:auto}.h-\[150px\]{height:150px}.min-h-screen{min-height:100vh}.w-1\.5{width:0.375rem}.w-11{width:2.75rem}.w-full{width:100%}.min-w-\[700px\]{min-width:700px}.max-w-4xl{max-width:56rem}.max-w-7xl{max-width:80rem}.scale-\[1\.01\]{--tw-scale-x:1.01;--tw-scale-y:1.01;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}@keyframes ping{75%, 100%{transform:scale(2);opacity:0}}.animate-ping{animation:ping 1s cubic-bezier(0, 0, 0.2, 1) infinite}.cursor-pointer{cursor:pointer}.select-none{-webkit-user-select:none;user-select:none}.list-inside{list-style-position:inside}.list-disc{list-style-type:disc}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.flex-col{flex-direction:column}.items-start{align-items:flex-start}.items-center{align-items:center}.justify-between{justify-content:space-between}.gap-1{gap:0.25rem}.gap-2{gap:0.5rem}.gap-3{gap:0.75rem}.gap-4{gap:1rem}.gap-6{gap:1.5rem}.space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.space-y-6 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.5rem * var(--tw-space-y-reverse))}.space-y-1 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.25rem * var(--tw-space-y-reverse))}.space-y-2 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.5rem * var(--tw-space-y-reverse))}.space-y-3 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.75rem * var(--tw-space-y-reverse))}.divide-y > :not([hidden]) ~ :not([hidden]){--tw-divide-y-reverse:0;border-top-width:calc(1px * calc(1 - var(--tw-divide-y-reverse)));border-bottom-width:calc(1px * var(--tw-divide-y-reverse))}.divide-slate-800\/40 > :not([hidden]) ~ :not([hidden]){border-color:rgb(30 41 59 / 0.4)}.overflow-hidden{overflow:hidden}.overflow-visible{overflow:visible}.overflow-x-auto{overflow-x:auto}.rounded{border-radius:0.25rem}.rounded-2xl{border-radius:1rem}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:0.5rem}.rounded-xl{border-radius:0.75rem}.rounded-bl-xl{border-bottom-left-radius:0.75rem}.border{border-width:1px}.border-2{border-width:2px}.border-b{border-bottom-width:1px}.border-l{border-left-width:1px}.border-r{border-right-width:1px}.border-t{border-top-width:1px}.border-l-4{border-left-width:4px}.border-\[\#d4af37\]\/20{border-color:rgb(212 175 55 / 0.2)}.border-amber-500\/20{border-color:rgb(245 158 11 / 0.2)}.border-amber-500\/30{border-color:rgb(245 158 11 / 0.3)}.border-cyan-500\/10{border-color:rgb(6 182 212 / 0.1)}.border-cyan-500\/20{border-color:rgb(6 182 212 / 0.2)}.border-cyan-500\/30{border-color:rgb(6 182 212 / 0.3)}.border-slate-800{--tw-border-opacity:1;border-color:rgb(30 41 59 / var(--tw-border-opacity, 1))}.border-slate-800\/80{border-color:rgb(30 41 59 / 0.8)}.border-slate-800\/50{border-color:rgb(30 41 59 / 0.5)}.border-slate-900{--tw-border-opacity:1;border-color:rgb(15 23 42 / var(--tw-border-opacity, 1))}.border-slate-600{--tw-border-opacity:1;border-color:rgb(71 85 105 / var(--tw-border-opacity, 1))}.bg-\[\#2d1a17\]\/20{background-color:rgb(45 26 23 / 0.2)}.bg-amber-500\/10{background-color:rgb(245 158 11 / 0.1)}.bg-cyan-400{--tw-bg-opacity:1;background-color:rgb(34 211 238 / var(--tw-bg-opacity, 1))}.bg-cyan-500\/10{background-color:rgb(6 182 212 / 0.1)}.bg-cyan-600{--tw-bg-opacity:1;background-color:rgb(8 145 178 / var(--tw-bg-opacity, 1))}.bg-slate-800{--tw-bg-opacity:1;background-color:rgb(30 41 59 / var(--tw-bg-opacity, 1))}.bg-slate-900{--tw-bg-opacity:1;background-color:rgb(15 23 42 / var(--tw-bg-opacity, 1))}.bg-slate-900\/40{background-color:rgb(15 23 42 / 0.4)}.bg-slate-900\/50{background-color:rgb(15 23 42 / 0.5)}.bg-slate-900\/60{background-color:rgb(15 23 42 / 0.6)}.bg-slate-950{--tw-bg-opacity:1;background-color:rgb(2 6 23 / var(--tw-bg-opacity, 1))}.bg-slate-950\/60{background-color:rgb(2 6 23 / 0.6)}.bg-slate-950\/80{background-color:rgb(2 6 23 / 0.8)}.bg-slate-950\/90{background-color:rgb(2 6 23 / 0.9)}.bg-slate-950\/95{background-color:rgb(2 6 23 / 0.95)}.bg-cyan-500\/5{background-color:rgb(6 182 212 / 0.05)}.bg-cyan-950\/10{background-color:rgb(8 51 68 / 0.1)}.bg-cyan-950\/25{background-color:rgb(8 51 68 / 0.25)}.bg-slate-800\/60{background-color:rgb(30 41 59 / 0.6)}.bg-amber-500{--tw-bg-opacity:1;background-color:rgb(245 158 11 / var(--tw-bg-opacity, 1))}.bg-cyan-500\/20{background-color:rgb(6 182 212 / 0.2)}.bg-cyan-950{--tw-bg-opacity:1;background-color:rgb(8 51 68 / var(--tw-bg-opacity, 1))}.p-2\.5{padding:0.625rem}.p-3{padding:0.75rem}.p-4{padding:1rem}.p-5{padding:1.25rem}.p-6{padding:1.5rem}.p-2{padding:0.5rem}.px-4{padding-left:1rem;padding-right:1rem}.py-8{padding-top:2rem;padding-bottom:2rem}.px-2{padding-left:0.5rem;padding-right:0.5rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.py-0\.5{padding-top:0.125rem;padding-bottom:0.125rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.py-1\.5{padding-top:0.375rem;padding-bottom:0.375rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.py-2\.5{padding-top:0.625rem;padding-bottom:0.625rem}.py-6{padding-top:1.5rem;padding-bottom:1.5rem}.pb-2{padding-bottom:0.5rem}.pb-3{padding-bottom:0.75rem}.pb-6{padding-bottom:1.5rem}.pl-3{padding-left:0.75rem}.pr-3{padding-right:0.75rem}.text-left{text-align:left}.text-center{text-align:center}.font-mono{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace}.font-sans{font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-\[10px\]{font-size:10px}.text-\[9px\]{font-size:9px}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.font-bold{font-weight:700}.font-semibold{font-weight:600}.uppercase{text-transform:uppercase}.italic{font-style:italic}.tracking-\[0\.4em\]{letter-spacing:0.4em}.tracking-tight{letter-spacing:-0.025em}.tracking-wider{letter-spacing:0.05em}.tracking-widest{letter-spacing:0.1em}.text-slate-100{--tw-text-opacity:1;color:rgb(241 245 249 / var(--tw-text-opacity, 1))}.text-\[\#d4af37\]{--tw-text-opacity:1;color:rgb(212 175 55 / var(--tw-text-opacity, 1))}.text-amber-400{--tw-text-opacity:1;color:rgb(251 191 36 / var(--tw-text-opacity, 1))}.text-amber-500{--tw-text-opacity:1;color:rgb(245 158 11 / var(--tw-text-opacity, 1))}.text-black{--tw-text-opacity:1;color:rgb(0 0 0 / var(--tw-text-opacity, 1))}.text-cyan-400{--tw-text-opacity:1;color:rgb(34 211 238 / var(--tw-text-opacity, 1))}.text-emerald-400{--tw-text-opacity:1;color:rgb(52 211 153 / var(--tw-text-opacity, 1))}.text-indigo-400{--tw-text-opacity:1;color:rgb(129 140 248 / var(--tw-text-opacity, 1))}.text-sky-400{--tw-text-opacity:1;color:rgb(56 189 248 / var(--tw-text-opacity, 1))}.text-slate-200{--tw-text-opacity:1;color:rgb(226 232 240 / var(--tw-text-opacity, 1))}.text-slate-300{--tw-text-opacity:1;color:rgb(203 213 225 / var(--tw-text-opacity, 1))}.text-slate-400{--tw-text-opacity:1;color:rgb(148 163 184 / var(--tw-text-opacity, 1))}.text-slate-500{--tw-text-opacity:1;color:rgb(100 116 139 / var(--tw-text-opacity, 1))}.text-slate-600{--tw-text-opacity:1;color:rgb(71 85 105 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.text-yellow-400{--tw-text-opacity:1;color:rgb(250 204 21 / var(--tw-text-opacity, 1))}.opacity-40{opacity:0.4}.opacity-85{opacity:0.85}.opacity-100{opacity:1}.shadow-2xl{--tw-shadow:0 25px 50px -12px rgb(0 0 0 / 0.25);--tw-shadow-colored:0 25px 50px -12px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-lg{--tw-shadow:0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.backdrop-blur-md{--tw-backdrop-blur:blur(12px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition{transition-property:color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-colors{transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-transform{transition-property:transform;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.duration-150{transition-duration:150ms}.duration-200{transition-duration:200ms}.after\:absolute::after{content:var(--tw-content);position:absolute}.after\:left-\[2px\]::after{content:var(--tw-content);left:2px}.after\:top-0\.5::after{content:var(--tw-content);top:0.125rem}.after\:h-5::after{content:var(--tw-content);height:1.25rem}.after\:w-5::after{content:var(--tw-content);width:1.25rem}.after\:rounded-full::after{content:var(--tw-content);border-radius:9999px}.after\:border::after{content:var(--tw-content);border-width:1px}.after\:border-slate-300::after{content:var(--tw-content);--tw-border-opacity:1;border-color:rgb(203 213 225 / var(--tw-border-opacity, 1))}.after\:bg-slate-400::after{content:var(--tw-content);--tw-bg-opacity:1;background-color:rgb(148 163 184 / var(--tw-bg-opacity, 1))}.after\:transition-all::after{content:var(--tw-content);transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.after\:content-\[\'\'\]::after{--tw-content:'';content:var(--tw-content)}.hover\:border-cyan-500\/30:hover{border-color:rgb(6 182 212 / 0.3)}.hover\:border-cyan-500\/40:hover{border-color:rgb(6 182 212 / 0.4)}.hover\:bg-cyan-500:hover{--tw-bg-opacity:1;background-color:rgb(6 182 212 / var(--tw-bg-opacity, 1))}.hover\:bg-cyan-500\/20:hover{background-color:rgb(6 182 212 / 0.2)}.hover\:bg-slate-900:hover{--tw-bg-opacity:1;background-color:rgb(15 23 42 / var(--tw-bg-opacity, 1))}.hover\:opacity-100:hover{opacity:1}.focus\:border-cyan-400:focus{--tw-border-opacity:1;border-color:rgb(34 211 238 / var(--tw-border-opacity, 1))}.focus\:outline-none:focus{outline:2px solid transparent;outline-offset:2px}.group:hover .group-hover\:text-cyan-400{--tw-text-opacity:1;color:rgb(34 211 238 / var(--tw-text-opacity, 1))}.peer:checked ~ .peer-checked\:bg-cyan-500{--tw-bg-opacity:1;background-color:rgb(6 182 212 / var(--tw-bg-opacity, 1))}.peer:checked ~ .peer-checked\:after\:translate-x-full::after{content:var(--tw-content);--tw-translate-x:100%;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.peer:checked ~ .peer-checked\:after\:border-white::after{content:var(--tw-content);--tw-border-opacity:1;border-color:rgb(255 255 255 / var(--tw-border-opacity, 1))}.peer:checked ~ .peer-checked\:after\:bg-cyan-950::after{content:var(--tw-content);--tw-bg-opacity:1;background-color:rgb(8 51 68 / var(--tw-bg-opacity, 1))}@media (min-width: 640px){.sm\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.sm\:grid-cols-4{grid-template-columns:repeat(4, minmax(0, 1fr))}.sm\:flex-row{flex-direction:row}.sm\:items-center{align-items:center}.sm\:border-r{border-right-width:1px}}@media (min-width: 768px){.md\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.md\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.md\:p-6{padding:1.5rem}.md\:px-8{padding-left:2rem;padding-right:2rem}.md\:text-5xl{font-size:3rem;line-height:1}}@media (min-width: 1024px){.lg\:col-span-4{grid-column:span 4 / span 4}.lg\:col-span-8{grid-column:span 8 / span 8}.lg\:flex{display:flex}.lg\:w-auto{width:auto}.lg\:grid-cols-12{grid-template-columns:repeat(12, minmax(0, 1fr))}.lg\:grid-cols-4{grid-template-columns:repeat(4, minmax(0, 1fr))}.lg\:flex-row{flex-direction:row}.lg\:items-center{align-items:center}}</style><style type="text/css">.CtxtMenu_InfoClose {  top:.2em; right:.2em;}
+.CtxtMenu_InfoContent {  overflow:auto; text-align:left; font-size:80%;  padding:.4em .6em; border:1px inset; margin:1em 0px;  max-height:20em; max-width:30em; background-color:#EEEEEE;  white-space:normal;}
+.CtxtMenu_Info.CtxtMenu_MousePost {outline:none;}
+.CtxtMenu_Info {  position:fixed; left:50%; width:auto; text-align:center;  border:3px outset; padding:1em 2em; background-color:#DDDDDD;  color:black;  cursor:default; font-family:message-box; font-size:120%;  font-style:normal; text-indent:0; text-transform:none;  line-height:normal; letter-spacing:normal; word-spacing:normal;  word-wrap:normal; white-space:nowrap; float:none; z-index:201;  border-radius: 15px;                     /* Opera 10.5 and IE9 */  -webkit-border-radius:15px;               /* Safari and Chrome */  -moz-border-radius:15px;                  /* Firefox */  -khtml-border-radius:15px;                /* Konqueror */  box-shadow:0px 10px 20px #808080;         /* Opera 10.5 and IE9 */  -webkit-box-shadow:0px 10px 20px #808080; /* Safari 3 & Chrome */  -moz-box-shadow:0px 10px 20px #808080;    /* Forefox 3.5 */  -khtml-box-shadow:0px 10px 20px #808080;  /* Konqueror */  filter:progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color="gray", Positive="true"); /* IE */}
+</style><style type="text/css">.CtxtMenu_MenuClose {  position:absolute;  cursor:pointer;  display:inline-block;  border:2px solid #AAA;  border-radius:18px;  -webkit-border-radius: 18px;             /* Safari and Chrome */  -moz-border-radius: 18px;                /* Firefox */  -khtml-border-radius: 18px;              /* Konqueror */  font-family: "Courier New", Courier;  font-size:24px;  color:#F0F0F0}
+.CtxtMenu_MenuClose span {  display:block; background-color:#AAA; border:1.5px solid;  border-radius:18px;  -webkit-border-radius: 18px;             /* Safari and Chrome */  -moz-border-radius: 18px;                /* Firefox */  -khtml-border-radius: 18px;              /* Konqueror */  line-height:0;  padding:8px 0 6px     /* may need to be browser-specific */}
+.CtxtMenu_MenuClose:hover {  color:white!important;  border:2px solid #CCC!important}
+.CtxtMenu_MenuClose:hover span {  background-color:#CCC!important}
+.CtxtMenu_MenuClose:hover:focus {  outline:none}
+</style><style type="text/css">.CtxtMenu_Menu {  position:absolute;  background-color:white;  color:black;  width:auto; padding:5px 0px;  border:1px solid #CCCCCC; margin:0; cursor:default;  font: menu; text-align:left; text-indent:0; text-transform:none;  line-height:normal; letter-spacing:normal; word-spacing:normal;  word-wrap:normal; white-space:nowrap; float:none; z-index:201;  border-radius: 5px;                     /* Opera 10.5 and IE9 */  -webkit-border-radius: 5px;             /* Safari and Chrome */  -moz-border-radius: 5px;                /* Firefox */  -khtml-border-radius: 5px;              /* Konqueror */  box-shadow:0px 10px 20px #808080;         /* Opera 10.5 and IE9 */  -webkit-box-shadow:0px 10px 20px #808080; /* Safari 3 & Chrome */  -moz-box-shadow:0px 10px 20px #808080;    /* Forefox 3.5 */  -khtml-box-shadow:0px 10px 20px #808080;  /* Konqueror */}
+.CtxtMenu_MenuItem {  padding: 1px 2em;  background:transparent;}
+.CtxtMenu_MenuArrow {  position:absolute; right:.5em; padding-top:.25em; color:#666666;  font-family: null; font-size: .75em}
+.CtxtMenu_MenuActive .CtxtMenu_MenuArrow {color:white}
+.CtxtMenu_MenuArrow.CtxtMenu_RTL {left:.5em; right:auto}
+.CtxtMenu_MenuCheck {  position:absolute; left:.7em;  font-family: null}
+.CtxtMenu_MenuCheck.CtxtMenu_RTL { right:.7em; left:auto }
+.CtxtMenu_MenuRadioCheck {  position:absolute; left: .7em;}
+.CtxtMenu_MenuRadioCheck.CtxtMenu_RTL {  right: .7em; left:auto}
+.CtxtMenu_MenuInputBox {  padding-left: 1em; right:.5em; color:#666666;  font-family: null;}
+.CtxtMenu_MenuInputBox.CtxtMenu_RTL {  left: .1em;}
+.CtxtMenu_MenuComboBox {  left:.1em; padding-bottom:.5em;}
+.CtxtMenu_MenuSlider {  left: .1em;}
+.CtxtMenu_SliderValue {  position:absolute; right:.1em; padding-top:.25em; color:#333333;  font-size: .75em}
+.CtxtMenu_SliderBar {  outline: none; background: #d3d3d3}
+.CtxtMenu_MenuLabel {  padding: 1px 2em 3px 1.33em;  font-style:italic}
+.CtxtMenu_MenuRule {  border-top: 1px solid #DDDDDD;  margin: 4px 3px;}
+.CtxtMenu_MenuDisabled {  color:GrayText}
+.CtxtMenu_MenuActive {  background-color: #606872;  color: white;}
+.CtxtMenu_MenuDisabled:focus {  background-color: #E8E8E8}
+.CtxtMenu_MenuLabel:focus {  background-color: #E8E8E8}
+.CtxtMenu_ContextMenu:focus {  outline:none}
+.CtxtMenu_ContextMenu .CtxtMenu_MenuItem:focus {  outline:none}
+.CtxtMenu_SelectionMenu {  position:relative; float:left;  border-bottom: none; -webkit-box-shadow:none; -webkit-border-radius:0px; }
+.CtxtMenu_SelectionItem {  padding-right: 1em;}
+.CtxtMenu_Selection {  right: 40%; width:50%; }
+.CtxtMenu_SelectionBox {  padding: 0em; max-height:20em; max-width: none;  background-color:#FFFFFF;}
+.CtxtMenu_SelectionDivider {  clear: both; border-top: 2px solid #000000;}
+.CtxtMenu_Menu .CtxtMenu_MenuClose {  top:-10px; left:-10px}
+</style><style id="MJX-CHTML-styles">
+mjx-container[jax="CHTML"] {
+  line-height: 0;
+}
+
+mjx-container [space="1"] {
+  margin-left: .111em;
+}
+
+mjx-container [space="2"] {
+  margin-left: .167em;
+}
+
+mjx-container [space="3"] {
+  margin-left: .222em;
+}
+
+mjx-container [space="4"] {
+  margin-left: .278em;
+}
+
+mjx-container [space="5"] {
+  margin-left: .333em;
+}
+
+mjx-container [rspace="1"] {
+  margin-right: .111em;
+}
+
+mjx-container [rspace="2"] {
+  margin-right: .167em;
+}
+
+mjx-container [rspace="3"] {
+  margin-right: .222em;
+}
+
+mjx-container [rspace="4"] {
+  margin-right: .278em;
+}
+
+mjx-container [rspace="5"] {
+  margin-right: .333em;
+}
+
+mjx-container [size="s"] {
+  font-size: 70.7%;
+}
+
+mjx-container [size="ss"] {
+  font-size: 50%;
+}
+
+mjx-container [size="Tn"] {
+  font-size: 60%;
+}
+
+mjx-container [size="sm"] {
+  font-size: 85%;
+}
+
+mjx-container [size="lg"] {
+  font-size: 120%;
+}
+
+mjx-container [size="Lg"] {
+  font-size: 144%;
+}
+
+mjx-container [size="LG"] {
+  font-size: 173%;
+}
+
+mjx-container [size="hg"] {
+  font-size: 207%;
+}
+
+mjx-container [size="HG"] {
+  font-size: 249%;
+}
+
+mjx-container [width="full"] {
+  width: 100%;
+}
+
+mjx-box {
+  display: inline-block;
+}
+
+mjx-block {
+  display: block;
+}
+
+mjx-itable {
+  display: inline-table;
+}
+
+mjx-row {
+  display: table-row;
+}
+
+mjx-row > * {
+  display: table-cell;
+}
+
+mjx-mtext {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-mstyle {
+  display: inline-block;
+}
+
+mjx-merror {
+  display: inline-block;
+  color: red;
+  background-color: yellow;
+}
+
+mjx-mphantom {
+  visibility: hidden;
+}
+
+_::-webkit-full-page-media, _:future, :root mjx-container {
+  will-change: opacity;
+}
+
+mjx-assistive-mml {
+  position: absolute !important;
+  top: 0px;
+  left: 0px;
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 1px 0px 0px 0px !important;
+  border: 0px !important;
+  display: block !important;
+  width: auto !important;
+  overflow: hidden !important;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+mjx-assistive-mml[display="block"] {
+  width: 100% !important;
+}
+
+mjx-math {
+  display: inline-block;
+  text-align: left;
+  line-height: 0;
+  text-indent: 0;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 100%;
+  font-size-adjust: none;
+  letter-spacing: normal;
+  border-collapse: collapse;
+  word-wrap: normal;
+  word-spacing: normal;
+  white-space: nowrap;
+  direction: ltr;
+  padding: 1px 0;
+}
+
+mjx-container[jax="CHTML"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="CHTML"][display="true"][width="full"] {
+  display: flex;
+}
+
+mjx-container[jax="CHTML"][display="true"] mjx-math {
+  padding: 0;
+}
+
+mjx-container[jax="CHTML"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="CHTML"][justify="right"] {
+  text-align: right;
+}
+
+mjx-mn {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-c {
+  display: inline-block;
+}
+
+mjx-utext {
+  display: inline-block;
+  padding: .75em 0 .2em 0;
+}
+
+mjx-msup {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-mi {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-mo {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-stretchy-h {
+  display: inline-table;
+  width: 100%;
+}
+
+mjx-stretchy-h > * {
+  display: table-cell;
+  width: 0;
+}
+
+mjx-stretchy-h > * > mjx-c {
+  display: inline-block;
+  transform: scalex(1.0000001);
+}
+
+mjx-stretchy-h > * > mjx-c::before {
+  display: inline-block;
+  width: initial;
+}
+
+mjx-stretchy-h > mjx-ext {
+  /* IE */ overflow: hidden;
+  /* others */ overflow: clip visible;
+  width: 100%;
+}
+
+mjx-stretchy-h > mjx-ext > mjx-c::before {
+  transform: scalex(500);
+}
+
+mjx-stretchy-h > mjx-ext > mjx-c {
+  width: 0;
+}
+
+mjx-stretchy-h > mjx-beg > mjx-c {
+  margin-right: -.1em;
+}
+
+mjx-stretchy-h > mjx-end > mjx-c {
+  margin-left: -.1em;
+}
+
+mjx-stretchy-v {
+  display: inline-block;
+}
+
+mjx-stretchy-v > * {
+  display: block;
+}
+
+mjx-stretchy-v > mjx-beg {
+  height: 0;
+}
+
+mjx-stretchy-v > mjx-end > mjx-c {
+  display: block;
+}
+
+mjx-stretchy-v > * > mjx-c {
+  transform: scaley(1.0000001);
+  transform-origin: left center;
+  overflow: hidden;
+}
+
+mjx-stretchy-v > mjx-ext {
+  display: block;
+  height: 100%;
+  box-sizing: border-box;
+  border: 0px solid transparent;
+  /* IE */ overflow: hidden;
+  /* others */ overflow: visible clip;
+}
+
+mjx-stretchy-v > mjx-ext > mjx-c::before {
+  width: initial;
+  box-sizing: border-box;
+}
+
+mjx-stretchy-v > mjx-ext > mjx-c {
+  transform: scaleY(500) translateY(.075em);
+  overflow: visible;
+}
+
+mjx-mark {
+  display: inline-block;
+  height: 0px;
+}
+
+mjx-msub {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-TeXAtom {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-c::before {
+  display: block;
+  width: 0;
+}
+
+.MJX-TEX {
+  font-family: MJXZERO, MJXTEX;
+}
+
+.TEX-B {
+  font-family: MJXZERO, MJXTEX-B;
+}
+
+.TEX-I {
+  font-family: MJXZERO, MJXTEX-I;
+}
+
+.TEX-MI {
+  font-family: MJXZERO, MJXTEX-MI;
+}
+
+.TEX-BI {
+  font-family: MJXZERO, MJXTEX-BI;
+}
+
+.TEX-S1 {
+  font-family: MJXZERO, MJXTEX-S1;
+}
+
+.TEX-S2 {
+  font-family: MJXZERO, MJXTEX-S2;
+}
+
+.TEX-S3 {
+  font-family: MJXZERO, MJXTEX-S3;
+}
+
+.TEX-S4 {
+  font-family: MJXZERO, MJXTEX-S4;
+}
+
+.TEX-A {
+  font-family: MJXZERO, MJXTEX-A;
+}
+
+.TEX-C {
+  font-family: MJXZERO, MJXTEX-C;
+}
+
+.TEX-CB {
+  font-family: MJXZERO, MJXTEX-CB;
+}
+
+.TEX-FR {
+  font-family: MJXZERO, MJXTEX-FR;
+}
+
+.TEX-FRB {
+  font-family: MJXZERO, MJXTEX-FRB;
+}
+
+.TEX-SS {
+  font-family: MJXZERO, MJXTEX-SS;
+}
+
+.TEX-SSB {
+  font-family: MJXZERO, MJXTEX-SSB;
+}
+
+.TEX-SSI {
+  font-family: MJXZERO, MJXTEX-SSI;
+}
+
+.TEX-SC {
+  font-family: MJXZERO, MJXTEX-SC;
+}
+
+.TEX-T {
+  font-family: MJXZERO, MJXTEX-T;
+}
+
+.TEX-V {
+  font-family: MJXZERO, MJXTEX-V;
+}
+
+.TEX-VB {
+  font-family: MJXZERO, MJXTEX-VB;
+}
+
+mjx-stretchy-v mjx-c, mjx-stretchy-h mjx-c {
+  font-family: MJXZERO, MJXTEX-S1, MJXTEX-S4, MJXTEX, MJXTEX-A ! important;
+}
+
+@font-face /* 0 */ {
+  font-family: MJXZERO;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Zero.woff") format("woff");
+}
+
+@font-face /* 1 */ {
+  font-family: MJXTEX;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Main-Regular.woff") format("woff");
+}
+
+@font-face /* 2 */ {
+  font-family: MJXTEX-B;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Main-Bold.woff") format("woff");
+}
+
+@font-face /* 3 */ {
+  font-family: MJXTEX-I;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Math-Italic.woff") format("woff");
+}
+
+@font-face /* 4 */ {
+  font-family: MJXTEX-MI;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Main-Italic.woff") format("woff");
+}
+
+@font-face /* 5 */ {
+  font-family: MJXTEX-BI;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Math-BoldItalic.woff") format("woff");
+}
+
+@font-face /* 6 */ {
+  font-family: MJXTEX-S1;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Size1-Regular.woff") format("woff");
+}
+
+@font-face /* 7 */ {
+  font-family: MJXTEX-S2;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Size2-Regular.woff") format("woff");
+}
+
+@font-face /* 8 */ {
+  font-family: MJXTEX-S3;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Size3-Regular.woff") format("woff");
+}
+
+@font-face /* 9 */ {
+  font-family: MJXTEX-S4;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Size4-Regular.woff") format("woff");
+}
+
+@font-face /* 10 */ {
+  font-family: MJXTEX-A;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_AMS-Regular.woff") format("woff");
+}
+
+@font-face /* 11 */ {
+  font-family: MJXTEX-C;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Calligraphic-Regular.woff") format("woff");
+}
+
+@font-face /* 12 */ {
+  font-family: MJXTEX-CB;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Calligraphic-Bold.woff") format("woff");
+}
+
+@font-face /* 13 */ {
+  font-family: MJXTEX-FR;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Fraktur-Regular.woff") format("woff");
+}
+
+@font-face /* 14 */ {
+  font-family: MJXTEX-FRB;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Fraktur-Bold.woff") format("woff");
+}
+
+@font-face /* 15 */ {
+  font-family: MJXTEX-SS;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_SansSerif-Regular.woff") format("woff");
+}
+
+@font-face /* 16 */ {
+  font-family: MJXTEX-SSB;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_SansSerif-Bold.woff") format("woff");
+}
+
+@font-face /* 17 */ {
+  font-family: MJXTEX-SSI;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_SansSerif-Italic.woff") format("woff");
+}
+
+@font-face /* 18 */ {
+  font-family: MJXTEX-SC;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Script-Regular.woff") format("woff");
+}
+
+@font-face /* 19 */ {
+  font-family: MJXTEX-T;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Typewriter-Regular.woff") format("woff");
+}
+
+@font-face /* 20 */ {
+  font-family: MJXTEX-V;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Vector-Regular.woff") format("woff");
+}
+
+@font-face /* 21 */ {
+  font-family: MJXTEX-VB;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Vector-Bold.woff") format("woff");
+}
+
+mjx-c.mjx-c31::before {
+  padding: 0.666em 0.5em 0 0;
+  content: "1";
+}
+
+mjx-c.mjx-c32::before {
+  padding: 0.666em 0.5em 0 0;
+  content: "2";
+}
+
+mjx-c.mjx-c30::before {
+  padding: 0.666em 0.5em 0.022em 0;
+  content: "0";
+}
+
+mjx-c.mjx-cA0::before {
+  padding: 0 0.25em 0 0;
+  content: "\A0";
+}
+
+mjx-c.mjx-c57::before {
+  padding: 0.683em 1.028em 0.022em 0;
+  content: "W";
+}
+
+mjx-c.mjx-c2F::before {
+  padding: 0.75em 0.5em 0.25em 0;
+  content: "/";
+}
+
+mjx-c.mjx-c6D::before {
+  padding: 0.442em 0.833em 0 0;
+  content: "m";
+}
+
+mjx-c.mjx-c1D447.TEX-I::before {
+  padding: 0.677em 0.704em 0 0;
+  content: "T";
+}
+
+mjx-c.mjx-c2264::before {
+  padding: 0.636em 0.778em 0.138em 0;
+  content: "\2264";
+}
+
+mjx-c.mjx-c2218::before {
+  padding: 0.444em 0.5em 0 0;
+  content: "\2218";
+}
+
+mjx-c.mjx-c43::before {
+  padding: 0.705em 0.722em 0.021em 0;
+  content: "C";
+}
+
+mjx-c.mjx-c1D449.TEX-I::before {
+  padding: 0.683em 0.769em 0.022em 0;
+  content: "V";
+}
+
+mjx-c.mjx-c1D436.TEX-I::before {
+  padding: 0.705em 0.76em 0.022em 0;
+  content: "C";
+}
+
+mjx-c.mjx-c1D461.TEX-I::before {
+  padding: 0.626em 0.361em 0.011em 0;
+  content: "t";
+}
+
+mjx-c.mjx-c1D45D.TEX-I::before {
+  padding: 0.442em 0.503em 0.194em 0;
+  content: "p";
+}
+
+mjx-c.mjx-c1D451.TEX-I::before {
+  padding: 0.694em 0.52em 0.01em 0;
+  content: "d";
+}
+
+mjx-c.mjx-c1D443.TEX-I::before {
+  padding: 0.683em 0.751em 0 0;
+  content: "P";
+}
+
+mjx-c.mjx-c1D437.TEX-I::before {
+  padding: 0.683em 0.828em 0 0;
+  content: "D";
+}
+
+mjx-c.mjx-c2248::before {
+  padding: 0.483em 0.778em 0 0;
+  content: "\2248";
+}
+
+mjx-c.mjx-c33::before {
+  padding: 0.665em 0.5em 0.022em 0;
+  content: "3";
+}
+
+mjx-c.mjx-c1D434.TEX-I::before {
+  padding: 0.716em 0.75em 0 0;
+  content: "A";
+}
+
+mjx-c.mjx-c1D435.TEX-I::before {
+  padding: 0.683em 0.759em 0 0;
+  content: "B";
+}
+
+mjx-c.mjx-c1D44C.TEX-I::before {
+  padding: 0.683em 0.763em 0 0;
+  content: "Y";
+}
+
+mjx-c.mjx-c1D43A.TEX-I::before {
+  padding: 0.705em 0.786em 0.022em 0;
+  content: "G";
+}
+
+mjx-c.mjx-c1D438.TEX-I::before {
+  padding: 0.68em 0.764em 0 0;
+  content: "E";
+}
+
+mjx-c.mjx-c1D441.TEX-I::before {
+  padding: 0.683em 0.888em 0 0;
+  content: "N";
+}
+
+mjx-c.mjx-c59::before {
+  padding: 0.683em 0.75em 0 0;
+  content: "Y";
+}
+
+mjx-c.mjx-c5C::before {
+  padding: 0.75em 0.5em 0.25em 0;
+  content: "\5C";
+}
+
+mjx-c.mjx-c5F::before {
+  padding: 0 0.5em 0.062em 0;
+  content: "_";
+}
+
+mjx-c.mjx-c48::before {
+  padding: 0.683em 0.75em 0 0;
+  content: "H";
+}
+
+mjx-c.mjx-c45::before {
+  padding: 0.68em 0.681em 0 0;
+  content: "E";
+}
+
+mjx-c.mjx-c41::before {
+  padding: 0.716em 0.75em 0 0;
+  content: "A";
+}
+
+mjx-c.mjx-c54::before {
+  padding: 0.677em 0.722em 0 0;
+  content: "T";
+}
+
+mjx-c.mjx-c3D::before {
+  padding: 0.583em 0.778em 0.082em 0;
+  content: "=";
+}
+
+mjx-c.mjx-c28::before {
+  padding: 0.75em 0.389em 0.25em 0;
+  content: "(";
+}
+
+mjx-c.mjx-c2228::before {
+  padding: 0.598em 0.667em 0.022em 0;
+  content: "\2228";
+}
+
+mjx-c.mjx-c29::before {
+  padding: 0.75em 0.389em 0.25em 0;
+  content: ")";
+}
+
+mjx-c.mjx-c2227::before {
+  padding: 0.598em 0.667em 0.022em 0;
+  content: "\2227";
+}
+
+mjx-c.mjx-c1D43B.TEX-I::before {
+  padding: 0.683em 0.888em 0 0;
+  content: "H";
+}
+</style></head>
+<body class="min-h-screen text-slate-100 py-8 px-4 md:px-8 blueprint-grid">
+
+    <div class="max-w-7xl mx-auto space-y-6">
+        
+        <!-- Beijing Submission Header -->
+        <header class="flex flex-col lg:flex-row justify-between items-start lg:items-center border-b border-cyan-500/30 pb-6 gap-6">
+            <div>
+                <div class="flex items-center gap-2">
+                    <span class="text-xs uppercase tracking-[0.4em] text-cyan-400 font-bold">Lwandile Engineering Projects</span>
+                    <span class="text-[10px] bg-cyan-500/10 text-cyan-400 px-2 py-0.5 rounded border border-cyan-500/20 font-bold uppercase tracking-wider">Beijing Prestige Gear</span>
+                </div>
+                <h1 class="text-3xl md:text-5xl font-bold tracking-tight mt-1 text-white flex items-center gap-3">
+                    <i class="fa-solid fa-microchip text-cyan-400"></i> Thermal Valve Master Blueprint
+                </h1>
+                <p class="text-slate-400 text-sm mt-1">
+                    Certified hardware schematic for CMOS gate-level implementation under the Just Energy Transition (JET) Framework.
+                </p>
+            </div>
+            
+            <!-- Metadata Registry Panel & Narrator Control -->
+            <div class="flex flex-col sm:flex-row items-center gap-3">
+                <button onclick="toggleNarrator()" id="narratorBtn" class="hover:bg-cyan-500 font-semibold px-4 py-3 rounded-xl text-xs transition flex items-center gap-2 shadow-lg bg-cyan-600">
+                    <i class="fa-solid fa-volume-high"></i> <span id="narratorBtnText">Enable Narrator</span>
+                </button>
+                <div class="grid grid-cols-2 sm:grid-cols-4 lg:flex items-center gap-3 bg-slate-950/80 p-4 rounded-2xl border border-cyan-500/20 w-full lg:w-auto text-xs mono">
+                    <div class="pr-3 border-r border-slate-800">
+                        <span class="text-slate-500 block text-[9px] uppercase">DOC ID</span>
+                        <span class="font-bold text-slate-300">LEP-TVL-001</span>
+                    </div>
+                    <div class="px-3 sm:border-r border-slate-800">
+                        <span class="text-slate-500 block text-[9px] uppercase">VERSION</span>
+                        <span class="font-bold text-emerald-400">v3.0-PRESTIGE</span>
+                    </div>
+                    <div class="px-3 border-r border-slate-800">
+                        <span class="text-slate-500 block text-[9px] uppercase">STATUS</span>
+                        <span class="font-bold text-cyan-400 flex items-center gap-1">
+                            <span class="w-1.5 h-1.5 bg-cyan-400 rounded-full animate-ping"></span> SECURE
+                        </span>
+                    </div>
+                    <div class="pl-3">
+                        <span class="text-slate-500 block text-[9px] uppercase">AUTHORIZATION</span>
+                        <span class="font-bold text-[#d4af37]">S.W. KHUZWAYO</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Diurnal Lifecycle Interactive Simulator Control Panel -->
+        <section class="bg-slate-950/90 border-2 border-amber-500/30 rounded-2xl p-6 shadow-2xl relative overflow-hidden" id="narrativeSection">
+            <div class="absolute top-0 right-0 bg-amber-500/10 text-[#d4af37] px-4 py-1 text-xs font-bold uppercase tracking-widest rounded-bl-xl border-l border-b border-amber-500/20">
+                Teachability Engine v1.0
+            </div>
+            <h2 class="text-xl font-bold mb-4 flex items-center gap-2 text-amber-400">
+                <i class="fa-solid fa-clock"></i> Interactive 24-Hour Diurnal Cycle Walkthrough
+            </h2>
+            <p class="text-slate-300 text-sm mb-6 max-w-4xl">
+                As a steward of this sovereign design, select one of the core operational stages below. Watch the logic schematic, physics analyzer, and the scrolling waveform automatically transition to prove how this system guarantees <strong>Zero Mortality</strong> from dawn to dawn.
+            </p>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <!-- Scenario 1: Dawn -->
+                <button onclick="setDiurnalScenario('dawn')" class="text-left bg-slate-900/60 p-4 rounded-xl border border-slate-800 hover:border-cyan-500/40 hover:bg-slate-900 transition-all group">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-xs font-bold text-amber-500 font-mono uppercase">06:00 AM — Dawn</span>
+                        <i class="fa-solid fa-circle-chevron-right text-slate-600 group-hover:text-cyan-400 transition-colors"></i>
+                    </div>
+                    <h3 class="font-bold text-white text-sm mb-1">Dawn Awakening</h3>
+                    <p class="text-xs text-slate-400">Solar starts to register; system transitions smoothly out of Night Protocol.</p>
+                </button>
+
+                <!-- Scenario 2: Midday Peak (Heat Stress Mitigation) -->
+                <button onclick="setDiurnalScenario('midday')" class="text-left bg-slate-900/60 p-4 rounded-xl border border-slate-800 hover:border-cyan-500/40 hover:bg-slate-900 transition-all group">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-xs font-bold text-yellow-400 font-mono uppercase">12:00 PM — Midday</span>
+                        <i class="fa-solid fa-circle-chevron-right text-slate-600 group-hover:text-cyan-400 transition-colors"></i>
+                    </div>
+                    <h3 class="font-bold text-white text-sm mb-1">Heat Stress Mitigation</h3>
+                    <p class="text-xs text-slate-400">Solar is massive. Power redirected to misting &amp; high-velocity ventilation.</p>
+                </button>
+
+                <!-- Scenario 3: Dusk -->
+                <button onclick="setDiurnalScenario('dusk')" class="text-left bg-slate-900/60 p-4 rounded-xl border border-slate-800 hover:border-cyan-500/40 hover:bg-slate-900 transition-all group">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-xs font-bold text-indigo-400 font-mono uppercase">18:00 PM — Dusk</span>
+                        <i class="fa-solid fa-circle-chevron-right text-slate-600 group-hover:text-cyan-400 transition-colors"></i>
+                    </div>
+                    <h3 class="font-bold text-white text-sm mb-1">Dusk Transition</h3>
+                    <p class="text-xs text-slate-400">Solar fades completely. System prepares for the cold Highveld night.</p>
+                </button>
+
+                <!-- Scenario 4: The Deep Freeze (02:00 AM) -->
+                <button onclick="setDiurnalScenario('freeze')" class="text-left bg-slate-900/60 p-4 rounded-xl border border-slate-800 hover:border-cyan-500/40 hover:bg-slate-900 transition-all group">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-xs font-bold text-sky-400 font-mono uppercase">02:00 AM — Night</span>
+                        <i class="fa-solid fa-circle-chevron-right text-slate-600 group-hover:text-cyan-400 transition-colors"></i>
+                    </div>
+                    <h3 class="font-bold text-white text-sm mb-1">Highveld Deep Freeze</h3>
+                    <p class="text-xs text-slate-400">Freezing temperatures threat. Biogas generator fires up; thermal valve opens.</p>
+                </button>
+            </div>
+
+            <!-- Dynamic Scenario Narrative Board -->
+            <div id="narrativeBoard" class="mt-4 bg-[#2d1a17]/20 border border-[#d4af37]/20 rounded-xl p-4 text-sm text-slate-200">
+                <span class="text-[10px] uppercase font-mono tracking-wider text-amber-500 block mb-1">Live Scenario Walkthrough</span>
+                <p id="scenarioDescription"><strong>06:00 AM — Dawn Awakening:</strong> The sun rises over the Highveld. Solar array (<mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="28" style="font-size: 109.9%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D434 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>A</mi></math></mjx-assistive-mml></mjx-container>) begins registering current (<mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="29" style="font-size: 109.9%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>1</mn></math></mjx-assistive-mml></mjx-container>). The temperature is cold but rising, meaning the Freeze Safeguard sensor (<mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="30" style="font-size: 109.9%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D436 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>C</mi></math></mjx-assistive-mml></mjx-container>) deactivates (<mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="31" style="font-size: 109.9%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mn class="mjx-n"><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>0</mn></math></mjx-assistive-mml></mjx-container>). Since there's no freeze threat, the thermal valve remains safely closed (<mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="32" style="font-size: 109.9%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44C TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.153em; margin-left: -0.182em;"><mjx-texatom size="s" texclass="ORD"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D43B TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D438 TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D434 TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D447 TEX-I"></mjx-c></mjx-mi></mjx-texatom></mjx-script></mjx-msub><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4"><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>Y</mi><mrow data-mjx-texclass="ORD"><mi>H</mi><mi>E</mi><mi>A</mi><mi>T</mi></mrow></msub><mo>=</mo><mn>0</mn></math></mjx-assistive-mml></mjx-container>). Energy is prioritized for battery recharging.</p>
+            </div>
+        </section>
+
+        <!-- Main Workspace Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+            
+            <!-- Left Panel: Parameter Controls & Physics Engines -->
+            <div class="lg:col-span-4 space-y-4">
+                
+                <!-- Signal Controllers -->
+                <div class="bg-slate-950/90 backdrop-blur-md border border-cyan-500/20 rounded-2xl p-5 shadow-2xl">
+                    <h2 class="text-lg font-bold mb-4 flex items-center justify-between text-cyan-400 border-b border-slate-800 pb-2">
+                        <span><i class="fa-solid fa-sliders"></i> Digital Inputs</span>
+                        <span class="text-xs uppercase font-mono text-slate-500">Live Calibration</span>
+                    </h2>
+                    
+                    <div class="space-y-4">
+                        <!-- Input A -->
+                        <div class="bg-slate-900/40 p-4 rounded-xl border border-slate-800/80 hover:border-cyan-500/30 transition-all">
+                            <div class="flex justify-between items-center mb-1">
+                                <label class="font-bold text-sm text-slate-200 flex items-center gap-2">
+                                    <i class="fa-solid fa-sun text-amber-500"></i> A: Solar Harnessing
+                                </label>
+                                <span id="valA" class="mono text-xs px-2 py-0.5 rounded font-bold bg-cyan-500/20 text-cyan-400">1 (5V)</span>
+                            </div>
+                            <p class="text-xs text-slate-400 mb-3">High (5V) when photon collection exceeds <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="0" style="font-size: 110%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c32"></mjx-c><mjx-c class="mjx-c30"></mjx-c></mjx-mn><mjx-msup><mjx-mtext class="mjx-n"><mjx-c class="mjx-cA0"></mjx-c><mjx-c class="mjx-c57"></mjx-c><mjx-c class="mjx-c2F"></mjx-c><mjx-c class="mjx-c6D"></mjx-c></mjx-mtext><mjx-script style="vertical-align: 0.477em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="14" style="font-size: 110%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c32"></mjx-c><mjx-c class="mjx-c30"></mjx-c></mjx-mn><mjx-msup><mjx-mtext class="mjx-n"><mjx-c class="mjx-cA0"></mjx-c><mjx-c class="mjx-c57"></mjx-c><mjx-c class="mjx-c2F"></mjx-c><mjx-c class="mjx-c6D"></mjx-c></mjx-mtext><mjx-script style="vertical-align: 0.477em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>120</mn><msup><mtext>&nbsp;W/m</mtext><mn>2</mn></msup></math></mjx-assistive-mml></mjx-container></mjx-assistive-mml></mjx-container>.</p>
+                            <label class="relative inline-flex items-center cursor-pointer">
+                                <input type="checkbox" id="switchA" class="sr-only peer" onchange="updateCircuit(true)">
+                                <div class="w-11 h-6 bg-slate-800 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-slate-400 after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-cyan-500 peer-checked:after:bg-cyan-950"></div>
+                            </label>
+                        </div>
+
+                        <!-- Input B -->
+                        <div class="bg-slate-900/40 p-4 rounded-xl border border-slate-800/80 hover:border-cyan-500/30 transition-all">
+                            <div class="flex justify-between items-center mb-1">
+                                <label class="font-bold text-sm text-slate-200 flex items-center gap-2">
+                                    <i class="fa-solid fa-bolt text-emerald-400"></i> B: Grid Connection (Y_GEN)
+                                </label>
+                                <span id="valB" class="mono text-xs px-2 py-0.5 rounded font-bold bg-slate-950 text-slate-500">0 (GND)</span>
+                            </div>
+                            <p class="text-xs text-slate-400 mb-3">High (5V) when grid interconnected node or Biogas Gen is active.</p>
+                            <label class="relative inline-flex items-center cursor-pointer">
+                                <input type="checkbox" id="switchB" class="sr-only peer" onchange="updateCircuit(true)">
+                                <div class="w-11 h-6 bg-slate-800 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-slate-400 after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-cyan-500 peer-checked:after:bg-cyan-950"></div>
+                            </label>
+                        </div>
+
+                        <!-- Input C -->
+                        <div class="bg-slate-900/40 p-4 rounded-xl border border-slate-800/80 hover:border-cyan-500/30 transition-all">
+                            <div class="flex justify-between items-center mb-1">
+                                <label class="font-bold text-sm text-slate-200 flex items-center gap-2">
+                                    <i class="fa-solid fa-snowflake text-sky-400"></i> C: Freeze Safeguard
+                                </label>
+                                <span id="valC" class="mono text-xs px-2 py-0.5 rounded font-bold bg-slate-950 text-slate-500">0 (GND)</span>
+                            </div>
+                            <p class="text-xs text-slate-400 mb-3">High (5V) when temperature drop threatens system arrays (<mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="1" style="font-size: 110%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D447 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c2264"></mjx-c></mjx-mo><mjx-msup space="4"><mjx-mn class="mjx-n"><mjx-c class="mjx-c32"></mjx-c></mjx-mn><mjx-script style="vertical-align: 0.363em;"><mjx-mo class="mjx-n" size="s"><mjx-c class="mjx-c2218"></mjx-c></mjx-mo></mjx-script></mjx-msup><mjx-mtext class="mjx-n"><mjx-c class="mjx-c43"></mjx-c></mjx-mtext></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="15" style="font-size: 110%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D447 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c2264"></mjx-c></mjx-mo><mjx-msup space="4"><mjx-mn class="mjx-n"><mjx-c class="mjx-c32"></mjx-c></mjx-mn><mjx-script style="vertical-align: 0.363em;"><mjx-mo class="mjx-n" size="s"><mjx-c class="mjx-c2218"></mjx-c></mjx-mo></mjx-script></mjx-msup><mjx-mtext class="mjx-n"><mjx-c class="mjx-c43"></mjx-c></mjx-mtext></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>T</mi><mo>≤</mo><msup><mn>2</mn><mo>∘</mo></msup><mtext>C</mtext></math></mjx-assistive-mml></mjx-container></mjx-assistive-mml></mjx-container>).</p>
+                            <label class="relative inline-flex items-center cursor-pointer">
+                                <input type="checkbox" id="switchC" class="sr-only peer" onchange="updateCircuit(true)">
+                                <div class="w-11 h-6 bg-slate-800 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-slate-400 after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-cyan-500 peer-checked:after:bg-cyan-950"></div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Live Physical Engine Block -->
+                <div class="bg-slate-950/90 backdrop-blur-md border border-cyan-500/20 rounded-2xl p-5 shadow-2xl space-y-4">
+                    <h2 class="text-lg font-bold flex items-center justify-between text-cyan-400 border-b border-slate-800 pb-2">
+                        <span><i class="fa-solid fa-gauge-high"></i> Physics Diagnostics</span>
+                        <span class="text-xs uppercase font-mono text-slate-500">Datasheet Spec</span>
+                    </h2>
+                    
+                    <!-- Dynamic Voltage Selection -->
+                    <div class="flex items-center justify-between bg-slate-900/50 p-2.5 rounded-lg border border-slate-800">
+                        <span class="text-xs text-slate-400 font-sans">Core Voltage (<mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="2" style="font-size: 113.1%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D449 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em; margin-left: -0.186em;"><mjx-texatom size="s" texclass="ORD"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D436 TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D436 TEX-I"></mjx-c></mjx-mi></mjx-texatom></mjx-script></mjx-msub></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="16" style="font-size: 113.1%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D449 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em; margin-left: -0.186em;"><mjx-texatom size="s" texclass="ORD"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D436 TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D436 TEX-I"></mjx-c></mjx-mi></mjx-texatom></mjx-script></mjx-msub></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>V</mi><mrow data-mjx-texclass="ORD"><mi>C</mi><mi>C</mi></mrow></msub></math></mjx-assistive-mml></mjx-container></mjx-assistive-mml></mjx-container>)</span>
+                        <select id="voltageSelect" onchange="updateCircuit()" class="bg-slate-950 border border-cyan-500/30 rounded text-cyan-400 text-xs px-2 py-1 focus:outline-none focus:border-cyan-400 font-bold mono">
+                            <option value="5.0">5.0V (Standard)</option>
+                            <option value="3.3">3.3V (Low-Power)</option>
+                        </select>
+                    </div>
+
+                    <!-- Dynamic Propagation Delay & Current Calculator -->
+                    <div class="grid grid-cols-2 gap-3 text-xs mono font-sans">
+                        <div class="bg-slate-900/50 p-3 rounded-lg border border-slate-800">
+                            <span class="text-slate-500 block text-[9px] uppercase">PROP DELAY (<mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="3" style="font-size: 113.1%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D461 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.192em;"><mjx-texatom texclass="ORD" style="font-size: 78.6%;"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45D TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D451 TEX-I"></mjx-c></mjx-mi></mjx-texatom></mjx-script></mjx-msub></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="17" style="font-size: 113%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D461 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-texatom size="s" texclass="ORD"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45D TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D451 TEX-I"></mjx-c></mjx-mi></mjx-texatom></mjx-script></mjx-msub></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>t</mi><mrow data-mjx-texclass="ORD"><mi>p</mi><mi>d</mi></mrow></msub></math></mjx-assistive-mml></mjx-container></mjx-assistive-mml></mjx-container>)</span>
+                            <span id="delayValue" class="text-emerald-400 font-bold text-sm">30 ns</span>
+                            <span class="text-[9px] text-slate-500 block mt-0.5">U1A + U2A Combined</span>
+                        </div>
+                        <div class="bg-slate-900/50 p-3 rounded-lg border border-slate-800">
+                            <span class="text-slate-500 block text-[9px] uppercase">POWER DIS (<mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="4" style="font-size: 113.1%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D443 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.183em; margin-left: -0.109em;"><mjx-texatom texclass="ORD" style="font-size: 78.6%;"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D437 TEX-I"></mjx-c></mjx-mi></mjx-texatom></mjx-script></mjx-msub></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="18" style="font-size: 113%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D443 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em; margin-left: -0.109em;"><mjx-texatom size="s" texclass="ORD"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D437 TEX-I"></mjx-c></mjx-mi></mjx-texatom></mjx-script></mjx-msub></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>P</mi><mrow data-mjx-texclass="ORD"><mi>D</mi></mrow></msub></math></mjx-assistive-mml></mjx-container></mjx-assistive-mml></mjx-container>)</span>
+                            <span id="powerValue" class="text-cyan-400 font-bold text-sm">55.0 μW</span>
+                            <span class="text-[9px] text-slate-500 block mt-0.5">Dynamic CMOS Calc</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Panel: High-Fidelity Blueprint Canvas & Waveform -->
+            <div class="lg:col-span-8 space-y-4">
+                
+                <!-- Schematic Canvas -->
+                <div class="bg-slate-950/95 backdrop-blur-md border border-cyan-500/20 rounded-2xl p-4 md:p-6 shadow-2xl relative overflow-hidden">
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-2 border-b border-slate-800 pb-3">
+                        <h2 class="text-lg font-bold text-cyan-400 flex items-center gap-2">
+                            <i class="fa-solid fa-diagram-project"></i> IEEE/ANSI Standard Logical Mapping
+                        </h2>
+                        <div class="flex gap-2">
+                            <button onclick="resetCircuit()" class="px-3 py-1.5 text-xs font-semibold bg-slate-900 border border-slate-800 hover:border-cyan-500/30 rounded-lg transition-all flex items-center gap-1">
+                                <i class="fa-solid fa-arrow-rotate-left"></i> Reset
+                            </button>
+                            <button onclick="copyBlueprintFormula()" class="px-3 py-1.5 text-xs font-semibold bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 hover:bg-cyan-500/20 rounded-lg transition-all flex items-center gap-1">
+                                <i class="fa-solid fa-copy"></i> Copy Formula
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- SVG Canvas -->
+                    <div class="w-full bg-slate-950/60 p-3 rounded-xl border border-cyan-500/10 relative overflow-x-auto">
+                        <svg viewBox="0 0 800 400" class="w-full min-w-[700px] h-auto overflow-visible select-none">
+                            
+                            <!-- Definitions for IEEE Gates -->
+                            <defs>
+                                <pattern id="blueprint-dots" width="20" height="20" patternUnits="userSpaceOnUse">
+                                    <circle cx="10" cy="10" r="0.8" fill="rgba(6, 182, 212, 0.15)"></circle>
+                                </pattern>
+                                
+                                <!-- Standard OR Gate Symbol -->
+                                <g id="ieee-or-gate">
+                                    <path d="M 0,-25 C 12,-25 22,-18 32,-10 C 42,-2 48,0 52,0 C 48,0 42,2 32,10 C 22,18 12,25 0,25 C 8,12 8,-12 0,-25 Z" fill="#082f49" stroke="#22d3ee" stroke-width="2.5"></path>
+                                    <path d="M 0,-25 C 12,-25 22,-18 32,-10 C 42,-2 48,0 52,0" fill="none" stroke="rgba(34, 211, 238, 0.4)" stroke-width="6" class="glow-active"></path>
+                                    <text x="18" y="5" font-family="sans-serif" font-size="11" font-weight="bold" fill="#06b6d4" text-anchor="middle" class="mono">OR</text>
+                                </g>
+
+                                <!-- Standard AND Gate Symbol -->
+                                <g id="ieee-and-gate">
+                                    <path d="M 0,-25 L 25,-25 C 45,-25 45,25 25,25 L 0,25 Z" fill="#082f49" stroke="#22d3ee" stroke-width="2.5"></path>
+                                    <path d="M 0,-25 L 25,-25 C 45,-25 45,25 25,25" fill="none" stroke="rgba(34, 211, 238, 0.4)" stroke-width="6" class="glow-active"></path>
+                                    <text x="18" y="5" font-family="sans-serif" font-size="11" font-weight="bold" fill="#06b6d4" text-anchor="middle" class="mono">AND</text>
+                                </g>
+                            </defs>
+
+                            <rect width="800" height="400" fill="url(#blueprint-dots)" rx="8"></rect>
+
+                            <!-- Bus Wires / Signal Paths -->
+                            <!-- Wire A -->
+                            <path id="wireA" d="M 120,80 L 220,80 L 220,115 L 260,115" fill="none" stroke="#22d3ee" stroke-width="4.5" stroke-linecap="round" class="transition-all duration-200"></path>
+                            <path id="flowA" d="M 120,80 L 220,80 L 220,115 L 260,115" fill="none" stroke="#22d3ee" stroke-width="2" stroke-linecap="round" class="wire-flow opacity-85"></path>
+
+                            <!-- Wire B -->
+                            <path id="wireB" d="M 120,160 L 220,160 L 220,135 L 260,135" fill="none" stroke="#1e293b" stroke-width="4.5" stroke-linecap="round" class="transition-all duration-200"></path>
+                            <path id="flowB" d="M 120,160 L 220,160 L 220,135 L 260,135" fill="none" stroke="#22d3ee" stroke-width="2" stroke-linecap="round" class="wire-flow hidden opacity-85"></path>
+
+                            <!-- Wire C -->
+                            <path id="wireC" d="M 120,280 L 440,280 L 440,225 L 490,225" fill="none" stroke="#1e293b" stroke-width="4.5" stroke-linecap="round" class="transition-all duration-200"></path>
+                            <path id="flowC" d="M 120,280 L 440,280 L 440,225 L 490,225" fill="none" stroke="#22d3ee" stroke-width="2" stroke-linecap="round" class="wire-flow hidden opacity-85"></path>
+
+                            <!-- Wire OR Output -> AND Input 1 -->
+                            <path id="wireOROut" d="M 315,125 L 410,125 L 410,205 L 490,205" fill="none" stroke="#22d3ee" stroke-width="4.5" stroke-linecap="round" class="transition-all duration-200"></path>
+                            <path id="flowOROut" d="M 315,125 L 410,125 L 410,205 L 490,205" fill="none" stroke="#22d3ee" stroke-width="2" stroke-linecap="round" class="wire-flow opacity-85"></path>
+
+                            <!-- Wire Final Output -->
+                            <path id="wireFinal" d="M 545,215 L 670,215" fill="none" stroke="#1e293b" stroke-width="4.5" stroke-linecap="round" class="transition-all duration-200"></path>
+                            <path id="flowFinal" d="M 545,215 L 670,215" fill="none" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" class="wire-flow hidden opacity-85"></path>
+
+                            <!-- Logic Gate Assemblies -->
+                            <!-- OR Gate U1A -->
+                            <g transform="translate(260, 125)" id="gateU1A" class="transition-transform duration-200">
+                                <use href="#ieee-or-gate"></use>
+                                <text x="-12" y="-14" font-size="8" fill="#64748b" font-weight="bold" class="mono">U1A PIN1</text>
+                                <text x="-12" y="19" font-size="8" fill="#64748b" font-weight="bold" class="mono">U1A PIN2</text>
+                                <text x="63" y="-6" font-size="8" fill="#64748b" font-weight="bold" class="mono">U1A PIN3</text>
+                                <text x="28" y="-32" font-size="11" fill="#22d3ee" font-weight="bold" class="mono" text-anchor="middle">74HC32 (OR)</text>
+                            </g>
+
+                            <!-- AND Gate U2A -->
+                            <g transform="translate(490, 215)" id="gateU2A" class="transition-transform duration-200">
+                                <use href="#ieee-and-gate"></use>
+                                <text x="-12" y="-14" font-size="8" fill="#64748b" font-weight="bold" class="mono">U2A PIN1</text>
+                                <text x="-12" y="19" font-size="8" fill="#64748b" font-weight="bold" class="mono">U2A PIN2</text>
+                                <text x="63" y="-6" font-size="8" fill="#64748b" font-weight="bold" class="mono">U2A PIN3</text>
+                                <text x="25" y="-32" font-size="11" fill="#22d3ee" font-weight="bold" class="mono" text-anchor="middle">74HC08 (AND)</text>
+                            </g>
+
+                            <!-- Node Indicators -->
+                            <!-- Solar A -->
+                            <g transform="translate(120, 80)">
+                                <circle r="13" fill="#083344" stroke="#22d3ee" stroke-width="3.5" id="nodeA" class="transition-all duration-200"></circle>
+                                <text y="4" font-size="10" font-weight="bold" fill="#94a3b8" text-anchor="middle" class="mono" id="txtA">1</text>
+                                <text x="-25" y="-20" font-size="11" font-weight="bold" fill="#0891b2" text-anchor="start" class="mono">SOLAR (A)</text>
+                            </g>
+
+                            <!-- Grid B -->
+                            <g transform="translate(120, 160)">
+                                <circle r="13" fill="#0f172a" stroke="#475569" stroke-width="3.5" id="nodeB" class="transition-all duration-200"></circle>
+                                <text y="4" font-size="10" font-weight="bold" fill="#94a3b8" text-anchor="middle" class="mono" id="txtB">0</text>
+                                <text x="-25" y="-20" font-size="11" font-weight="bold" fill="#0891b2" text-anchor="start" class="mono">Y_GEN (B)</text>
+                            </g>
+
+                            <!-- Freeze C -->
+                            <g transform="translate(120, 280)">
+                                <circle r="13" fill="#0f172a" stroke="#475569" stroke-width="3.5" id="nodeC" class="transition-all duration-200"></circle>
+                                <text y="4" font-size="10" font-weight="bold" fill="#94a3b8" text-anchor="middle" class="mono" id="txtC">0</text>
+                                <text x="-25" y="-20" font-size="11" font-weight="bold" fill="#0891b2" text-anchor="start" class="mono">FREEZE (C)</text>
+                            </g>
+
+                            <!-- Valve Output Node -->
+                            <g transform="translate(685, 215)">
+                                <circle r="24" fill="#0f172a" stroke="#475569" stroke-width="4" id="nodeY" class="transition-all duration-200"></circle>
+                                <text y="5" font-size="14" font-weight="bold" fill="#fff" text-anchor="middle" class="mono" id="txtY">0</text>
+                                <text x="-30" y="-32" font-size="11" font-weight="bold" fill="#cbd5e1" text-anchor="start" class="mono">VALVE (Y_HEAT)</text>
+                            </g>
+                        </svg>
+                    </div>
+
+                    <!-- Formula and Stages Block -->
+                    <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div id="statusOR" class="bg-cyan-500/10 p-4 rounded-xl border border-cyan-500/30 text-sm flex items-center justify-between transition-all duration-200">
+                            <div>
+                                <span class="text-[9px] uppercase tracking-wider text-slate-500 font-bold block">OR Stage (U1A Out)</span>
+                                <span class="font-bold text-cyan-400 mono">Solar ∨ Y_GEN</span>
+                            </div>
+                            <span id="diagnosticOR" class="font-mono bg-cyan-950 px-3 py-1 rounded text-cyan-400 font-bold text-lg border border-cyan-500/20">1</span>
+                        </div>
+                        <div id="statusAND" class="bg-slate-900/40 p-4 rounded-xl border border-slate-800 text-sm flex items-center justify-between transition-all duration-200">
+                            <div>
+                                <span class="text-[9px] uppercase tracking-wider text-slate-500 font-bold block">AND Stage (U2A Out)</span>
+                                <span class="font-bold text-amber-500 mono">Y_HEAT = (A ∨ B) ∧ C</span>
+                            </div>
+                            <span id="diagnosticFinal" class="font-mono bg-slate-950 px-3 py-1 rounded text-slate-500 font-bold text-lg border border-slate-800">0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Scrolling Waveform Timing Diagram -->
+                <div class="bg-slate-950/95 border border-cyan-500/20 rounded-2xl p-5 shadow-2xl space-y-3">
+                    <div class="flex justify-between items-center border-b border-slate-800 pb-2">
+                        <h3 class="text-sm font-bold text-cyan-400 flex items-center gap-2">
+                            <i class="fa-solid fa-chart-line"></i> Scrolling Waveform Logic Analyzer
+                        </h3>
+                        <span class="text-[10px] uppercase font-mono text-slate-500">Real-time Stream</span>
+                    </div>
+                    <!-- Timing Diagram Canvas -->
+                    <div class="relative bg-slate-950/80 p-2 rounded-xl border border-slate-900 overflow-hidden">
+                        <canvas id="waveformCanvas" width="800" height="150" class="w-full h-[150px] block"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- The Novice Guide to Thermal Sovereignty -->
+        <section class="bg-slate-950/90 border border-cyan-500/20 rounded-2xl p-6 shadow-2xl space-y-6">
+            <h2 class="text-xl font-bold text-cyan-400 border-b border-slate-800 pb-3 flex items-center gap-2">
+                <i class="fa-solid fa-graduation-cap"></i> The Novice Guide to Thermal Sovereignty: Zero Mortality Blueprint
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm">
+                <!-- Lesson 1 -->
+                <div class="space-y-2 bg-slate-900/40 p-4 rounded-xl border border-slate-800">
+                    <h3 class="text-amber-500 font-bold uppercase tracking-wider text-xs">Lesson 1: The Sovereign Objective</h3>
+                    <p class="text-slate-300">
+                        In livestock projects (such as <strong>1,920-broiler batches</strong> or <strong>160-porcine cycles</strong>), standard heaters fail during South African grid failures (Load Shedding). Rapid thermal shifts cause mortality. 
+                    </p>
+                    <p class="text-slate-400 text-xs italic">
+                        Our objective is absolute temperature protection (<mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="5" style="font-size: 110%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D447 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c2248"></mjx-c></mjx-mo><mjx-msup space="4"><mjx-mn class="mjx-n"><mjx-c class="mjx-c33"></mjx-c><mjx-c class="mjx-c30"></mjx-c></mjx-mn><mjx-script style="vertical-align: 0.393em;"><mjx-mo class="mjx-n" size="s"><mjx-c class="mjx-c2218"></mjx-c></mjx-mo></mjx-script></mjx-msup><mjx-mtext class="mjx-n"><mjx-c class="mjx-c43"></mjx-c></mjx-mtext></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="19" style="font-size: 110%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D447 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c2248"></mjx-c></mjx-mo><mjx-msup space="4"><mjx-mn class="mjx-n"><mjx-c class="mjx-c33"></mjx-c><mjx-c class="mjx-c30"></mjx-c></mjx-mn><mjx-script style="vertical-align: 0.393em;"><mjx-mo class="mjx-n" size="s"><mjx-c class="mjx-c2218"></mjx-c></mjx-mo></mjx-script></mjx-msup><mjx-mtext class="mjx-n"><mjx-c class="mjx-c43"></mjx-c></mjx-mtext></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>T</mi><mo>≈</mo><msup><mn>30</mn><mo>∘</mo></msup><mtext>C</mtext></math></mjx-assistive-mml></mjx-container></mjx-assistive-mml></mjx-container> for broilers) completely independent of the national grid.
+                    </p>
+                </div>
+
+                <!-- Lesson 2 -->
+                <div class="space-y-2 bg-slate-900/40 p-4 rounded-xl border border-slate-800">
+                    <h3 class="text-cyan-400 font-bold uppercase tracking-wider text-xs">Lesson 2: The Logical Guardians</h3>
+                    <p class="text-slate-300">
+                        We use three environmental inputs represented as binary values:
+                    </p>
+                    <ul class="list-disc list-inside text-slate-400 text-xs space-y-1">
+                        <li><strong>Input <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="6" style="font-size: 110%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D434 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="20" style="font-size: 110%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D434 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>A</mi></math></mjx-assistive-mml></mjx-container></mjx-assistive-mml></mjx-container>:</strong> Solar energy harvesting level.</li>
+                        <li><strong>Input <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="7" style="font-size: 110%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D435 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="21" style="font-size: 110%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D435 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>B</mi></math></mjx-assistive-mml></mjx-container></mjx-assistive-mml></mjx-container>:</strong> Active generator output (<mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="8" style="font-size: 110%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44C TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em; margin-left: -0.182em;"><mjx-texatom size="s" texclass="ORD"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D43A TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D438 TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D441 TEX-I"></mjx-c></mjx-mi></mjx-texatom></mjx-script></mjx-msub></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="22" style="font-size: 110%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44C TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em; margin-left: -0.182em;"><mjx-texatom size="s" texclass="ORD"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D43A TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D438 TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D441 TEX-I"></mjx-c></mjx-mi></mjx-texatom></mjx-script></mjx-msub></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>Y</mi><mrow data-mjx-texclass="ORD"><mi>G</mi><mi>E</mi><mi>N</mi></mrow></msub></math></mjx-assistive-mml></mjx-container></mjx-assistive-mml></mjx-container>).</li>
+                        <li><strong>Input <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="9" style="font-size: 110%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D436 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="23" style="font-size: 110%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D436 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>C</mi></math></mjx-assistive-mml></mjx-container></mjx-assistive-mml></mjx-container>:</strong> Cold threshold trigger (<mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="10" style="font-size: 110%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D447 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c2264"></mjx-c></mjx-mo><mjx-msup space="4"><mjx-mn class="mjx-n"><mjx-c class="mjx-c32"></mjx-c></mjx-mn><mjx-script style="vertical-align: 0.363em;"><mjx-mo class="mjx-n" size="s"><mjx-c class="mjx-c2218"></mjx-c></mjx-mo></mjx-script></mjx-msup><mjx-mtext class="mjx-n"><mjx-c class="mjx-c43"></mjx-c></mjx-mtext></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="24" style="font-size: 110%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D447 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c2264"></mjx-c></mjx-mo><mjx-msup space="4"><mjx-mn class="mjx-n"><mjx-c class="mjx-c32"></mjx-c></mjx-mn><mjx-script style="vertical-align: 0.363em;"><mjx-mo class="mjx-n" size="s"><mjx-c class="mjx-c2218"></mjx-c></mjx-mo></mjx-script></mjx-msup><mjx-mtext class="mjx-n"><mjx-c class="mjx-c43"></mjx-c></mjx-mtext></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>T</mi><mo>≤</mo><msup><mn>2</mn><mo>∘</mo></msup><mtext>C</mtext></math></mjx-assistive-mml></mjx-container></mjx-assistive-mml></mjx-container>).</li>
+                    </ul>
+                    <p class="text-slate-300 mt-1">
+                        The ultimate safeguard is computed by the Boolean master formula:
+                        <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" display="true" tabindex="0" ctxtmenu_counter="11" style="font-size: 109.9%; position: relative;"><mjx-math display="true" class="MJX-TEX" aria-hidden="true" style="margin-left: 0px; margin-right: 0px;"><mjx-mtext class="mjx-n"><mjx-c class="mjx-c59"></mjx-c><mjx-c class="mjx-c5C"></mjx-c><mjx-c class="mjx-c5F"></mjx-c><mjx-c class="mjx-c48"></mjx-c><mjx-c class="mjx-c45"></mjx-c><mjx-c class="mjx-c41"></mjx-c><mjx-c class="mjx-c54"></mjx-c></mjx-mtext><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D434 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2228"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="3"><mjx-c class="mjx-c1D435 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2227"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="3"><mjx-c class="mjx-c1D436 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="block"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" display="true" tabindex="0" ctxtmenu_counter="25" style="font-size: 110%; position: relative;"><mjx-math display="true" class="MJX-TEX" aria-hidden="true" style="margin-left: 0px; margin-right: 0px;"><mjx-mtext class="mjx-n"><mjx-c class="mjx-c59"></mjx-c><mjx-c class="mjx-c5C"></mjx-c><mjx-c class="mjx-c5F"></mjx-c><mjx-c class="mjx-c48"></mjx-c><mjx-c class="mjx-c45"></mjx-c><mjx-c class="mjx-c41"></mjx-c><mjx-c class="mjx-c54"></mjx-c></mjx-mtext><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D434 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2228"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="3"><mjx-c class="mjx-c1D435 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2227"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="3"><mjx-c class="mjx-c1D436 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="block"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mtext>Y\_HEAT</mtext><mo>=</mo><mo stretchy="false">(</mo><mi>A</mi><mo>∨</mo><mi>B</mi><mo stretchy="false">)</mo><mo>∧</mo><mi>C</mi></math></mjx-assistive-mml></mjx-container></mjx-assistive-mml></mjx-container>
+                    </p>
+                </div>
+
+                <!-- Lesson 3 -->
+                <div class="space-y-2 bg-slate-900/40 p-4 rounded-xl border border-slate-800">
+                    <h3 class="text-emerald-400 font-bold uppercase tracking-wider text-xs">Lesson 3: The Actuator (Hydronic Valve)</h3>
+                    <p class="text-slate-300">
+                        When the output valve <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="12" style="font-size: 109.9%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44C TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.153em; margin-left: -0.182em;"><mjx-texatom size="s" texclass="ORD"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D43B TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D438 TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D434 TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D447 TEX-I"></mjx-c></mjx-mi></mjx-texatom></mjx-script></mjx-msub></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="26" style="font-size: 110%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44C TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.153em; margin-left: -0.182em;"><mjx-texatom size="s" texclass="ORD"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D43B TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D438 TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D434 TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D447 TEX-I"></mjx-c></mjx-mi></mjx-texatom></mjx-script></mjx-msub></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>Y</mi><mrow data-mjx-texclass="ORD"><mi>H</mi><mi>E</mi><mi>A</mi><mi>T</mi></mrow></msub></math></mjx-assistive-mml></mjx-container></mjx-assistive-mml></mjx-container> fires (<mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="13" style="font-size: 109.9%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="27" style="font-size: 110%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>1</mn></math></mjx-assistive-mml></mjx-container></mjx-assistive-mml></mjx-container>), it opens motorized PEX valves. This floods the underfloor concrete "thermal battery" with heat derived from the Biogas generator's water jacket.
+                    </p>
+                    <p class="text-slate-400 text-xs italic">
+                        By utilizing the structural thermal mass of concrete, we maintain heat for up to 14 hours without active fuel burning.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Diagnostic System Truth Table -->
+        <div class="bg-slate-950/90 backdrop-blur-md border border-cyan-500/20 rounded-2xl p-6 shadow-2xl">
+            <h2 class="text-xl font-bold mb-4 flex items-center gap-2 text-cyan-400 border-b border-slate-800 pb-3">
+                <i class="fa-solid fa-table"></i> Diagnostic Verification Matrix
+            </h2>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left text-sm">
+                    <thead>
+                        <tr class="border-b border-slate-800 text-slate-400 uppercase tracking-widest text-xs">
+                            <th class="py-3 px-3">Solar (A)</th>
+                            <th class="py-3 px-3">Y_GEN (B)</th>
+                            <th class="py-3 px-3">Freeze (C)</th>
+                            <th class="py-3 px-3 text-center bg-cyan-950/25 border-r border-slate-800/50">OR Stage Output</th>
+                            <th class="py-3 px-3 text-center text-cyan-400 bg-cyan-500/5">Y_HEAT Output</th>
+                        </tr>
+                    </thead>
+                    <tbody id="truthTableBody" class="mono text-slate-300 divide-y divide-slate-800/40">
+                        <tr id="row-000" class="transition-all duration-150 opacity-40 hover:opacity-100">
+                            <td class="py-2.5 px-3">0</td>
+                            <td class="py-2.5 px-3">0</td>
+                            <td class="py-2.5 px-3">0</td>
+                            <td class="py-2.5 px-3 text-center bg-cyan-950/10 border-r border-slate-800/50">0</td>
+                            <td class="py-2.5 px-3 text-center font-bold">0</td>
+                        </tr>
+                        <tr id="row-001" class="transition-all duration-150 opacity-40 hover:opacity-100">
+                            <td class="py-2.5 px-3">0</td>
+                            <td class="py-2.5 px-3">0</td>
+                            <td class="py-2.5 px-3">1</td>
+                            <td class="py-2.5 px-3 text-center bg-cyan-950/10 border-r border-slate-800/50">0</td>
+                            <td class="py-2.5 px-3 text-center font-bold">0</td>
+                        </tr>
+                        <tr id="row-010" class="transition-all duration-150 opacity-40 hover:opacity-100">
+                            <td class="py-2.5 px-3">0</td>
+                            <td class="py-2.5 px-3">1</td>
+                            <td class="py-2.5 px-3">0</td>
+                            <td class="py-2.5 px-3 text-center bg-cyan-950/10 border-r border-slate-800/50">1</td>
+                            <td class="py-2.5 px-3 text-center font-bold">0</td>
+                        </tr>
+                        <tr id="row-011" class="transition-all duration-150 opacity-40 hover:opacity-100">
+                            <td class="py-2.5 px-3">0</td>
+                            <td class="py-2.5 px-3">1</td>
+                            <td class="py-2.5 px-3">1</td>
+                            <td class="py-2.5 px-3 text-center bg-cyan-950/10 border-r border-slate-800/50">1</td>
+                            <td class="py-2.5 px-3 text-center text-cyan-400 font-bold bg-cyan-500/10">1</td>
+                        </tr>
+                        <tr id="row-100" class="bg-slate-800/60 text-white font-bold opacity-100 scale-[1.01] border-l-4 border-slate-600">
+                            <td class="py-2.5 px-3">1</td>
+                            <td class="py-2.5 px-3">0</td>
+                            <td class="py-2.5 px-3">0</td>
+                            <td class="py-2.5 px-3 text-center bg-cyan-950/10 border-r border-slate-800/50">1</td>
+                            <td class="py-2.5 px-3 text-center font-bold">0</td>
+                        </tr>
+                        <tr id="row-101" class="transition-all duration-150 opacity-40 hover:opacity-100">
+                            <td class="py-2.5 px-3">1</td>
+                            <td class="py-2.5 px-3">0</td>
+                            <td class="py-2.5 px-3">1</td>
+                            <td class="py-2.5 px-3 text-center bg-cyan-950/10 border-r border-slate-800/50">1</td>
+                            <td class="py-2.5 px-3 text-center text-cyan-400 font-bold bg-cyan-500/10">1</td>
+                        </tr>
+                        <tr id="row-110" class="transition-all duration-150 opacity-40 hover:opacity-100">
+                            <td class="py-2.5 px-3">1</td>
+                            <td class="py-2.5 px-3">1</td>
+                            <td class="py-2.5 px-3">0</td>
+                            <td class="py-2.5 px-3 text-center bg-cyan-950/10 border-r border-slate-800/50">1</td>
+                            <td class="py-2.5 px-3 text-center font-bold">0</td>
+                        </tr>
+                        <tr id="row-111" class="transition-all duration-150 opacity-40 hover:opacity-100">
+                            <td class="py-2.5 px-3">1</td>
+                            <td class="py-2.5 px-3">1</td>
+                            <td class="py-2.5 px-3">1</td>
+                            <td class="py-2.5 px-3 text-center bg-cyan-950/10 border-r border-slate-800/50">1</td>
+                            <td class="py-2.5 px-3 text-center text-cyan-400 font-bold bg-cyan-500/10">1</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="text-center py-6 border-t border-slate-900 text-xs text-slate-500 uppercase tracking-widest italic">
+            "Harnessing the Power of the Sunbeam" — Scapush Precision Execution
+        </footer>
+    </div>
+
+    <!-- Web Speech API Narrator Script -->
+    <script>
+        let speaking = false;
+        let speechSynth = window.speechSynthesis;
+
+        // Helper function to read scenario text cleanly via Web Speech API
+        function speakScenarioNarrative(text) {
+            if (!('speechSynthesis' in window)) return;
+            
+            // Cancel any ongoing speech so new scenario speech takes immediate effect
+            speechSynth.cancel();
+
+            // Strip HTML tags for smooth audio narration
+            const cleanText = text.replace(/<[^>]*>?/gm, '');
+
+            const utterance = new SpeechSynthesisUtterance(cleanText);
+            utterance.rate = 1.0;
+            utterance.pitch = 1.0;
+
+            const btn = document.getElementById('narratorBtn');
+            const btnText = document.getElementById('narratorBtnText');
+
+            utterance.onstart = () => {
+                speaking = true;
+                btn.classList.remove('bg-cyan-600');
+                btn.classList.add('bg-amber-500', 'text-black');
+                btnText.innerText = 'Narrating Scenario...';
+            };
+
+            utterance.onend = () => {
+                speaking = false;
+                btn.classList.remove('bg-amber-500', 'text-black');
+                btn.classList.add('bg-cyan-600');
+                btnText.innerText = 'Enable Narrator';
+            };
+
+            speechSynth.speak(utterance);
+        }
+
+        function toggleNarrator() {
+            if (!('speechSynthesis' in window)) {
+                alert('Speech synthesis is not supported in this browser.');
+                return;
+            }
+
+            const btn = document.getElementById('narratorBtn');
+            const btnText = document.getElementById('narratorBtnText');
+
+            if (!speaking) {
+                const headerText = "Lwandile Engineering Projects. Thermal Valve Master Blueprint. Certified hardware schematic for CMOS gate implementation under the Just Energy Transition Framework.";
+                const scenarioText = document.getElementById('scenarioDescription').innerText;
+                const guideText = "The novice guide to thermal sovereignty. Our objective is absolute temperature protection for livestock completely independent of the national grid.";
+                
+                const fullNarrative = `${headerText}. Current operational status. ${scenarioText}. ${guideText}`;
+
+                const utterance = new SpeechSynthesisUtterance(fullNarrative);
+                utterance.rate = 1.0;
+                utterance.pitch = 1.0;
+
+                utterance.onboundary = (event) => {
+                    document.getElementById('narrativeSection').scrollIntoView({ behavior: 'smooth', block: 'center' });
+                };
+
+                utterance.onend = () => {
+                    speaking = false;
+                    btn.classList.remove('bg-amber-500', 'text-black');
+                    btn.classList.add('bg-cyan-600');
+                    btnText.innerText = 'Enable Narrator';
+                };
+
+                speechSynth.speak(utterance);
+                speaking = true;
+                btn.classList.remove('bg-cyan-600');
+                btn.classList.add('bg-amber-500', 'text-black');
+                btnText.innerText = 'Narrating... (Click to Stop)';
+            } else {
+                speechSynth.cancel();
+                speaking = false;
+                btn.classList.remove('bg-amber-500', 'text-black');
+                btn.classList.add('bg-cyan-600');
+                btnText.innerText = 'Enable Narrator';
+            }
+        }
+    </script>
+
+    <script>
+        // Waveform parameters - Restored to Full Precision Analyser Engine
+        const canvas = document.getElementById('waveformCanvas');
+        const ctx = canvas.getContext('2d');
+        const historyData = [];
+        const maxHistoryPoints = 80;
+
+        // Interactive Diurnal Scenarios Database
+        const scenarios = {
+            dawn: {
+                A: true, B: false, C: false,
+                desc: "<strong>06:00 AM — Dawn Awakening:</strong> The sun rises over the Highveld. Solar array ($A$) begins registering current ($1$). The temperature is cold but rising, meaning the Freeze Safeguard sensor ($C$) deactivates ($0$). Since there's no freeze threat, the thermal valve remains safely closed ($Y_{HEAT} = 0$). Energy is prioritized for battery recharging."
+            },
+            midday: {
+                A: true, B: false, C: false,
+                desc: "<strong>12:00 PM — Midday Peak & Heat Stress Mitigation:</strong> Solar irradiance is massive ($A = 1$). To prevent deadly <strong>heat stress</strong> in the broiler house, all surplus energy is dynamically channeled into high-volume evaporative misting and high-velocity ventilation systems. The primary heating circuit remains off ($Y_{HEAT} = 0$), keeping the structure cool, protected, and fully within safe operational parameters."
+            },
+            dusk: {
+                A: false, B: false, C: false,
+                desc: "<strong>18:00 PM — Dusk Transition:</strong> The sun sets and solar generation falls below the threshold ($A = 0$). No biogas generation is running ($B = 0$) as we rely on residual warmth in the structures. The Freeze Safeguard ($C$) is still inactive ($0$). The system rests in a balanced standby mode."
+            },
+            freeze: {
+                A: false, B: true, C: true,
+                desc: "<strong>02:00 AM — The Deep Winter Freeze:</strong> July in Secunda ($T \\le 2^\\circ\\text{C}$). The Freeze Safeguard ($C$) fires ($1$). Because there is no solar ($A = 0$), the <strong>10kW Biogas Generator</strong> is ignited immediately ($B = Y_{GEN} = 1$). The OR gate evaluates to $1$ ($0 \\lor 1 = 1$), passing to the final AND gate. Since both paths are active ($1 \\land 1 = 1$), the thermal valve output $Y_{HEAT}$ triggers ($1$), flooding the underfloor concrete battery with heat to prevent animal huddling and death."
+            }
+        };
+
+        function setDiurnalScenario(scenKey) {
+            const data = scenarios[scenKey];
+            if (!data) return;
+
+            document.getElementById('switchA').checked = data.A;
+            document.getElementById('switchB').checked = data.B;
+            document.getElementById('switchC').checked = data.C;
+
+            document.getElementById('scenarioDescription').innerHTML = data.desc;
+            updateCircuit(false);
+
+            if (typeof MathJax !== 'undefined') {
+                MathJax.typesetPromise();
+            }
+
+            // Trigger Speech Synthesis narrator automatically upon scenario selection
+            speakScenarioNarrative(data.desc);
+        }
+
+        function updateCircuit(userInteractive = false) {
+            const activeA = document.getElementById('switchA').checked;
+            const activeB = document.getElementById('switchB').checked;
+            const activeC = document.getElementById('switchC').checked;
+            const coreVoltage = parseFloat(document.getElementById('voltageSelect').value);
+
+            const valA = activeA ? 1 : 0;
+            const valB = activeB ? 1 : 0;
+            const valC = activeC ? 1 : 0;
+
+            const valOR = (activeA || activeB) ? 1 : 0;
+            const valFinal = (valOR && activeC) ? 1 : 0;
+
+            if (userInteractive) {
+                document.getElementById('scenarioDescription').innerHTML = "<i class='fa-solid fa-fingerprint text-cyan-400'></i> <strong>Manual Overrides Active:</strong> You are currently hand-calibrating live signal lines. Observe how the gates and waveforms evaluate dynamically based on your inputs.";
+            }
+
+            updatePhysicsMetrics(coreVoltage, activeA, activeB, activeC);
+
+            document.getElementById('valA').innerText = activeA ? `1 (${coreVoltage}V)` : "0 (GND)";
+            document.getElementById('valB').innerText = activeB ? `1 (${coreVoltage}V)` : "0 (GND)";
+            document.getElementById('valC').innerText = activeC ? `1 (${coreVoltage}V)` : "0 (GND)";
+
+            document.getElementById('valA').className = `mono text-xs px-2 py-0.5 rounded font-bold ${activeA ? 'bg-cyan-500/20 text-cyan-400' : 'bg-slate-950 text-slate-500'}`;
+            document.getElementById('valB').className = `mono text-xs px-2 py-0.5 rounded font-bold ${activeB ? 'bg-cyan-500/20 text-cyan-400' : 'bg-slate-950 text-slate-500'}`;
+            document.getElementById('valC').className = `mono text-xs px-2 py-0.5 rounded font-bold ${activeC ? 'bg-cyan-500/20 text-cyan-400' : 'bg-slate-950 text-slate-500'}`;
+
+            document.getElementById('txtA').textContent = valA;
+            document.getElementById('txtB').textContent = valB;
+            document.getElementById('txtC').textContent = valC;
+            document.getElementById('txtY').textContent = valFinal;
+
+            setNodeState('nodeA', activeA);
+            setNodeState('nodeB', activeB);
+            setNodeState('nodeC', activeC);
+
+            const activeColor = "#22d3ee";
+            const inactiveColor = "#1e293b";
+            const outputGlowColor = "#f59e0b";
+
+            document.getElementById('wireA').setAttribute('stroke', activeA ? activeColor : inactiveColor);
+            toggleFlow('flowA', activeA);
+
+            document.getElementById('wireB').setAttribute('stroke', activeB ? activeColor : inactiveColor);
+            toggleFlow('flowB', activeB);
+
+            document.getElementById('wireC').setAttribute('stroke', activeC ? activeColor : inactiveColor);
+            toggleFlow('flowC', activeC);
+
+            document.getElementById('wireOROut').setAttribute('stroke', valOR ? activeColor : inactiveColor);
+            toggleFlow('flowOROut', valOR);
+
+            document.getElementById('wireFinal').setAttribute('stroke', valFinal ? outputGlowColor : inactiveColor);
+            toggleFlow('flowFinal', valFinal);
+
+            const finalNode = document.getElementById('nodeY');
+            if (valFinal) {
+                finalNode.setAttribute('stroke', '#d4af37');
+                finalNode.setAttribute('fill', '#2d1a17');
+                finalNode.classList.add('glow-thermal');
+            } else {
+                finalNode.setAttribute('stroke', '#475569');
+                finalNode.setAttribute('fill', '#0f172a');
+                finalNode.classList.remove('glow-thermal');
+            }
+
+            document.getElementById('diagnosticOR').textContent = valOR;
+            document.getElementById('diagnosticFinal').textContent = valFinal;
+
+            const boxOR = document.getElementById('statusOR');
+            const boxAND = document.getElementById('statusAND');
+
+            if (valOR) {
+                boxOR.className = "bg-cyan-500/10 p-4 rounded-xl border border-cyan-500/30 text-sm flex items-center justify-between transition-all duration-200";
+                document.getElementById('diagnosticOR').className = "font-mono bg-cyan-950 px-3 py-1 rounded text-cyan-400 font-bold text-lg border border-cyan-500/20";
+            } else {
+                boxOR.className = "bg-slate-900/40 p-4 rounded-xl border border-slate-800 text-sm flex items-center justify-between transition-all duration-200";
+                document.getElementById('diagnosticOR').className = "font-mono bg-slate-950 px-3 py-1 rounded text-slate-500 font-bold text-lg border border-slate-800";
+            }
+
+            if (valFinal) {
+                boxAND.className = "bg-amber-500/10 p-4 rounded-xl border border-amber-500/30 text-sm flex items-center justify-between transition-all duration-200 shadow-[0_0_15px_rgba(245,158,11,0.15)]";
+                document.getElementById('diagnosticFinal').className = "font-mono bg-amber-950 px-3 py-1 rounded text-amber-400 font-bold text-lg border border-amber-500/20";
+            } else {
+                boxAND.className = "bg-slate-900/40 p-4 rounded-xl border border-slate-800 text-sm flex items-center justify-between transition-all duration-200";
+                document.getElementById('diagnosticFinal').className = "font-mono bg-slate-950 px-3 py-1 rounded text-slate-500 font-bold text-lg border border-slate-800";
+            }
+
+            const rows = document.querySelectorAll('#truthTableBody tr');
+            rows.forEach(r => r.className = "transition-all duration-150 opacity-40 hover:opacity-100");
+
+            const activeRow = document.getElementById(`row-${valA}${valB}${valC}`);
+            if (activeRow) {
+                if (valFinal) {
+                    activeRow.className = "bg-cyan-500/10 text-cyan-300 font-bold opacity-100 scale-[1.01] border-l-4 border-cyan-500";
+                } else {
+                    activeRow.className = "bg-slate-800/60 text-white font-bold opacity-100 scale-[1.01] border-l-4 border-slate-600";
+                }
+            }
+
+            historyData.push({ A: valA, B: valB, C: valC, Y: valFinal });
+            if (historyData.length > maxHistoryPoints) historyData.shift();
+            drawWaveform();
+        }
+
+        function updatePhysicsMetrics(volts, a, b, c) {
+            const baseDelay = volts === 3.3 ? 22 : 15;
+            const totalDelay = baseDelay * 2;
+            document.getElementById('delayValue').innerText = `${totalDelay} ns`;
+
+            let activeTerminals = (a ? 1 : 0) + (b ? 1 : 0) + (c ? 1 : 0);
+            const capFactor = 22;
+            const dynamicPower = activeTerminals * capFactor * (volts * volts) * 0.1;
+            document.getElementById('powerValue').innerText = `${dynamicPower.toFixed(1)} μW`;
+        }
+
+        function setNodeState(id, isActive) {
+            const node = document.getElementById(id);
+            node.setAttribute('stroke', isActive ? '#22d3ee' : '#475569');
+            node.setAttribute('fill', isActive ? '#083344' : '#0f172a');
+        }
+
+        function toggleFlow(id, active) {
+            const el = document.getElementById(id);
+            if (active) el.classList.remove('hidden');
+            else el.classList.add('hidden');
+        }
+
+        function resetCircuit() {
+            document.getElementById('switchA').checked = false;
+            document.getElementById('switchB').checked = false;
+            document.getElementById('switchC').checked = false;
+            document.getElementById('scenarioDescription').innerHTML = "Select any of the diurnal phases above to begin the training walk-through. Observe how the inputs, logic gates, output valves, and simulated physics respond dynamically to preserve life.";
+            updateCircuit();
+        }
+
+        function copyBlueprintFormula() {
+            const formula = "Y_HEAT = (Solar OR Y_GEN) AND Freeze";
+            navigator.clipboard.writeText(formula).then(() => {
+                alert("Boolean logic equation copied successfully under LEP precision parameters!");
+            });
+        }
+
+        // Fully Restored High-Precision Realtime Waveform Analyser Engine
+        function drawWaveform() {
+            if (!canvas) return;
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // Draw grid lines inside waveform canvas
+            ctx.strokeStyle = 'rgba(6, 182, 212, 0.08)';
+            ctx.lineWidth = 1;
+            for(let x = 50; x < canvas.width; x += 40) {
+                ctx.beginPath();
+                ctx.moveTo(x, 0);
+                ctx.lineTo(x, canvas.height);
+                ctx.stroke();
+            }
+
+            const channels = [
+                { key: 'A', label: 'SOLAR (A)', color: '#06b6d4' },
+                { key: 'B', label: 'GEN (B)', color: '#10b981' },
+                { key: 'C', label: 'FREEZE (C)', color: '#38bdf8' },
+                { key: 'Y', label: 'VALVE (Y)', color: '#f59e0b' }
+            ];
+            
+            const channelHeight = 26;
+            const channelSpacing = 8;
+            
+            channels.forEach((ch, idx) => {
+                const yOffset = idx * (channelHeight + channelSpacing) + 12;
+                
+                // Channel boundary background
+                ctx.fillStyle = 'rgba(15, 23, 42, 0.6)';
+                ctx.fillRect(45, yOffset, canvas.width - 55, channelHeight);
+                ctx.strokeStyle = 'rgba(30, 41, 59, 0.8)';
+                ctx.strokeRect(45, yOffset, canvas.width - 55, channelHeight);
+                
+                // Channel Label
+                ctx.fillStyle = ch.color;
+                ctx.font = 'bold 9px JetBrains Mono';
+                ctx.fillText(ch.label, 5, yOffset + 17);
+
+                // Plot wave history buffer
+                if (historyData.length > 1) {
+                    ctx.beginPath();
+                    ctx.strokeStyle = ch.color;
+                    ctx.lineWidth = 2;
+                    ctx.shadowColor = ch.color;
+                    ctx.shadowBlur = 4;
+                    
+                    const stepSize = (canvas.width - 60) / maxHistoryPoints;
+                    
+                    for (let i = 0; i < historyData.length; i++) {
+                        const val = historyData[i][ch.key];
+                        const x = 50 + i * stepSize;
+                        const y = yOffset + channelHeight - (val * (channelHeight - 8)) - 4;
+                        
+                        if (i === 0) {
+                            ctx.moveTo(x, y);
+                        } else {
+                            const prevVal = historyData[i - 1][ch.key];
+                            const prevX = 50 + (i - 1) * stepSize;
+                            const prevY = yOffset + channelHeight - (prevVal * (channelHeight - 8)) - 4;
+                            ctx.lineTo(x, prevY);
+                            ctx.lineTo(x, y);
+                        }
+                    }
+                    ctx.stroke();
+                    ctx.shadowBlur = 0; // reset shadow for next channel
+                }
+            });
+        }
+
+        // Initialize history buffer pool
+        for(let i=0; i<maxHistoryPoints; i++) {
+            historyData.push({ A: 0, B: 0, C: 0, Y: 0 });
+        }
+
+        updateCircuit();
+
+        // Continuous waveform streaming loop
+        setInterval(() => {
+            const activeA = document.getElementById('switchA').checked ? 1 : 0;
+            const activeB = document.getElementById('switchB').checked ? 1 : 0;
+            const activeC = document.getElementById('switchC').checked ? 1 : 0;
+            const valOR = (activeA || activeB) ? 1 : 0;
+            const valFinal = (valOR && activeC) ? 1 : 0;
+
+            historyData.push({ A: activeA, B: activeB, C: activeC, Y: valFinal });
+            if (historyData.length > maxHistoryPoints) historyData.shift();
+            drawWaveform();
+        }, 250);
+    </script>
+
+</body></html>

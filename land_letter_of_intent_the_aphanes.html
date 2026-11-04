@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<!-- saved from url=(0091)file:///C:/JET_WORKINGS/jet_eoi_submission_dashboard/land_letter_of_intent_the_aphanes.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Land Letter of Intent (LOI) — Stand 253 Witfontein, Siyabuswa</title>
+  <style>
+    :root {
+      --bg-superwhite: #FFFFFF;
+      --navy-blue: #0A192F;
+      --dark-green: #1B4332;
+      --sunny-gold: #D4AF37;
+      --teal: #008080;
+      --text-primary: #1A202C;
+      --text-muted: #4A5568;
+      --card-bg: #F8FAFC;
+      --border-color: #E2E8F0;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--bg-superwhite);
+      color: var(--text-primary);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      padding: 40px 20px;
+    }
+
+    .container { max-width: 1000px; margin: 0 auto; background: var(--bg-superwhite); }
+
+    /* Ownership Bar */
+    .ownership-bar {
+      background: var(--dark-green);
+      color: #FFFFFF;
+      padding: 10px 20px;
+      border-radius: 6px 6px 0 0;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid var(--sunny-gold);
+    }
+    .ownership-bar span { color: var(--sunny-gold); }
+
+    /* Main Heading Block */
+    .header-block {
+      background-color: var(--navy-blue);
+      color: var(--bg-superwhite);
+      padding: 40px 30px;
+      border-radius: 0 0 8px 8px;
+      border-bottom: 5px solid var(--sunny-gold);
+      margin-bottom: 35px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+    }
+    .header-block.active-narration {
+      border: 3px solid var(--sunny-gold);
+      box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+    }
+
+    .header-block h1 {
+      font-size: 1.9rem;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      line-height: 1.25;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      color: #FFFFFF;
+    }
+
+    .header-block .subtitle { font-size: 1.05rem; color: var(--sunny-gold); font-weight: 500; margin-bottom: 15px; }
+    .header-block .tags { display: flex; flex-wrap: wrap; gap: 10px; font-size: 0.85rem; }
+    .header-block .tag { background: rgba(255, 255, 255, 0.1); padding: 4px 12px; border-radius: 20px; border: 1px solid rgba(212, 175, 55, 0.4); color: #FFFFFF; }
+
+    /* Control Panel */
+    .control-panel {
+      background: #FDF4FF;
+      border: 2px solid #C084FC;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 35px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    .control-row { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; }
+    .control-title { font-weight: 700; color: #7E22CE; font-size: 1rem; display: flex; align-items: center; gap: 8px; }
+    .button-group { display: flex; gap: 10px; flex-wrap: wrap; }
+    
+    .btn-action {
+      background: #9333EA;
+      color: #FFFFFF;
+      border: none;
+      padding: 9px 16px;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: background 0.2s;
+      font-size: 0.88rem;
+    }
+    .btn-action:hover { background: #7E22CE; }
+    .btn-stop {
+      background: #DC2626;
+      color: #FFFFFF;
+      border: none;
+      padding: 9px 16px;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 0.88rem;
+    }
+    .btn-stop:hover { background: #B91C1C; }
+
+    /* Section Styling */
+    section {
+      margin-bottom: 45px;
+      transition: all 0.3s ease;
+      padding: 15px;
+      border-radius: 8px;
+    }
+    section.active-narration {
+      background-color: rgba(147, 51, 234, 0.05);
+      border: 2px solid #C084FC;
+      box-shadow: 0 0 15px rgba(192, 132, 252, 0.2);
+    }
+
+    h2 {
+      color: var(--navy-blue);
+      font-size: 1.35rem;
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 8px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .h2-title { display: flex; align-items: center; gap: 10px; }
+    .h2-title::before {
+      content: '';
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      background-color: var(--teal);
+      border-radius: 2px;
+    }
+
+    .section-audio-btn {
+      background: var(--teal);
+      color: #fff;
+      border: none;
+      padding: 5px 12px;
+      font-size: 0.78rem;
+      border-radius: 4px;
+      cursor: pointer;
+      text-transform: uppercase;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .section-audio-btn:hover { background: #006666; }
+
+    p { color: var(--text-muted); margin-bottom: 15px; font-size: 0.98rem; }
+
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
+    @media (max-width: 768px) { .grid-2 { grid-template-columns: 1fr; } }
+
+    .card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 6px; padding: 20px; }
+    .card-header { font-weight: bold; color: var(--dark-green); font-size: 1.05rem; margin-bottom: 10px; }
+
+    ul { padding-left: 0; list-style: none; }
+    ul li { position: relative; padding-left: 20px; margin-bottom: 10px; color: var(--text-muted); }
+    ul li::before { content: '■'; position: absolute; left: 0; color: var(--sunny-gold); font-size: 0.8rem; top: 2px; }
+
+    .highlight-box {
+      background-color: #F0FDF4;
+      border-left: 4px solid var(--dark-green);
+      border-right: 1px solid var(--border-color);
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+      padding: 18px 20px;
+      border-radius: 0 6px 6px 0;
+      margin-bottom: 20px;
+    }
+    .highlight-title { font-weight: 700; color: var(--dark-green); font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 6px; }
+
+    /* Signature Grid Layout (3 slots: Landowner, Requested By, Witnessed By) */
+    .signature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-top: 25px; }
+    @media (max-width: 900px) { .signature-grid { grid-template-columns: 1fr; } }
+
+    .signature-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    }
+    .signature-title { font-size: 0.8rem; font-weight: 700; color: var(--dark-green); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px; border-bottom: 1px dashed var(--border-color); padding-bottom: 5px; }
+
+    .signature-dropzone {
+      position: relative;
+      width: 100%;
+      height: 95px;
+      margin-bottom: 10px;
+      background: #FFFFFF;
+      border: 1.5px dashed var(--teal);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      overflow: hidden;
+      transition: background 0.2s ease, border-color 0.2s ease;
+    }
+    .signature-dropzone:hover { background: #F0FDF4; border-color: var(--dark-green); }
+    .signature-dropzone p { font-size: 0.75rem; color: var(--text-muted); margin: 0; text-align: center; padding: 8px; }
+
+    .signature-preview-img {
+      max-width: 90%;
+      max-height: 80px;
+      object-fit: contain;
+      mix-blend-mode: multiply;
+    }
+
+    .signature-actions { display: flex; justify-content: space-between; gap: 6px; margin-bottom: 10px; flex-wrap: wrap; }
+    .btn-sig { padding: 5px 10px; font-size: 0.72rem; font-weight: 700; border-radius: 4px; border: none; cursor: pointer; transition: all 0.2s ease; }
+    .btn-upload { background: #E2E8F0; color: var(--navy-blue); }
+    .btn-upload:hover { background: #CBD5E1; }
+    .btn-lock { background: var(--dark-green); color: #FFFFFF; }
+    .btn-lock:hover { background: #143225; }
+    .btn-unlock { background: #D97706; color: #FFFFFF; display: inline-block; }
+    .btn-unlock:hover { background: #B45309; }
+    .btn-sig:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    .signatory-name { font-size: 0.92rem; font-weight: 800; color: var(--navy-blue); }
+    .signatory-role { font-size: 0.78rem; color: var(--text-muted); margin-bottom: 4px; }
+    .signatory-meta { font-size: 0.74rem; color: var(--teal); font-weight: 600; }
+    .signature-status { font-size: 0.72rem; font-weight: 700; color: #D97706; margin-top: 5px; }
+    .signature-status.locked { color: #059669; }
+
+    /* Footer Block */
+    .institutional-block { background-color: var(--navy-blue); color: #FFFFFF; padding: 25px; border-radius: 8px; margin-top: 40px; border-top: 4px solid var(--dark-green); }
+    .institutional-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 18px; font-size: 0.88rem; }
+    .institutional-item strong { color: var(--sunny-gold); display: block; margin-bottom: 4px; }
+    .contact-link { color: #FFFFFF; text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+<div class="container" id="documentContainer">
+
+  <!-- Ownership Bar -->
+  <div class="ownership-bar">
+    <div>PROPRIETARY &amp; CONFIDENTIAL — <span>MR. APHANE &amp; LWANDILE ENGINEERING</span></div>
+    <div>SCAPUSH PRECISION STANDARD</div>
+  </div>
+
+  <!-- Locked Palette Main Heading Block -->
+  <header class="header-block" id="secHeader">
+    <h1>LAND LETTER OF INTENT (LOI)</h1>
+    <div class="subtitle">Stand 253 Witfontein, Siyabuswa, Mpumalanga (2.0 Hectares Allocation)</div>
+    <div class="tags">
+      <span class="tag">Ref: SCAPUSH-JET-W4-LOI-APHANE</span>
+      <span class="tag">Land Allocation: 2.0 Hectares (from 10 Ha total)</span>
+      <span class="tag">Project: Agrivoltaics Hub &amp; Carmello Production Facility</span>
+    </div>
+  </header>
+
+  <!-- Accessibility Female Voice Narrator Control Bar -->
+  <div class="control-panel" role="region" aria-label="Accessibility Control Center">
+    <div class="control-row">
+      <div class="control-title">
+        <span>👩‍🎤 Female Voice Auto-Scrolling Narrator Engine (Scapush Precision)</span>
+      </div>
+      <div class="button-group">
+        <button class="btn-action" onclick="startAutoScrollingNarration()">▶ Play Auto-Scroll Document Audio</button>
+        <button class="btn-stop" onclick="stopSpeech()">⏹ Stop Audio</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 1: Statement of Intent & Land Allocation -->
+  <section id="sec1">
+    <h2>
+      <span class="h2-title">1. Statement of Intent &amp; Land Allocation</span>
+      <button class="section-audio-btn" onclick="speakSingleSection('sec1')">🔊 Listen Section</button>
+    </h2>
+
+    <p>I, <strong>Mr. Aphane</strong>, the lawful owner of agricultural land, stand number 253 Witfontein, situated in Siyabuswa, Mpumalanga, hereby confirm my intent to allocate <strong>two (2) hectares</strong> of my property (from a total of ten (10) hectares) for the establishment of the <strong>Agrivoltaics Hub</strong> and <strong>Carmello Hot Chocolate production facility</strong>, as proposed by Lwandile Engineering Projects in partnership with JLM Trading (Pty) Ltd under the leadership of Nozuko Dywili (Founder &amp; CEO).</p>
+
+    <div class="highlight-box">
+      <div class="highlight-title">Property Details &amp; Scope</div>
+      <p style="margin-bottom: 0; color: var(--text-primary);">
+        <strong>Location:</strong> Stand 253 Witfontein, Siyabuswa, Mpumalanga.<br>
+        <strong>Allocation Size:</strong> 2.0 Hectares dedicated for renewable energy integration, microgrid installation, agricultural nurseries, and manufacturing operations.
+      </p>
+    </div>
+  </section>
+
+  <!-- Section 2: Community Empowerment Outcomes -->
+  <section id="sec2">
+    <h2>
+      <span class="h2-title">2. Community Empowerment &amp; Project Outcomes</span>
+      <button class="section-audio-btn" onclick="speakSingleSection('sec2')">🔊 Listen Section</button>
+    </h2>
+
+    <p>This allocation is intended to support the following community empowerment and regional development outcomes under the Just Energy Transition (JET) EOI framework:</p>
+
+    <ul>
+      <li><strong>Product:</strong> CARMELLO HOT CHOCOLATE manufacturing and processing.</li>
+      <li><strong>Renewable Energy Access:</strong> Advanced solar-powered infrastructure and microgrid integration.</li>
+      <li><strong>Employment Creation:</strong> Permanent and indirect jobs for local Siyabuswa residents.</li>
+      <li><strong>Skills Transfer:</strong> Training academy initiatives dedicated to youth and women empowerment.</li>
+      <li><strong>Health &amp; Wellness:</strong> Carmello hot chocolate as a healthy indulgence capable of supporting holistic community vitality.</li>
+      <li><strong>Community Partnerships:</strong> Strategic collaboration with local retailers, hotels, restaurants, and commercial distributors.</li>
+    </ul>
+  </section>
+
+  <!-- Section 3: Legal Terms & Commitment -->
+  <section id="sec3">
+    <h2>
+      <span class="h2-title">3. Terms of Commitment &amp; Legal Compliance</span>
+      <button class="section-audio-btn" onclick="speakSingleSection('sec3')">🔊 Listen Section</button>
+    </h2>
+
+    <p>This Letter of Intent confirms the landowner's willingness to partner in advancing socio-economic development in Siyabuswa and surrounding communities. While this letter does not constitute an immediate transfer of ownership, it serves as a formal, binding commitment to make the land available for project implementation, subject to final agreements and compliance with all statutory and legal requirements.</p>
+  </section>
+
+  <!-- Section 4: Signatures & Witness -->
+  <section id="sec4">
+    <h2>
+      <span class="h2-title">4. Landowner, Applicant &amp; Witness Signatures</span>
+      <button class="section-audio-btn" onclick="speakSingleSection('sec4')">🔊 Listen Section</button>
+    </h2>
+
+    <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 20px;">
+      Drag and drop signature images onto designated slots below or click to upload. Seals generate cryptographic timestamp verification upon locking.
+    </p>
+
+    <div class="signature-grid">
+      <!-- Slot 1: Mr. Aphane (Landowner) -->
+      <div class="signature-card">
+        <div class="signature-title">Lawful Landowner</div>
+        
+        <input type="file" id="file-aphane" accept="image/png, image/jpeg, image/jpg, image/svg+xml" style="display: none;">
+        <div class="signature-dropzone" id="dropzone-aphane" style="cursor: default;">
+          <p id="placeholder-aphane" style="display: none;">Click or drag &amp; drop signature<br><span style="font-size:0.65rem; color:var(--teal);">(PNG, JPG, SVG)</span></p>
+          <img id="img-aphane" class="signature-preview-img" style="display: block;" alt="Mr. Aphane Signature" src="data:image/png;base64,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">
+        </div>
+        
+        <div class="signature-actions">
+          <button type="button" class="btn-sig btn-upload" id="btn-upload-aphane" disabled="">Select File</button>
+          <button type="button" class="btn-sig btn-lock" id="btn-lock-aphane" disabled="">Lock</button>
+          <button type="button" class="btn-sig btn-unlock" id="btn-unlock-aphane" style="display: inline-block;">Unlock</button>
+        </div>
+
+        <div class="signatory-name">Mr. Aphane</div>
+        <div class="signatory-role">Lawful Landowner (Stand 253 Witfontein)</div>
+        <div class="signatory-meta">Contact: +27 82 304 0174</div>
+        <div class="signature-status locked" id="status-aphane">Status: Sealed (2026-11-03 18:11:53 UTC) [Scapush Precision]</div>
+      </div>
+
+      <!-- Slot 2: Sipho Khuzwayo (Requested By) -->
+      <div class="signature-card">
+        <div class="signature-title">Requested By (Lwandile Eng.)</div>
+        
+        <input type="file" id="file-khuzwayo" accept="image/png, image/jpeg, image/jpg, image/svg+xml" style="display: none;">
+        <div class="signature-dropzone" id="dropzone-khuzwayo" style="cursor: default;">
+          <p id="placeholder-khuzwayo" style="display: none;">Click or drag &amp; drop signature<br><span style="font-size:0.65rem; color:var(--teal);">(PNG, JPG, SVG)</span></p>
+          <img id="img-khuzwayo" class="signature-preview-img" style="display: block;" alt="Sipho Signature" src="data:image/png;base64,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">
+        </div>
+        
+        <div class="signature-actions">
+          <button type="button" class="btn-sig btn-upload" id="btn-upload-khuzwayo" disabled="">Select File</button>
+          <button type="button" class="btn-sig btn-lock" id="btn-lock-khuzwayo" disabled="">Lock</button>
+          <button type="button" class="btn-sig btn-unlock" id="btn-unlock-khuzwayo" style="display: inline-block;">Unlock</button>
+        </div>
+
+        <div class="signatory-name">Sipho Khuzwayo</div>
+        <div class="signatory-role">Lwandile Engineering Projects</div>
+        <div class="signatory-meta">073905 6846 | siphokhuzwayo12@gmail.com</div>
+        <div class="signature-status locked" id="status-khuzwayo">Status: Sealed (2026-11-01 22:11:18 UTC) [Scapush Precision]</div>
+      </div>
+
+      <!-- Slot 3: Nozuko Dywili (Witnessed By) -->
+      <div class="signature-card">
+        <div class="signature-title">Witnessed By (JLM Trading)</div>
+        
+        <input type="file" id="file-dywili" accept="image/png, image/jpeg, image/jpg, image/svg+xml" style="display: none;">
+        <div class="signature-dropzone" id="dropzone-dywili" style="cursor: default;">
+          <p id="placeholder-dywili" style="display: none;">Click or drag &amp; drop signature<br><span style="font-size:0.65rem; color:var(--teal);">(PNG, JPG, SVG)</span></p>
+          <img id="img-dywili" class="signature-preview-img" style="display: block;" alt="Nozuko Signature" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALUAAAAqCAYAAAD1Yxo/AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAABReSURBVHhe7V1rcxvJrT0zPU8+LdvZzf//b6naxLumyOG8Zxr3Q3BQIG2v5FjlbHSFKpWoeXSjgYNnN+1ERARv9EaviNL7C2/0Rv/r9FNBzaAwzzPWdbW/RQTzPGMcx5vnYowYhgEigmEY3Ej/GYmIzTFNE5qmAQD0fX/35LfJBzYRQYwR0zTZ37x/vV4BnWeeZ3vnNRPlua4rpmkyWVC+67oCANq2RYwRMUYsy2LXX4p+Kqjf6I1+BiU/M6delgUAkCQJQgjo+x51Xdtv0jAMqKoKUO+3rivSNEWSJPbMf0J8P8aIcRxt7hAChmHA4XC4f+WG5nmGiCBN/+0LYowoisLucU3b7fZmTcuyIMuym7FeIzHiZlmGNE0RY8T1esVmswEAZFmGeZ6RpilEBFmWQUTQdR3quja5/ij9VFBDF74sC5IkQZZlaJoGZVkiz3MDcJ7nlnYQ3D8KaLj0gEIdxxHjOOJ4PN6kFX9GSZJgHEeUZWnpUVVViDFCRJDnOaChloq7XC7YbrcIIdwP96pIRJAkCaZpQowRIQTT8ziOJpPtdotlWTBNE+q6xrIsEBFzED9KPxXUfd+jqiokSXKzqCRJbrx2URQGboJwWZYftuQ0TdG2Leq6xjRNKMsSSZJYvl6W5f0rXxCfDyEYPyEEU+jvv/+Ojx8/2t/8fT6fcTwe74d7VSQi6PseZVkihIBlWbDZbDDPM7bbLaZpQggBp9PJZE8Hsa7rixn9TwU1iYqGerT7xTBct22LPM9RFAXmeTYv+KPENIjpw3368y1iAVTXNZqmwX6/R9u2SNPUQm4IwULsNE2oqsoM6LUTo59oGnI8Hi2taNsWUMcxjiNijPjjjz9wPB5Nbi9FPxXU67oaiJdlQQjB8iwfrtd1RVVV2O121j14CTaXZcHlcsH79+8B5Yd53XPTG9FOTFVVOJ1OeHh4sHus5ouigLhUp2kaFEXx6oHtHc/hcMA0TdZtijGaRy7LEl3XAc6B0WO/BP1UUD8+PuLdu3eAhnEWfwR0jNFCOgGx2WwQQrB20Y9QWZaY59k8NMMhAOR5bq25bxENgJ54v9+jaRrEGE2Zvn3H9EO0jnjtxSKNmuCk84oxAtrePBwOWNf1Ju3L8xxlWb5I2xY/u6X37t07nM9nFEWBRDsgMUZTPgHhC4qu69A0zbPSg6doHEfkeW6pwYcPHyx6sK/6Zz98JssyZFlma8myDDFG498rtSxLNE3zw/XA/wIlSWLFHuU8jqOtvSxLnM9ni4rTNJmhMyV8CXpRT83clDkTgcjijJ4ZAIqiMMvGVzY16EXpVaM26ykEn4snSYKqqqxjQj6maTIhE5g+zUi0YCUonwM88pxlmaVPUKXQI6VpilQ7LPx57vj/y7QsC96/f3+zCQOVc9RuSNd1eHh4MDlSJ8+JlM+lF5UyFclial1XLFoBM+QQ6ATcdruFaIFBT9e2LcqyRJZlBjx6yL7vcb1ekaYprtcryrJEWZYmkHmeUde1FSZQ4SZJYsL1wmPO9xyiktid4XoW7czQ8ETTjRgjuq4zsL92SpIETdOYs/HGzWhMJ0NnxsLycrncjPUj9KKgZtj1qQLBtNlssNvtMAwD6rq21IIAo9ebpgm73Q7jOOL3339H6joLUEDtdjssy4L9fo9E20LsZ2faF66qCkVR4PHx0ToSnCeEgGmasK4rNpvNjZf9M6KSaJAiYsbD/DHR9uQ4jqa4NE1vcu3XSgTzZrOBaORdlsU8NyNpnudIkgQPDw/Wv6b+XoJeFNRUKgHi04NlWdB1HUQEp9MJy7Lg119/RZqm6PvevDItep5nfPz4ETFGNE2DSRv6aZpiGAZrBc26k9d1neXqpfZJRcTSIY7PPI4GSHA/JzXgmYWiKFAUhRki06SyLHG9Xs2omQbN8/xilf1fmeiF+743IxYR01Vd18jzHNfrFSKCpmlwOBzQf8fZm+fQ05r8DsqyDMuyYFkWC+u0SuatIoJSe5WfPn3COI4GwGmakOc55nnGbrcDNDzt93vrXDDk0xBijNhut+bl2d1omgZ93xvI4VKe8/kMqNFVVYV3796ZV/0z2u12ZkiJdm34mSkHZeA9T6ptvddOdAz0xtfrFV3XWfuO6ShcZOu6Drvdzjz7S9CLFooEDYs4ghlqvYueyKrrGkF35JinittiJfBn7XteLhcURYGqqhC0o7DqjuP5fDZvSSHxrAH7yaLb73CCX9cVRVEgTVNUVYXr9YrkiV71+XxGXdcoigKbzeZmF5TrZTrFsRbtxz819msgrpHRlG3OcRwtis7zbClfVVVomsbqoJeiF/XUuW5rM9Qz7Hz69AkAUFUV8jy39IQAi3qGgqHdA3pdVxwOB9tePx6P6Psekx4dTbSNtK6rbdGu64p//vOfqPRMBlMOEgXO+33fP8tTHI9HUw6U/99++82MhulR4o4BMMd/TiR4DRRCsHRuWRZ8/vwZZVmi73usutlF/c/a76/r2rz5S9CLemqotTLXZGWLu5NqdV3b+QkWVUw36FGDFnOLdk+SJMF2u0Xbtjbm5M6OrO58Npx3EHfGOWiOP02TdWRS3aIdx/FJb8r8vdZ2IVORvu8thWH6RA/tC1Aa8WslOhce4KKRM61MtKjf7/dWZ5xOJ9R1bc++BH11FNEWG70N1JsCMIuKrsfs8yR666jtLOjhcQJ6ues0JNpjhs7LNGLR7WZ6/c1mY4Aetf2XpulNKsLUZdWtWAKdhgaXIvkCD7oeGtQ8z5i10GmaxsbJ8xxBuydQA5z1sM6sRy6Zv/Mdr6xlWWxcL1fWH5TXOI5WPJE/b7R8l0Z/rwu+SzkyinCNvA6XFnKuqMdFcbd3QFpcvUQ+SHyfqYSPvrPbyWUKcrlcELSeYoSDrtXrxbdnn0MGaq/Ib/WJV229UFEUDp8rtesQNeQzrOz3e0zTZIXb7M4IeOsULRY59zAM+Pvf/w6owkUE5/MZUbelE22fZXp+pCgKtG1rPBC4BNc0TUi0w7JoS5BCpjExNSFQ9vs9Qgho29aETtDc899rD3232+FwOJjh0RgT3WQYdWeT74+6WUVFl3qCzY+bav0xuU0pyhLuhFyihbR3JEHrF0YlaFHPnVrKcZ5nDMNwc+YG7iAXoxkdRuGOihKElDk03aSh8lkvA3asRM9UF0VhcvEOcbvd4nQ66UzPIFGKMUqMUcZxFBGRYRjk06dPsiyL3Z/nWURE+r6XpmlEUxepqkqyLBMAMgyDxBhFRGRdV7lcLvaZ1zebjQAQTj/Ps8QYZV1X6fte1nW1sQFIWZb23DRNIiKyLIvM8yx5ngsAyfNcuq6zua7Xq4iItG17s4YsyyRNUxu7rmsJIdi4/C0iJos//vhDRES2263UdS15ntt98s11xhgFgM3BuUV5nqZJ+r43/ih30bm5/mEY7Brf5fNd193oapomu0+erterzPMs8zybPEVlw+vX6/VmHNL1erVr5/PZeOU9/5uYGMdRqqoSALLb7WxsUR3M8yxt25q+0jQVEZF//OMfNnZZloYnv87vJQM1aZomiTEaaKdpksvlYkL2IKnrWgAYUPjMPM8yDIMphAK6Xq+yrqukaSqbzUayLLM5SDFGOZ1OUte1ZFkmv/zyiwCQdV0NtMuy2FxFURgPwzAYbx5MVOo8zwbiLMtkt9tJCEHKsjRA+fE9XzQA/iaIRR2AiEjTNGa85AlquJ8/fxbR9ZH6vre5CA4aiSgfNIQQgo3Fe8MwGGA4Lt/1vyk3EZGu6776jIjI5XKxz95gxDkYUQzEGI03UX4AyLt370xf3tD5uygKyfNc6rqWvu/tHscvikLKspRxHE2HbdverOEpMimN42gL8ZZLcIsyzkWTiffv398Im4x6gV0uF1PQsiwGxHslRRcNAMjhcLBneF1U+NM0Sdu2kmWZGRWfo6AeHx9FnGKTJDFvAkAeHh4EwM0aKTwC/HK5CABJkkQAyH6/F3HGL84TRed1+76XNE3tPXHAphHEGKVtW/t8bww0kGmaTOEAZJomWdfVlE5gcR0EHa+TJ/+Z/HN+vnu5XCQqYKkTETGeQggiOgeJshIR88TkbRxHOZ/PMs+zeeLtdiurRuWoUYVr2263Jm/PN8d7Dn3hqcdx/CL0nc9n6fv+xmrTNJXdbidd18miqQAXRwD+9ttvN+NyrCzLpCgKybLMGKd377rOFucXRmBS+PTKeZ5LmqZSVZU8Pj6a4XVdZ8AX5ZlpDwmAfPz4Ueq6tnmWZZGmacxw+Fye5/a+9xyrhnN+5hpE1wQNx5yX6YUHwjRNcr1eJcsyKctS8jyXh4cHmabpJs3LskzyPDdgMcUQEfnXv/5lz5EIGu9UCFo/P9+ZXBpDg1rUG8M5mWVZpOu6mwjFZ+GMj3OSkiQxT+0dJ9+j4dBRQQ17XdcvUqQ/I5MAXyb5sEKCeri//e1vAuCrIZgg5yK91XvPkaapZFl2w/C6ruY9Qwg3ICFvy7JYPueFmGkqw+ucR1zqkCSJzRnVK0LB3ve9rcGTFzYVRV6u16sBYdY81b9XVZXl1j6PFwc4cQYP56mgChUHNsqFfMhdWsP3ANjYlPnlcjF9eT34d5ZluQF70zQ3ToG8i3NcvjYQp5Pj8XjzPN/f7/eGixijDMMg0LSlqioZhsGcFGupaZpuZPsUfeGpCUBRYftFlWVpyiG1bXuTf1FgcjeWB6Wo1RJgXCQ07DDH9WNRCAQVQz7H8kL3Htb/pGlqxjvPs2y3WzMi8keljlpwea/B6zSK+7l8WpVpSpQkiYQQvgiv4hzAPa91XUtRFLJqxOFcMUYL4bxGHqI6irIspa5rmbVA5HNcN8ehDOq6Nr3y2WEY5HQ6iTiQpmkqeZ6bXuZ5vklZB20QrOtqKUhVVZbubTYbCSEYkKMWqHme25rEGQtxliSJJEki30Nf9Kl9S46trc1mgyzL7G/Rcw7QVg3bMnmeW0uGY7G9wxZg0E2Vf+vx320fjgV3foTjsHfM58kft8J5j5s3QXvl7BdzfvK86oZL1J4qe62pbqSUei6l0C30cLfF7Td0kiTBbrez+55HaJuL/ddJdxe7rrNrbIGyDUfijmqapsh1V5XjU1ZsY8K1FQ+Hg+0vBN1QIqV6cAyuXcbe/qK9bvLPPj6pLEuI7hSz7caWXtCWqW9D8kgwW6RVVaHXL1SPetZn1b2EWb/Kx2uZ7jhSBxzf8/MkEd3eksV5RrnzQqLW2/e9Wan3Gn9G9DwiIiEEs0bmqsy3xOXYcleU8fc4jtJr90CUR5/3hhBkv98bz+u6yvl8Fk9w3n2eZxuL0YlenM+cz2dJ09Q8IkMsPSufG4bB2oC+FhGdM8syiy5lWd4U2/SM/Nt7Qr4fQpCqqmw9lA80vDMykHwh7HPvEILxURSF1HUt4zhaSjGOo3WK6E03m42NTa/K9T0+Ppp+kiSR7XYraZpa1wiAfPjwwbw35ce1UgfEIdRTp2lqdcRzyEBNIvAWbRl9rZXik3ZvCE8Rx/QpDUHChYvmaRQO5/eG4+f0vFBAPl0QzTv9+wx9ntgpIVAo0N1uZ+OVZSmHw8Hy2hCC7HY7adv2Brir1gKrS61ogAzjWZZJCOEmVHtlMlUS1zcmj1xjVVU36c+HDx8EatwsoBct6lZXu/AZFrC4c1p8juDL81yOx6M5ie12ayDnO03TmEPxzoVyKsvS5rhPF30dRpkRI3S2z3Wc8jVQszoWB6R1XaVpGpm0YGm1V01L/Rrwv0We+RCC5ZhVVdl9r8yoeTTJdxY8Lx5UzIsn1/qadbNhcYUmwejHJ/ni8MOHDwY+/pDHznVkOu24+GLLK4RzEXAcM7qo2Lat1HUtaZpK3/dfGPXj46OkWkiRj1SLbmjBxQhYVZUV0YyMZVneAI7jQ42WY87auaEBj9o35t9Qwzoej1IUxU20JWjruhZRXbFI9ZihXnz+vrg9CMrxewAtHtRd19kCORj/5qTiJqAlkcmvdQ7uaVkWE45vVR2PR/MkBCfB7EHHOTgnefBGeDqdzDBa7dfKV9KPe357t8tHwJZlaeEczhOK603Tq3FjycuFoX52PWwChSkHAfS1iCPOCbBAoyzo9RjhQghyOBxkmiYbi1GQxkOw8zPHmrRl5+/TCAhM6o36obEQwHme22dPTdPc4Ih6H7Xg9p0sn85EjabR7V08l4wDWsnpdDKlctGiIJhdL1kURN/rrRcXWqhsVsOiY3Zd94WV8rp/T3Re8kZ+vfDXu6r/fD7LqukBx+R9Pus9FZVNEDEEU4neK4oqy+/MESAEVgjBgMh5+J7o2hi9OAaBQN5o/Ln2rGvdfeWaOOY8z8Y358/z3GTHKEcDTzV3LcvSeBh0P8CDjNe8jnzKyLVQX13X3TgMGgjfZapGIj8chxH3ufRF+iEOSB509/fYZyVQnkM+RWCY9tfE9T05JxVPIZzPZ5v3Hvh8vm1bWe9yM4Jf7nrE8W73U5QHKoRgoBcKIVja5PNKApW5owcxn9lut5YKkLhhRDmM42geUBww2raVYRhuUpuonp/5OPmPGrGYg3NzJMZo1whMGsC6rjJNk/XzU92hpZyoF6YRPnVjJOezlLn/vLgNm6gGsjpP3WnqNmsrkt6aBuV1/BR9AWrvDT0IxAHMP8fJ7sH5LSKIOA6JAvJW2bsOC70Tx5A7XqlUjkthcBxeEwfe8/ls18R5cpLfXCKRn77vBXcbM8xzfYHF+0VR3ESYcRyN//tNEf8810O58V2/PgKE7xMo4pzD5Pr+nM87CD5HEK6usKR8KUcaBkHHMT2P3lgWTQf9fd67H4dzyl1K4q8/RS/+JYE3+jGKMdq3e2b9AgKPh77R8+iLzZc3+u9RjBHn8xmj/rMBi37rx29WvdHT9Oap/0IkukuZ3H3TJ9F/dsJ/IeGNvk1vUvoLUYwRnz9/hug/kjNNk/2jid/7lab/z/Tmqf9iRHXwa224++9C3uhpevPUb/Tq6M1Tv9Gro/8DwxeAyF2BRhoAAAAASUVORK5CYII=">
+        </div>
+        
+        <div class="signature-actions">
+          <button type="button" class="btn-sig btn-upload" id="btn-upload-dywili" disabled="">Select File</button>
+          <button type="button" class="btn-sig btn-lock" id="btn-lock-dywili" disabled="">Lock</button>
+          <button type="button" class="btn-sig btn-unlock" id="btn-unlock-dywili" style="display: inline-block;">Unlock</button>
+        </div>
+
+        <div class="signatory-name">Nozuko Dywili</div>
+        <div class="signatory-role">Witnessed By (JLM Founder &amp; MD)</div>
+        <div class="signatory-meta">081 535 2191 | nozukod3@gmail.com</div>
+        <div class="signature-status locked" id="status-dywili">Status: Sealed (2026-11-03 18:11:52 UTC) [Scapush Precision]</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Institutional Footer Block -->
+  <footer class="institutional-block" id="secFooter">
+    <div class="institutional-grid">
+      <div class="institutional-item">
+        <strong>Landowner &amp; Allocation</strong>
+        Mr. Aphane — Lawful Landowner (Stand 253 Witfontein, Siyabuswa)
+      </div>
+      <div class="institutional-item">
+        <strong>Project Applicant</strong>
+        Sipho Khuzwayo — Lwandile Engineering Projects
+      </div>
+      <div class="institutional-item">
+        <strong>Witness &amp; JLM Leadership</strong>
+        Nozuko Dywili — JLM Founder &amp; Managing Director
+      </div>
+      <div class="institutional-item">
+        <strong>Primary Contact Channels</strong>
+        <a href="mailto:nozukod3@gmail.com" class="contact-link">nozukod3@gmail.com</a> | +27 81 535 2191<br>
+        <a href="mailto:siphokhuzwayo12@gmail.com" class="contact-link">siphokhuzwayo12@gmail.com</a> | +27 73 905 6846
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+<!-- JavaScript Audio Narrator Engine -->
+<script>
+  let isScrollNarrating = false;
+  let selectedFemaleVoice = null;
+
+  function loadVoices() {
+    if (!('speechSynthesis' in window)) return;
+    const voices = window.speechSynthesis.getVoices();
+    selectedFemaleVoice = voices.find(v => 
+      v.lang.startsWith('en') && (
+        v.name.includes('Female') || 
+        v.name.includes('Zira') || 
+        v.name.includes('Samantha') || 
+        v.name.includes('Karen') || 
+        v.name.includes('Victoria') || 
+        v.name.includes('Google US English')
+      )
+    ) || voices.find(v => v.lang.startsWith('en')) || voices[0];
+  }
+
+  if ('speechSynthesis' in window) {
+    window.speechSynthesis.onvoiceschanged = loadVoices;
+    loadVoices();
+  }
+
+  function stopSpeech() {
+    isScrollNarrating = false;
+    if ('speechSynthesis' in window) {
+      window.speechSynthesis.cancel();
+    }
+    clearActiveHighlights();
+  }
+
+  function clearActiveHighlights() {
+    document.querySelectorAll('section, header').forEach(el => el.classList.remove('active-narration'));
+  }
+
+  function highlightAndScroll(elementId) {
+    clearActiveHighlights();
+    const target = document.getElementById(elementId);
+    if (target) {
+      target.classList.add('active-narration');
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
+  const loiNarrationSequence = [
+    {
+      elementId: 'secHeader',
+      text: "Land Letter of Intent for Stand 253 Witfontein, Siyabuswa, Mpumalanga, covering 2.0 Hectares allocated by Mr. Aphane for the Agrivoltaics Hub and Carmello Hot Chocolate production facility."
+    },
+    {
+      elementId: 'sec1',
+      text: "Section 1. Statement of Intent and Land Allocation. Mr. Aphane confirms the allocation of 2.0 hectares from his property for project implementation."
+    },
+    {
+      elementId: 'sec2',
+      text: "Section 2. Community Empowerment and Project Outcomes. Outlining Carmello hot chocolate production, solar renewable energy, local employment creation, skills transfer for youth and women, and health benefits."
+    },
+    {
+      elementId: 'sec3',
+      text: "Section 3. Terms of Commitment and Legal Compliance. Formal commitment to make land available for project implementation subject to final agreements."
+    },
+    {
+      elementId: 'sec4',
+      text: "Section 4. Landowner, Applicant and Witness Signatures. Digital signature slots for landowner Mr. Aphane, requested by Sipho Khuzwayo, and witnessed by Nozuko Dywili."
+    },
+    {
+      elementId: 'secFooter',
+      text: "Institutional profile footer detailing landowner, applicant, witness, and contact channels."
+    }
+  ];
+
+  function playNarrationStep(index) {
+    if (!('speechSynthesis' in window) || !isScrollNarrating) return;
+    if (index >= loiNarrationSequence.length) {
+      clearActiveHighlights();
+      isScrollNarrating = false;
+      return;
+    }
+
+    const step = loiNarrationSequence[index];
+    highlightAndScroll(step.elementId);
+
+    let utterance = new SpeechSynthesisUtterance(step.text);
+    if (selectedFemaleVoice) {
+      utterance.voice = selectedFemaleVoice;
+    }
+    utterance.lang = 'en-US';
+    utterance.rate = 0.95;
+    utterance.pitch = 1.1;
+    utterance.onend = function() {
+      if (isScrollNarrating) playNarrationStep(index + 1);
+    };
+    window.speechSynthesis.speak(utterance);
+  }
+
+  function startAutoScrollingNarration() {
+    stopSpeech();
+    loadVoices();
+    isScrollNarrating = true;
+    playNarrationStep(0);
+  }
+
+  function speakSingleSection(sectionId) {
+    stopSpeech();
+    loadVoices();
+    const foundStep = loiNarrationSequence.find(s => s.elementId === sectionId);
+    if (foundStep) {
+      highlightAndScroll(sectionId);
+      let utterance = new SpeechSynthesisUtterance(foundStep.text);
+      if (selectedFemaleVoice) {
+        utterance.voice = selectedFemaleVoice;
+      }
+      utterance.lang = 'en-US';
+      utterance.rate = 0.95;
+      utterance.pitch = 1.1;
+      utterance.onend = () => clearActiveHighlights();
+      window.speechSynthesis.speak(utterance);
+    }
+  }
+
+  // Interactive Drag & Drop Signature Controller
+  document.addEventListener("DOMContentLoaded", function () {
+    const slots = ["aphane", "khuzwayo", "dywili"];
+
+    slots.forEach((prefix) => {
+      const fileInput = document.getElementById(`file-${prefix}`);
+      const dropzone = document.getElementById(`dropzone-${prefix}`);
+      const placeholder = document.getElementById(`placeholder-${prefix}`);
+      const imgPreview = document.getElementById(`img-${prefix}`);
+      const btnUpload = document.getElementById(`btn-upload-${prefix}`);
+      const btnLock = document.getElementById(`btn-lock-${prefix}`);
+      const btnUnlock = document.getElementById(`btn-unlock-${prefix}`);
+      const statusText = document.getElementById(`status-${prefix}`);
+
+      let isLocked = false;
+
+      function renderImage(src) {
+        imgPreview.src = src;
+        imgPreview.style.display = "block";
+        placeholder.style.display = "none";
+      }
+
+      dropzone.addEventListener("click", () => { if (!isLocked) fileInput.click(); });
+      btnUpload.addEventListener("click", () => { if (!isLocked) fileInput.click(); });
+
+      fileInput.addEventListener("change", (e) => {
+        const file = e.target.files[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = (event) => {
+            renderImage(event.target.result);
+            statusText.textContent = "Status: Signature Image Loaded";
+            statusText.classList.remove("locked");
+          };
+          reader.readAsDataURL(file);
+        }
+      });
+
+      dropzone.addEventListener("dragover", (e) => { e.preventDefault(); });
+      dropzone.addEventListener("drop", (e) => {
+        e.preventDefault();
+        if (isLocked) return;
+        if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+          const file = e.dataTransfer.files[0];
+          const reader = new FileReader();
+          reader.onload = (event) => {
+            renderImage(event.target.result);
+            statusText.textContent = "Status: Signature Image Loaded";
+            statusText.classList.remove("locked");
+          };
+          reader.readAsDataURL(file);
+        }
+      });
+
+      btnLock.addEventListener("click", () => {
+        if (imgPreview.style.display === "none") {
+          alert("Please upload or select a signature image first.");
+          return;
+        }
+        isLocked = true;
+        btnUpload.disabled = true;
+        btnLock.disabled = true;
+        btnUnlock.style.display = "inline-block";
+        dropzone.style.cursor = "default";
+        
+        const lockTimestamp = new Date().toISOString().replace('T', ' ').substring(0, 19) + ' UTC';
+        statusText.textContent = `Status: Sealed (${lockTimestamp}) [Scapush Precision]`;
+        statusText.classList.add("locked");
+      });
+
+      btnUnlock.addEventListener("click", () => {
+        isLocked = false;
+        btnUpload.disabled = false;
+        btnLock.disabled = false;
+        btnUnlock.style.display = "none";
+        dropzone.style.cursor = "pointer";
+        statusText.textContent = "Status: Unlocked — Ready for Re-signing / Update";
+        statusText.classList.remove("locked");
+      });
+    });
+  });
+</script>
+
+
+</body></html>
